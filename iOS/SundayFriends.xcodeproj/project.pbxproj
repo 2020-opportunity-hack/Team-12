@@ -1,0 +1,722 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		372BE60649BEE789894F36D4 /* Pods_SundayFriends_SundayFriendsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66B126DA224C6F02BD6639E1 /* Pods_SundayFriends_SundayFriendsUITests.framework */; };
+		53411DD5FBDD3423800D9F8E /* Pods_SundayFriends.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82EB05D9B2D6AD924118F4DC /* Pods_SundayFriends.framework */; };
+		89EF52C02567A1C300387933 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EF52BF2567A1C300387933 /* AppDelegate.swift */; };
+		89EF52C42567A1C300387933 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EF52C32567A1C300387933 /* ViewController.swift */; };
+		89EF52C72567A1C300387933 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89EF52C52567A1C300387933 /* Main.storyboard */; };
+		89EF52CA2567A1C300387933 /* SundayFriends.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 89EF52C82567A1C300387933 /* SundayFriends.xcdatamodeld */; };
+		89EF52CC2567A1C500387933 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89EF52CB2567A1C500387933 /* Assets.xcassets */; };
+		89EF52CF2567A1C500387933 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89EF52CD2567A1C500387933 /* LaunchScreen.storyboard */; };
+		89EF52DA2567A1C600387933 /* SundayFriendsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EF52D92567A1C600387933 /* SundayFriendsTests.swift */; };
+		89EF52E52567A1C600387933 /* SundayFriendsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EF52E42567A1C600387933 /* SundayFriendsUITests.swift */; };
+		CF090945AC074C1E65895B11 /* Pods_SundayFriendsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 455FB7D13FE6941F65FF3FA2 /* Pods_SundayFriendsTests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		89EF52D62567A1C600387933 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 89EF52B42567A1C300387933 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 89EF52BB2567A1C300387933;
+			remoteInfo = SundayFriends;
+		};
+		89EF52E12567A1C600387933 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 89EF52B42567A1C300387933 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 89EF52BB2567A1C300387933;
+			remoteInfo = SundayFriends;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		455FB7D13FE6941F65FF3FA2 /* Pods_SundayFriendsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SundayFriendsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5DFA7CE8128EDD74E2B72F93 /* Pods-SundayFriends-SundayFriendsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SundayFriends-SundayFriendsUITests.release.xcconfig"; path = "Target Support Files/Pods-SundayFriends-SundayFriendsUITests/Pods-SundayFriends-SundayFriendsUITests.release.xcconfig"; sourceTree = "<group>"; };
+		66B126DA224C6F02BD6639E1 /* Pods_SundayFriends_SundayFriendsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SundayFriends_SundayFriendsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		82EB05D9B2D6AD924118F4DC /* Pods_SundayFriends.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SundayFriends.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		89EF52BC2567A1C300387933 /* Sunday Friends.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sunday Friends.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		89EF52BF2567A1C300387933 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		89EF52C32567A1C300387933 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		89EF52C62567A1C300387933 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		89EF52C92567A1C300387933 /* SundayFriends.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SundayFriends.xcdatamodel; sourceTree = "<group>"; };
+		89EF52CB2567A1C500387933 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		89EF52CE2567A1C500387933 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		89EF52D02567A1C500387933 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		89EF52D52567A1C600387933 /* SundayFriendsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SundayFriendsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		89EF52D92567A1C600387933 /* SundayFriendsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SundayFriendsTests.swift; sourceTree = "<group>"; };
+		89EF52DB2567A1C600387933 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		89EF52E02567A1C600387933 /* SundayFriendsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SundayFriendsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		89EF52E42567A1C600387933 /* SundayFriendsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SundayFriendsUITests.swift; sourceTree = "<group>"; };
+		89EF52E62567A1C600387933 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9438919F085BB3F31197BA9D /* Pods-SundayFriends.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SundayFriends.release.xcconfig"; path = "Target Support Files/Pods-SundayFriends/Pods-SundayFriends.release.xcconfig"; sourceTree = "<group>"; };
+		A74564747B87AF1DA58E625D /* Pods-SundayFriendsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SundayFriendsTests.release.xcconfig"; path = "Target Support Files/Pods-SundayFriendsTests/Pods-SundayFriendsTests.release.xcconfig"; sourceTree = "<group>"; };
+		B44B20BC546B6FB39849C129 /* Pods-SundayFriends.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SundayFriends.debug.xcconfig"; path = "Target Support Files/Pods-SundayFriends/Pods-SundayFriends.debug.xcconfig"; sourceTree = "<group>"; };
+		D763C3E8A363CE0908EEC7C2 /* Pods-SundayFriendsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SundayFriendsTests.debug.xcconfig"; path = "Target Support Files/Pods-SundayFriendsTests/Pods-SundayFriendsTests.debug.xcconfig"; sourceTree = "<group>"; };
+		EEB813A2FA34D49D4B8AC044 /* Pods-SundayFriends-SundayFriendsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SundayFriends-SundayFriendsUITests.debug.xcconfig"; path = "Target Support Files/Pods-SundayFriends-SundayFriendsUITests/Pods-SundayFriends-SundayFriendsUITests.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		89EF52B92567A1C300387933 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				53411DD5FBDD3423800D9F8E /* Pods_SundayFriends.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		89EF52D22567A1C600387933 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CF090945AC074C1E65895B11 /* Pods_SundayFriendsTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		89EF52DD2567A1C600387933 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				372BE60649BEE789894F36D4 /* Pods_SundayFriends_SundayFriendsUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		89EF52B32567A1C300387933 = {
+			isa = PBXGroup;
+			children = (
+				89EF52BE2567A1C300387933 /* SundayFriends */,
+				89EF52D82567A1C600387933 /* SundayFriendsTests */,
+				89EF52E32567A1C600387933 /* SundayFriendsUITests */,
+				89EF52BD2567A1C300387933 /* Products */,
+				A17F21E576235F11C4DF26AA /* Pods */,
+				FA2E057C94708AF2F0076BBC /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		89EF52BD2567A1C300387933 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				89EF52BC2567A1C300387933 /* Sunday Friends.app */,
+				89EF52D52567A1C600387933 /* SundayFriendsTests.xctest */,
+				89EF52E02567A1C600387933 /* SundayFriendsUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		89EF52BE2567A1C300387933 /* SundayFriends */ = {
+			isa = PBXGroup;
+			children = (
+				89EF52BF2567A1C300387933 /* AppDelegate.swift */,
+				89EF52C32567A1C300387933 /* ViewController.swift */,
+				89EF52C52567A1C300387933 /* Main.storyboard */,
+				89EF52CB2567A1C500387933 /* Assets.xcassets */,
+				89EF52CD2567A1C500387933 /* LaunchScreen.storyboard */,
+				89EF52D02567A1C500387933 /* Info.plist */,
+				89EF52C82567A1C300387933 /* SundayFriends.xcdatamodeld */,
+			);
+			path = SundayFriends;
+			sourceTree = "<group>";
+		};
+		89EF52D82567A1C600387933 /* SundayFriendsTests */ = {
+			isa = PBXGroup;
+			children = (
+				89EF52D92567A1C600387933 /* SundayFriendsTests.swift */,
+				89EF52DB2567A1C600387933 /* Info.plist */,
+			);
+			path = SundayFriendsTests;
+			sourceTree = "<group>";
+		};
+		89EF52E32567A1C600387933 /* SundayFriendsUITests */ = {
+			isa = PBXGroup;
+			children = (
+				89EF52E42567A1C600387933 /* SundayFriendsUITests.swift */,
+				89EF52E62567A1C600387933 /* Info.plist */,
+			);
+			path = SundayFriendsUITests;
+			sourceTree = "<group>";
+		};
+		A17F21E576235F11C4DF26AA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B44B20BC546B6FB39849C129 /* Pods-SundayFriends.debug.xcconfig */,
+				9438919F085BB3F31197BA9D /* Pods-SundayFriends.release.xcconfig */,
+				EEB813A2FA34D49D4B8AC044 /* Pods-SundayFriends-SundayFriendsUITests.debug.xcconfig */,
+				5DFA7CE8128EDD74E2B72F93 /* Pods-SundayFriends-SundayFriendsUITests.release.xcconfig */,
+				D763C3E8A363CE0908EEC7C2 /* Pods-SundayFriendsTests.debug.xcconfig */,
+				A74564747B87AF1DA58E625D /* Pods-SundayFriendsTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		FA2E057C94708AF2F0076BBC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				82EB05D9B2D6AD924118F4DC /* Pods_SundayFriends.framework */,
+				66B126DA224C6F02BD6639E1 /* Pods_SundayFriends_SundayFriendsUITests.framework */,
+				455FB7D13FE6941F65FF3FA2 /* Pods_SundayFriendsTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		89EF52BB2567A1C300387933 /* SundayFriends */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 89EF52E92567A1C600387933 /* Build configuration list for PBXNativeTarget "SundayFriends" */;
+			buildPhases = (
+				524BB2A7854F15315B8A8B32 /* [CP] Check Pods Manifest.lock */,
+				89EF52B82567A1C300387933 /* Sources */,
+				89EF52B92567A1C300387933 /* Frameworks */,
+				89EF52BA2567A1C300387933 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SundayFriends;
+			productName = SundayFriends;
+			productReference = 89EF52BC2567A1C300387933 /* Sunday Friends.app */;
+			productType = "com.apple.product-type.application";
+		};
+		89EF52D42567A1C600387933 /* SundayFriendsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 89EF52EC2567A1C600387933 /* Build configuration list for PBXNativeTarget "SundayFriendsTests" */;
+			buildPhases = (
+				7464031736B089CF162BDE62 /* [CP] Check Pods Manifest.lock */,
+				89EF52D12567A1C600387933 /* Sources */,
+				89EF52D22567A1C600387933 /* Frameworks */,
+				89EF52D32567A1C600387933 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				89EF52D72567A1C600387933 /* PBXTargetDependency */,
+			);
+			name = SundayFriendsTests;
+			productName = SundayFriendsTests;
+			productReference = 89EF52D52567A1C600387933 /* SundayFriendsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		89EF52DF2567A1C600387933 /* SundayFriendsUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 89EF52EF2567A1C600387933 /* Build configuration list for PBXNativeTarget "SundayFriendsUITests" */;
+			buildPhases = (
+				878C88695AF58B6DEF23D516 /* [CP] Check Pods Manifest.lock */,
+				89EF52DC2567A1C600387933 /* Sources */,
+				89EF52DD2567A1C600387933 /* Frameworks */,
+				89EF52DE2567A1C600387933 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				89EF52E22567A1C600387933 /* PBXTargetDependency */,
+			);
+			name = SundayFriendsUITests;
+			productName = SundayFriendsUITests;
+			productReference = 89EF52E02567A1C600387933 /* SundayFriendsUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		89EF52B42567A1C300387933 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1150;
+				LastUpgradeCheck = 1150;
+				ORGANIZATIONNAME = "Abhinav Roy";
+				TargetAttributes = {
+					89EF52BB2567A1C300387933 = {
+						CreatedOnToolsVersion = 11.5;
+					};
+					89EF52D42567A1C600387933 = {
+						CreatedOnToolsVersion = 11.5;
+						TestTargetID = 89EF52BB2567A1C300387933;
+					};
+					89EF52DF2567A1C600387933 = {
+						CreatedOnToolsVersion = 11.5;
+						TestTargetID = 89EF52BB2567A1C300387933;
+					};
+				};
+			};
+			buildConfigurationList = 89EF52B72567A1C300387933 /* Build configuration list for PBXProject "SundayFriends" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 89EF52B32567A1C300387933;
+			productRefGroup = 89EF52BD2567A1C300387933 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				89EF52BB2567A1C300387933 /* SundayFriends */,
+				89EF52D42567A1C600387933 /* SundayFriendsTests */,
+				89EF52DF2567A1C600387933 /* SundayFriendsUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		89EF52BA2567A1C300387933 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				89EF52CF2567A1C500387933 /* LaunchScreen.storyboard in Resources */,
+				89EF52CC2567A1C500387933 /* Assets.xcassets in Resources */,
+				89EF52C72567A1C300387933 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		89EF52D32567A1C600387933 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		89EF52DE2567A1C600387933 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		524BB2A7854F15315B8A8B32 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SundayFriends-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7464031736B089CF162BDE62 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SundayFriendsTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		878C88695AF58B6DEF23D516 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SundayFriends-SundayFriendsUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		89EF52B82567A1C300387933 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				89EF52C42567A1C300387933 /* ViewController.swift in Sources */,
+				89EF52CA2567A1C300387933 /* SundayFriends.xcdatamodeld in Sources */,
+				89EF52C02567A1C300387933 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		89EF52D12567A1C600387933 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				89EF52DA2567A1C600387933 /* SundayFriendsTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		89EF52DC2567A1C600387933 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				89EF52E52567A1C600387933 /* SundayFriendsUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		89EF52D72567A1C600387933 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 89EF52BB2567A1C300387933 /* SundayFriends */;
+			targetProxy = 89EF52D62567A1C600387933 /* PBXContainerItemProxy */;
+		};
+		89EF52E22567A1C600387933 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 89EF52BB2567A1C300387933 /* SundayFriends */;
+			targetProxy = 89EF52E12567A1C600387933 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		89EF52C52567A1C300387933 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				89EF52C62567A1C300387933 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		89EF52CD2567A1C500387933 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				89EF52CE2567A1C500387933 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		89EF52E72567A1C600387933 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		89EF52E82567A1C600387933 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		89EF52EA2567A1C600387933 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B44B20BC546B6FB39849C129 /* Pods-SundayFriends.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = SundayFriends/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.abhinavroy23.SundayFriends;
+				PRODUCT_NAME = "Sunday Friends";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		89EF52EB2567A1C600387933 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9438919F085BB3F31197BA9D /* Pods-SundayFriends.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = SundayFriends/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.abhinavroy23.SundayFriends;
+				PRODUCT_NAME = "Sunday Friends";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		89EF52ED2567A1C600387933 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D763C3E8A363CE0908EEC7C2 /* Pods-SundayFriendsTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = SundayFriendsTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.abhinavroy23.SundayFriendsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SundayFriends.app/SundayFriends";
+			};
+			name = Debug;
+		};
+		89EF52EE2567A1C600387933 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A74564747B87AF1DA58E625D /* Pods-SundayFriendsTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = SundayFriendsTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.abhinavroy23.SundayFriendsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SundayFriends.app/SundayFriends";
+			};
+			name = Release;
+		};
+		89EF52F02567A1C600387933 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EEB813A2FA34D49D4B8AC044 /* Pods-SundayFriends-SundayFriendsUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = SundayFriendsUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.abhinavroy23.SundayFriendsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SundayFriends;
+			};
+			name = Debug;
+		};
+		89EF52F12567A1C600387933 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5DFA7CE8128EDD74E2B72F93 /* Pods-SundayFriends-SundayFriendsUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = SundayFriendsUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.abhinavroy23.SundayFriendsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SundayFriends;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		89EF52B72567A1C300387933 /* Build configuration list for PBXProject "SundayFriends" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				89EF52E72567A1C600387933 /* Debug */,
+				89EF52E82567A1C600387933 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		89EF52E92567A1C600387933 /* Build configuration list for PBXNativeTarget "SundayFriends" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				89EF52EA2567A1C600387933 /* Debug */,
+				89EF52EB2567A1C600387933 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		89EF52EC2567A1C600387933 /* Build configuration list for PBXNativeTarget "SundayFriendsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				89EF52ED2567A1C600387933 /* Debug */,
+				89EF52EE2567A1C600387933 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		89EF52EF2567A1C600387933 /* Build configuration list for PBXNativeTarget "SundayFriendsUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				89EF52F02567A1C600387933 /* Debug */,
+				89EF52F12567A1C600387933 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		89EF52C82567A1C300387933 /* SundayFriends.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				89EF52C92567A1C300387933 /* SundayFriends.xcdatamodel */,
+			);
+			currentVersion = 89EF52C92567A1C300387933 /* SundayFriends.xcdatamodel */;
+			path = SundayFriends.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 89EF52B42567A1C300387933 /* Project object */;
+}
