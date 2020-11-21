@@ -15,7 +15,7 @@ A step by step series of examples that tell you how to get a development env run
 - Clone the project
 ```
 1. Click on Get from Version Control
-2. Type https://github.com/2020-opportunity-hack/Team-12/
+2. Type https://github.com/2020-opportunity-hack/Team-12
 3. Click on Next
 4. Click on Import Maven Project pop up to resolve dependencies
 
