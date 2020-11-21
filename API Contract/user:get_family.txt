@@ -1,0 +1,27 @@
+Method: POST
+Endpoint: /user/get_family?familyId=101
+
+Output:
+
+[
+  {
+    "userId": 12345,
+    "name": "Abhinav Roy",
+    "email": "abhinav.roy23@gmail.com",
+    "familyId": 101,
+    "isAdmin": false,
+    "imageUrl": "https://lh3.googleusercontent.com/a-/AOh14GgqTkkLii5cHFz1Ro7HfNeXoK4HIsUah9Mvrpnr9pA=s100",
+    "address": "abc lane, xyz city",
+    "balance": 500
+  },
+  {
+    "userId": 346435,
+    "name": "Member xyz",
+    "email": "member_xyz@gmail.com",
+    "familyId": 101,
+    "isAdmin": false,
+    "imageUrl": "",
+    "address": "",
+    "balance": 525
+  }
+]

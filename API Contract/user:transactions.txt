@@ -1,0 +1,40 @@
+Method - GET
+Endpoint - /user/transactions?userId=12345
+
+Output:
+
+{
+  "userId": 12345,
+  "transactions": [
+    {
+      "type": 0,
+      "amount": 20,
+      "balanceAfterAction": 480,
+      "time": 1605959617
+    },
+    {
+      "type": 1,
+      "amount": 10,
+      "balanceAfterAction": 490,
+      "time": 1605959641
+    },
+    {
+      "type": 0,
+      "amount": 50,
+      "balanceAfterAction": 440,
+      "time": 1605959670
+    },
+    {
+      "type": 0,
+      "amount": 20,
+      "balanceAfterAction": 420,
+      "time": 1605959694
+    },
+    {
+      "type": 1,
+      "amount": 40,
+      "balanceAfterAction": 460,
+      "time": 1605959709
+    }
+  ]
+}

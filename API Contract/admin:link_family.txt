@@ -1,0 +1,8 @@
+Method: POST
+Endpoint: /admin/link_family?userId=12345&familyId=101
+
+Output:
+
+{
+	"isSuccess": true
+}
