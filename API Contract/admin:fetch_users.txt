@@ -1,0 +1,67 @@
+Method: GET
+Endpoint: /admin/fetchUsers
+
+Output:
+
+[
+  {
+    "userId": 12345,
+    "name": "Abhinav Roy",
+    "email": "abhinav.roy23@gmail.com",
+    "familyId": 101,
+    "isAdmin": false,
+    "imageUrl": "https://lh3.googleusercontent.com/a-/AOh14GgqTkkLii5cHFz1Ro7HfNeXoK4HIsUah9Mvrpnr9pA=s100",
+    "address": "abc lane, xyz city",
+    "balance": 500
+  },
+  {
+    "userId": 1111,
+    "name": "Member 1",
+    "email": "member1@gmail.com",
+    "familyId": 111,
+    "isAdmin": false,
+    "imageUrl": "",
+    "address": "",
+    "balance": 525
+  },
+  {
+    "userId": 2222,
+    "name": "Member 2",
+    "email": "member2@gmail.com",
+    "familyId": 222,
+    "isAdmin": false,
+    "imageUrl": "",
+    "address": "",
+    "balance": 543
+  },
+  {
+    "userId": 3333,
+    "name": "Member 3",
+    "email": "member3@gmail.com",
+    "familyId": 333,
+    "isAdmin": false,
+    "imageUrl": "",
+    "address": "",
+    "balance": 200
+  },
+  {
+    "userId": 4444,
+    "name": "Member 4",
+    "email": "member4@gmail.com",
+    "familyId": 444,
+    "isAdmin": false,
+    "imageUrl": "",
+    "address": "",
+    "balance": 850
+  },
+  {
+    "userId": 5555,
+    "name": "Member 5",
+    "email": "member5@gmail.com",
+    "familyId": 555,
+    "isAdmin": false,
+    "imageUrl": "",
+    "address": "",
+    "balance": 200
+  }
+]
