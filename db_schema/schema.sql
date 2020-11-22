@@ -1,3 +1,6 @@
+CREATE DATABASE IF NOT EXISTS sundayfriends;
+USE sundayfriends;
+
 CREATE TABLE IF NOT EXISTS `Family` (
   `familyId` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `address` varchar(200),
