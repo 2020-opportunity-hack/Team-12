@@ -7,31 +7,31 @@ Output:
   "userId": 12345,
   "transactions": [
     {
-      "type": 0,
+      "type": false,
       "amount": 20,
       "balanceAfterAction": 480,
       "time": 1605959617
     },
     {
-      "type": 1,
+      "type": true,
       "amount": 10,
       "balanceAfterAction": 490,
       "time": 1605959641
     },
     {
-      "type": 0,
+      "type": false,
       "amount": 50,
       "balanceAfterAction": 440,
       "time": 1605959670
     },
     {
-      "type": 0,
+      "type": true,
       "amount": 20,
       "balanceAfterAction": 420,
       "time": 1605959694
     },
     {
-      "type": 1,
+      "type": true,
       "amount": 40,
       "balanceAfterAction": 460,
       "time": 1605959709
