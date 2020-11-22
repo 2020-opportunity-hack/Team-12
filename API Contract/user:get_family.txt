@@ -1,4 +1,4 @@
-Method: POST
+Method: GET
 Endpoint: /user/get_family?familyId=101
 
 Output:
