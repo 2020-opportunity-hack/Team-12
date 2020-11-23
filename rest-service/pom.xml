@@ -6,10 +6,12 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.4.0</version>
+
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.sunday.friends.foundation</groupId>
 	<artifactId>rest-service</artifactId>
+	<packaging>jar</packaging>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>rest-service</name>
 	<description>Project for Sunday Friends Foundation</description>
