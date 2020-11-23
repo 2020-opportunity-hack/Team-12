@@ -19,11 +19,11 @@ Database | MySQL
 Deployment | AWS EC2 for Rest Api & AWS RDS for Database
 
 ## Quick Preview
-Complete walkthrough [here]()
-User's documentation [here](https://github.com/2020-opportunity-hack/Team-12/blob/main/Users_Flow.pdf)
-User's Demo Video [here]()
-Admin's documentation [here](https://github.com/2020-opportunity-hack/Team-12/blob/main/Admin_Flow.pdf)
-Admin's demo video [here]()
+1. Complete walkthrough [here]()
+2. User's documentation [here](https://github.com/2020-opportunity-hack/Team-12/blob/main/Users_Flow.pdf)
+3. User's Demo Video [here]()
+4. Admin's documentation [here](https://github.com/2020-opportunity-hack/Team-12/blob/main/Admin_Flow.pdf)
+5. Admin's demo video [here]()
 
 ## Overall Architecture
 ![alt text](https://github.com/2020-opportunity-hack/Team-12/blob/main/architecture.jpg?raw=true)
