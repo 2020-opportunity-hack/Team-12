@@ -102,4 +102,14 @@ public class UserService {
         List<Users> list = em.createQuery(criteriaQuery).getResultList();
         return list.get(0);
     }
+
+    public boolean deactivateUser(Integer userId) {
+        Optional<Users> usersOptional = userRepository.findById(userId);
+        usersOptional.ifPresent((Users result) -> {
+            result.setActive(false);
+            userRepository.save(result);
+        });
+
+        return true;
+    }
 }

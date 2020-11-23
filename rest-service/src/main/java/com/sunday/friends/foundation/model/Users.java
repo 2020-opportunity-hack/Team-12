@@ -1,5 +1,7 @@
 package com.sunday.friends.foundation.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 @Entity
@@ -12,6 +14,7 @@ public class Users {
     private boolean isAdmin;
     private String imageUrl;
     private Integer balance;
+    private Boolean isActive;
 
     public Users() {
     }
@@ -92,5 +95,15 @@ public class Users {
 
     public void setBalance(Integer balance) {
         this.balance = balance;
+    }
+
+    @Column(name = "isActive")
+    @JsonIgnore
+    public boolean isActive() {
+        return isActive;
+    }
+
+    public void setActive(Boolean active) {
+        isActive = active;
     }
 }

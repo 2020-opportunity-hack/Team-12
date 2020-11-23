@@ -67,6 +67,22 @@ public class UserController {
         }
     }
 
+    @RequestMapping(value = "/admin/deactivate_user", method = RequestMethod.PUT)
+    @ResponseBody
+    public ResponseEntity<?> deactivateUser(@RequestParam Map<String, String> json) {
+        try {
+            Integer userId = Integer.valueOf(json.get("userId"));
+
+            if(userService.deactivateUser(userId))
+                return new ResponseEntity<>(HttpStatus.OK);
+            else
+                return new ResponseEntity<>(HttpStatus.CONFLICT);
+        }
+        catch (Exception e){
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
     @RequestMapping(value = "/user/onboard", method = RequestMethod.POST)
     @ResponseBody
     public Users onboardUser(@RequestParam Map<String, String> json) {
@@ -74,6 +90,10 @@ public class UserController {
                 // Existing User
                 String email = json.get("email");
                 Users existingUser = userService.getUser(email);
+                //Check for InActive
+                if(existingUser != null && !existingUser.isActive())
+                    return null;
+                // Existing Return
                 if(existingUser != null)
                     return existingUser;
 
