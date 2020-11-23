@@ -21,7 +21,7 @@ Deployment | AWS EC2 for Rest Api & AWS RDS for Database
 ## Quick Preview
 1. Complete walkthrough [here]()
 2. User's documentation [here](https://github.com/2020-opportunity-hack/Team-12/blob/main/Users_Flow.pdf)
-3. User's Demo Video [here]()
+3. User's Demo Video [here](https://youtu.be/nG2zKhh7eaI)
 4. Admin's documentation [here](https://github.com/2020-opportunity-hack/Team-12/blob/main/Admin_Flow.pdf)
 5. Admin's demo video [here]()
 
