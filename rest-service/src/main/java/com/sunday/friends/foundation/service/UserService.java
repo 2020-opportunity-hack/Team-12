@@ -105,10 +105,13 @@ public class UserService {
         return list.get(0);
     }
 
-    public boolean deactivateUser(Integer userId) {
+    public boolean deactivateUser(Integer userId, String deactivate) {
         Optional<Users> usersOptional = userRepository.findById(userId);
         usersOptional.ifPresent((Users result) -> {
-            result.setActive(false);
+            if(deactivate.equals("false"))
+                result.setActive(true);
+            else
+                result.setActive(false);
             userRepository.save(result);
         });
 

@@ -72,8 +72,9 @@ public class UserController {
     public ResponseEntity<?> deactivateUser(@RequestParam Map<String, String> json) {
         try {
             Integer userId = Integer.valueOf(json.get("userId"));
+            String deactivate = json.get("deactivate");
 
-            if(userService.deactivateUser(userId))
+            if(userService.deactivateUser(userId, deactivate))
                 return new ResponseEntity<>(HttpStatus.OK);
             else
                 return new ResponseEntity<>(HttpStatus.CONFLICT);
