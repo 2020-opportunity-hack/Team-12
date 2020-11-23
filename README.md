@@ -7,7 +7,7 @@
 
 ## Contributers
 - [Abhinav Roy](https://devpost.com/abhinroy)
-- [Evan](https://devpost.com/coolbeans25/)
+- [Evan Li](https://devpost.com/coolbeans25/)
 - [Harshali Talele](https://devpost.com/harshalitalele)
 - [Manas Mahapatra](https://devpost.com/manasm190293)
 - [DI Chang](https://devpost.com/dchang136)
