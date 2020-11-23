@@ -13,11 +13,8 @@ This solution for the ticket system would empower the family members as they dev
 Purpose | Technologies
 --- | ---
 Prototyping mobile app screens | Figma
---- | ---
 Front end of mobile apps | Android (Java), Swift 
---- | ---
 REST API | Spring, Core Java, AWS EC2 for deployment
---- | ---
 Database | MySQL, AWS RDS 
 
 ## Overall Architecture
