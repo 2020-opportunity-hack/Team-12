@@ -29,6 +29,17 @@ class FamilyListViewController: UBaseViewController {
       //Append self
       self.familyList.append(user)
       
+//      //Append dummy user
+//      let user1 = User()
+//      user1.userId = 3
+//      user1.name = "John Doe"
+//      user1.email = "john.doe@gmail.com"
+//      user1.familyId = 1005
+//      user1.balance = 330
+//      user1.active = true
+//      user1.imageUrl = "https://lh3.googleusercontent.com/proxy/kSXvR3mECaHiz5nYJ4suJ-T_dq02jVZjHb3kFqmVxqpwpQjtD_QHGLi9kDMX6tgGHrEi6SPjLL6pBVJ9UIVHQGIOv5h8DP03ybb2-loddf7Y2M5ycGawI9c"
+//      self.familyList.append(user1)
+      
       DispatchQueue.global(qos: .background).async {
         self.service.getFamilyList(familyId: familyId) { (result) in
           switch result {

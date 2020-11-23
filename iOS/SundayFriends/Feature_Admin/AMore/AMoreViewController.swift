@@ -36,8 +36,10 @@ class AMoreViewController: ABaseViewController {
     gradient.colors = [UIColor.init(red: 58/255, green: 130/255, blue: 58/255, alpha: 0.2).cgColor,
                        AppUtils.THEME_COLOR.cgColor]
     headerView.layer.insertSublayer(gradient, at: 0)
-
+    
     profileDS.append(("Link family to a user",""))
+    profileDS.append(("Deactivate a user", ""))
+    profileDS.append(("Activate a user", ""))
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -101,8 +103,20 @@ extension AMoreViewController: UITableViewDataSource, UITableViewDelegate{
   }
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    if indexPath.row == 0{
-      self.navigationController?.pushViewController(LinkFamilyViewController.adminInstance, animated: true)
+    switch indexPath.row {
+    case 0: // Link Family
+      let linkFamily = LinkFamilyViewController.adminInstance as! LinkFamilyViewController
+      linkFamily.flow = .linkFamily
+      self.navigationController?.pushViewController(linkFamily, animated: true)
+    case 1: // Deactivate user
+      let linkFamily = LinkFamilyViewController.adminInstance as! LinkFamilyViewController
+      linkFamily.flow = .deactivateUsers
+      self.navigationController?.pushViewController(linkFamily, animated: true)
+    case 2: // Activate user
+      let linkFamily = LinkFamilyViewController.adminInstance as! LinkFamilyViewController
+      linkFamily.flow = .activateUsers
+      self.navigationController?.pushViewController(linkFamily, animated: true)
+    default: break
     }
   }
   

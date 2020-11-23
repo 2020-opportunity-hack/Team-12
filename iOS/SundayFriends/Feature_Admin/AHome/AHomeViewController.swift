@@ -18,6 +18,7 @@ class AHomeViewController: ABaseViewController {
   @IBOutlet weak var viewAllUsersCard: UIView!
   @IBOutlet weak var withdrawDepositCard: UIView!
   @IBOutlet weak var linkFamilyCard: UIView!
+  @IBOutlet weak var activateDeactivateCard: UIView!
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -28,6 +29,7 @@ class AHomeViewController: ABaseViewController {
     configureViewAllCardView()
     configureWithdrawDepositCardView()
     configureLinkfamilyCardView()
+    configureActivateCard()
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -93,7 +95,20 @@ extension AHomeViewController {
   }
   
   @objc func tapLinkfamilyCard() {
-    self.navigationController?.pushViewController(LinkFamilyViewController.adminInstance, animated: true)
+    let linkFamily = LinkFamilyViewController.adminInstance as! LinkFamilyViewController
+    linkFamily.flow = .linkFamily
+    self.navigationController?.pushViewController(linkFamily, animated: true)
   }
   
+  func configureActivateCard() {
+    ShadowUtility.applyShadow(toView: self.activateDeactivateCard, onSides: .allSides, shadowTraits: .defaultTraits)
+    let tapGestuer: UITapGestureRecognizer = UITapGestureRecognizer.init(target: self, action: #selector(tapActivateCard))
+    self.activateDeactivateCard.addGestureRecognizer(tapGestuer)
+  }
+  
+  @objc func tapActivateCard() {
+    if let tabBarController = UIApplication.shared.windows.first?.rootViewController as? UITabBarController {
+      tabBarController.selectedIndex = 2
+    }
+  }
 }

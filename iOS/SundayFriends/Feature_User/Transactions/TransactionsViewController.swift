@@ -22,6 +22,7 @@ class TransactionsViewController: UBaseViewController {
         self.service.getTransactionsList(userId: userId) { (result) in
           switch result {
           case .success(let trans):
+            self.transactions = []
             self.transactions.append(contentsOf: trans.transactions?.reversed() ?? [])
             DispatchQueue.main.async {
               self.tableView.reloadData()
