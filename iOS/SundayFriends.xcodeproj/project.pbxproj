@@ -3,20 +3,54 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		372BE60649BEE789894F36D4 /* Pods_SundayFriends_SundayFriendsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66B126DA224C6F02BD6639E1 /* Pods_SundayFriends_SundayFriendsUITests.framework */; };
 		53411DD5FBDD3423800D9F8E /* Pods_SundayFriends.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82EB05D9B2D6AD924118F4DC /* Pods_SundayFriends.framework */; };
+		89A144C225696BB1006D53B5 /* ShadowUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A144C125696BB1006D53B5 /* ShadowUtil.swift */; };
+		89A144C525696DED006D53B5 /* TransactionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A144C425696DED006D53B5 /* TransactionsViewController.swift */; };
+		89A144C7256975F6006D53B5 /* TransactionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A144C6256975F6006D53B5 /* TransactionCell.swift */; };
+		89A144CA256A2FFA006D53B5 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A144C9256A2FFA006D53B5 /* NetworkService.swift */; };
+		89A144CC256A3025006D53B5 /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A144CB256A3025006D53B5 /* Loader.swift */; };
+		89A144CE256A3091006D53B5 /* Ext_UIAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A144CD256A3091006D53B5 /* Ext_UIAlertController.swift */; };
+		89A144D0256A334A006D53B5 /* UserAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A144CF256A334A006D53B5 /* UserAPI.swift */; };
+		89A144D2256A3367006D53B5 /* AdminAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A144D1256A3367006D53B5 /* AdminAPI.swift */; };
+		89A144DA256A3A84006D53B5 /* user_getTransactions.json in Resources */ = {isa = PBXBuildFile; fileRef = 89A144D4256A3A84006D53B5 /* user_getTransactions.json */; };
+		89A144DB256A3A84006D53B5 /* user_getFamily.json in Resources */ = {isa = PBXBuildFile; fileRef = 89A144D5256A3A84006D53B5 /* user_getFamily.json */; };
+		89A144DC256A3A84006D53B5 /* admin_fetchUsers.json in Resources */ = {isa = PBXBuildFile; fileRef = 89A144D6256A3A84006D53B5 /* admin_fetchUsers.json */; };
+		89A144DD256A3A84006D53B5 /* admin_transact.json in Resources */ = {isa = PBXBuildFile; fileRef = 89A144D7256A3A84006D53B5 /* admin_transact.json */; };
+		89A144DE256A3A84006D53B5 /* admin_linkFamily.json in Resources */ = {isa = PBXBuildFile; fileRef = 89A144D8256A3A84006D53B5 /* admin_linkFamily.json */; };
+		89A144DF256A3A84006D53B5 /* user_onboard.json in Resources */ = {isa = PBXBuildFile; fileRef = 89A144D9256A3A84006D53B5 /* user_onboard.json */; };
+		89A144E1256A8ADE006D53B5 /* MoreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A144E0256A8ADE006D53B5 /* MoreCell.swift */; };
+		89A144E3256A932E006D53B5 /* AMoreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A144E2256A932E006D53B5 /* AMoreCell.swift */; };
+		89A144E5256AA03E006D53B5 /* MemberCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A144E4256AA03E006D53B5 /* MemberCell.swift */; };
+		89A144E7256AA781006D53B5 /* ResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A144E6256AA781006D53B5 /* ResultModel.swift */; };
+		89A144E9256AB9AE006D53B5 /* LinkFamilyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A144E8256AB9AE006D53B5 /* LinkFamilyViewController.swift */; };
 		89EF52C02567A1C300387933 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EF52BF2567A1C300387933 /* AppDelegate.swift */; };
-		89EF52C42567A1C300387933 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EF52C32567A1C300387933 /* ViewController.swift */; };
-		89EF52C72567A1C300387933 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89EF52C52567A1C300387933 /* Main.storyboard */; };
 		89EF52CA2567A1C300387933 /* SundayFriends.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 89EF52C82567A1C300387933 /* SundayFriends.xcdatamodeld */; };
 		89EF52CC2567A1C500387933 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89EF52CB2567A1C500387933 /* Assets.xcassets */; };
-		89EF52CF2567A1C500387933 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89EF52CD2567A1C500387933 /* LaunchScreen.storyboard */; };
 		89EF52DA2567A1C600387933 /* SundayFriendsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EF52D92567A1C600387933 /* SundayFriendsTests.swift */; };
 		89EF52E52567A1C600387933 /* SundayFriendsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EF52E42567A1C600387933 /* SundayFriendsUITests.swift */; };
+		89EF53002568ECB500387933 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EF52FF2568ECB500387933 /* SignInViewController.swift */; };
+		89EF53022568EF8C00387933 /* AddFamilyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EF53012568EF8C00387933 /* AddFamilyViewController.swift */; };
+		89EF53042568EFAA00387933 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EF53032568EFAA00387933 /* HomeViewController.swift */; };
+		89EF53062568EFFE00387933 /* FamilyListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EF53052568EFFE00387933 /* FamilyListViewController.swift */; };
+		89EF53082568F00700387933 /* MoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EF53072568F00700387933 /* MoreViewController.swift */; };
+		89EF53152568F2F100387933 /* SignInManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EF53142568F2F100387933 /* SignInManager.swift */; };
+		89EF53172568F67900387933 /* AppUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EF53162568F67900387933 /* AppUtils.swift */; };
+		89EF53222568FA2200387933 /* AMemberListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EF53212568FA2200387933 /* AMemberListViewController.swift */; };
+		89EF53252568FA5100387933 /* AHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EF53242568FA5100387933 /* AHomeViewController.swift */; };
+		89EF53272568FA5800387933 /* AMoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EF53262568FA5800387933 /* AMoreViewController.swift */; };
+		89EF532C2568FA7000387933 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89EF53282568FA7000387933 /* LaunchScreen.storyboard */; };
+		89EF532D2568FA7000387933 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89EF532A2568FA7000387933 /* Main.storyboard */; };
+		89EF532F2568FABA00387933 /* Admin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89EF532E2568FABA00387933 /* Admin.storyboard */; };
+		89EF53312569246600387933 /* FamilyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EF53302569246600387933 /* FamilyCell.swift */; };
+		89EF533425692BAB00387933 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EF533325692BAB00387933 /* User.swift */; };
+		89EF53362569501900387933 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EF53352569501900387933 /* Transaction.swift */; };
+		89EF53382569526500387933 /* UBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EF53372569526500387933 /* UBaseViewController.swift */; };
+		89EF533A2569526F00387933 /* ABaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EF53392569526F00387933 /* ABaseViewController.swift */; };
 		CF090945AC074C1E65895B11 /* Pods_SundayFriendsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 455FB7D13FE6941F65FF3FA2 /* Pods_SundayFriendsTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -42,13 +76,29 @@
 		5DFA7CE8128EDD74E2B72F93 /* Pods-SundayFriends-SundayFriendsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SundayFriends-SundayFriendsUITests.release.xcconfig"; path = "Target Support Files/Pods-SundayFriends-SundayFriendsUITests/Pods-SundayFriends-SundayFriendsUITests.release.xcconfig"; sourceTree = "<group>"; };
 		66B126DA224C6F02BD6639E1 /* Pods_SundayFriends_SundayFriendsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SundayFriends_SundayFriendsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		82EB05D9B2D6AD924118F4DC /* Pods_SundayFriends.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SundayFriends.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		89A144C125696BB1006D53B5 /* ShadowUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowUtil.swift; sourceTree = "<group>"; };
+		89A144C425696DED006D53B5 /* TransactionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsViewController.swift; sourceTree = "<group>"; };
+		89A144C6256975F6006D53B5 /* TransactionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCell.swift; sourceTree = "<group>"; };
+		89A144C9256A2FFA006D53B5 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		89A144CB256A3025006D53B5 /* Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
+		89A144CD256A3091006D53B5 /* Ext_UIAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ext_UIAlertController.swift; sourceTree = "<group>"; };
+		89A144CF256A334A006D53B5 /* UserAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPI.swift; sourceTree = "<group>"; };
+		89A144D1256A3367006D53B5 /* AdminAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminAPI.swift; sourceTree = "<group>"; };
+		89A144D4256A3A84006D53B5 /* user_getTransactions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = user_getTransactions.json; sourceTree = "<group>"; };
+		89A144D5256A3A84006D53B5 /* user_getFamily.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = user_getFamily.json; sourceTree = "<group>"; };
+		89A144D6256A3A84006D53B5 /* admin_fetchUsers.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = admin_fetchUsers.json; sourceTree = "<group>"; };
+		89A144D7256A3A84006D53B5 /* admin_transact.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = admin_transact.json; sourceTree = "<group>"; };
+		89A144D8256A3A84006D53B5 /* admin_linkFamily.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = admin_linkFamily.json; sourceTree = "<group>"; };
+		89A144D9256A3A84006D53B5 /* user_onboard.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = user_onboard.json; sourceTree = "<group>"; };
+		89A144E0256A8ADE006D53B5 /* MoreCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreCell.swift; sourceTree = "<group>"; };
+		89A144E2256A932E006D53B5 /* AMoreCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMoreCell.swift; sourceTree = "<group>"; };
+		89A144E4256AA03E006D53B5 /* MemberCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberCell.swift; sourceTree = "<group>"; };
+		89A144E6256AA781006D53B5 /* ResultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultModel.swift; sourceTree = "<group>"; };
+		89A144E8256AB9AE006D53B5 /* LinkFamilyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkFamilyViewController.swift; sourceTree = "<group>"; };
 		89EF52BC2567A1C300387933 /* Sunday Friends.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sunday Friends.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		89EF52BF2567A1C300387933 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		89EF52C32567A1C300387933 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		89EF52C62567A1C300387933 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		89EF52C92567A1C300387933 /* SundayFriends.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SundayFriends.xcdatamodel; sourceTree = "<group>"; };
 		89EF52CB2567A1C500387933 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		89EF52CE2567A1C500387933 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89EF52D02567A1C500387933 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		89EF52D52567A1C600387933 /* SundayFriendsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SundayFriendsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		89EF52D92567A1C600387933 /* SundayFriendsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SundayFriendsTests.swift; sourceTree = "<group>"; };
@@ -56,6 +106,24 @@
 		89EF52E02567A1C600387933 /* SundayFriendsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SundayFriendsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		89EF52E42567A1C600387933 /* SundayFriendsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SundayFriendsUITests.swift; sourceTree = "<group>"; };
 		89EF52E62567A1C600387933 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		89EF52FF2568ECB500387933 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		89EF53012568EF8C00387933 /* AddFamilyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFamilyViewController.swift; sourceTree = "<group>"; };
+		89EF53032568EFAA00387933 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		89EF53052568EFFE00387933 /* FamilyListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyListViewController.swift; sourceTree = "<group>"; };
+		89EF53072568F00700387933 /* MoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreViewController.swift; sourceTree = "<group>"; };
+		89EF53142568F2F100387933 /* SignInManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInManager.swift; sourceTree = "<group>"; };
+		89EF53162568F67900387933 /* AppUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUtils.swift; sourceTree = "<group>"; };
+		89EF53212568FA2200387933 /* AMemberListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AMemberListViewController.swift; sourceTree = "<group>"; };
+		89EF53242568FA5100387933 /* AHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AHomeViewController.swift; sourceTree = "<group>"; };
+		89EF53262568FA5800387933 /* AMoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMoreViewController.swift; sourceTree = "<group>"; };
+		89EF53292568FA7000387933 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		89EF532B2568FA7000387933 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		89EF532E2568FABA00387933 /* Admin.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Admin.storyboard; sourceTree = "<group>"; };
+		89EF53302569246600387933 /* FamilyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyCell.swift; sourceTree = "<group>"; };
+		89EF533325692BAB00387933 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		89EF53352569501900387933 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+		89EF53372569526500387933 /* UBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UBaseViewController.swift; sourceTree = "<group>"; };
+		89EF53392569526F00387933 /* ABaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ABaseViewController.swift; sourceTree = "<group>"; };
 		9438919F085BB3F31197BA9D /* Pods-SundayFriends.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SundayFriends.release.xcconfig"; path = "Target Support Files/Pods-SundayFriends/Pods-SundayFriends.release.xcconfig"; sourceTree = "<group>"; };
 		A74564747B87AF1DA58E625D /* Pods-SundayFriendsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SundayFriendsTests.release.xcconfig"; path = "Target Support Files/Pods-SundayFriendsTests/Pods-SundayFriendsTests.release.xcconfig"; sourceTree = "<group>"; };
 		B44B20BC546B6FB39849C129 /* Pods-SundayFriends.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SundayFriends.debug.xcconfig"; path = "Target Support Files/Pods-SundayFriends/Pods-SundayFriends.debug.xcconfig"; sourceTree = "<group>"; };
@@ -91,6 +159,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		89A144C325696DE1006D53B5 /* Transactions */ = {
+			isa = PBXGroup;
+			children = (
+				89A144C425696DED006D53B5 /* TransactionsViewController.swift */,
+				89A144C6256975F6006D53B5 /* TransactionCell.swift */,
+			);
+			path = Transactions;
+			sourceTree = "<group>";
+		};
+		89A144C8256A2FEE006D53B5 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				89A144D3256A3A84006D53B5 /* Mocks */,
+				89A144C9256A2FFA006D53B5 /* NetworkService.swift */,
+				89A144CF256A334A006D53B5 /* UserAPI.swift */,
+				89A144D1256A3367006D53B5 /* AdminAPI.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		89A144D3256A3A84006D53B5 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				89A144D4256A3A84006D53B5 /* user_getTransactions.json */,
+				89A144D5256A3A84006D53B5 /* user_getFamily.json */,
+				89A144D6256A3A84006D53B5 /* admin_fetchUsers.json */,
+				89A144D7256A3A84006D53B5 /* admin_transact.json */,
+				89A144D8256A3A84006D53B5 /* admin_linkFamily.json */,
+				89A144D9256A3A84006D53B5 /* user_onboard.json */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
 		89EF52B32567A1C300387933 = {
 			isa = PBXGroup;
 			children = (
@@ -116,13 +217,19 @@
 		89EF52BE2567A1C300387933 /* SundayFriends */ = {
 			isa = PBXGroup;
 			children = (
+				89EF53282568FA7000387933 /* LaunchScreen.storyboard */,
+				89EF532A2568FA7000387933 /* Main.storyboard */,
+				89EF532E2568FABA00387933 /* Admin.storyboard */,
+				89A144C8256A2FEE006D53B5 /* Network */,
+				89EF533225692B9E00387933 /* Models */,
+				89EF53182568F9D700387933 /* Feature_Admin */,
+				89EF52F22568EC6000387933 /* Feature_User */,
+				89EF53132568F2DA00387933 /* Manager */,
+				89EF53122568F2DA00387933 /* Utils */,
 				89EF52BF2567A1C300387933 /* AppDelegate.swift */,
-				89EF52C32567A1C300387933 /* ViewController.swift */,
-				89EF52C52567A1C300387933 /* Main.storyboard */,
 				89EF52CB2567A1C500387933 /* Assets.xcassets */,
-				89EF52CD2567A1C500387933 /* LaunchScreen.storyboard */,
-				89EF52D02567A1C500387933 /* Info.plist */,
 				89EF52C82567A1C300387933 /* SundayFriends.xcdatamodeld */,
+				89EF52D02567A1C500387933 /* Info.plist */,
 			);
 			path = SundayFriends;
 			sourceTree = "<group>";
@@ -143,6 +250,121 @@
 				89EF52E62567A1C600387933 /* Info.plist */,
 			);
 			path = SundayFriendsUITests;
+			sourceTree = "<group>";
+		};
+		89EF52F22568EC6000387933 /* Feature_User */ = {
+			isa = PBXGroup;
+			children = (
+				89EF53372569526500387933 /* UBaseViewController.swift */,
+				89A144C325696DE1006D53B5 /* Transactions */,
+				89EF52FB2568EC9800387933 /* SignIn */,
+				89EF52FD2568EC9800387933 /* HomePage */,
+				89EF52FC2568EC9800387933 /* FamilyList */,
+				89EF52FE2568EC9800387933 /* More */,
+			);
+			path = Feature_User;
+			sourceTree = "<group>";
+		};
+		89EF52FB2568EC9800387933 /* SignIn */ = {
+			isa = PBXGroup;
+			children = (
+				89EF52FF2568ECB500387933 /* SignInViewController.swift */,
+				89EF53012568EF8C00387933 /* AddFamilyViewController.swift */,
+			);
+			path = SignIn;
+			sourceTree = "<group>";
+		};
+		89EF52FC2568EC9800387933 /* FamilyList */ = {
+			isa = PBXGroup;
+			children = (
+				89EF53052568EFFE00387933 /* FamilyListViewController.swift */,
+				89EF53302569246600387933 /* FamilyCell.swift */,
+			);
+			path = FamilyList;
+			sourceTree = "<group>";
+		};
+		89EF52FD2568EC9800387933 /* HomePage */ = {
+			isa = PBXGroup;
+			children = (
+				89EF53032568EFAA00387933 /* HomeViewController.swift */,
+			);
+			path = HomePage;
+			sourceTree = "<group>";
+		};
+		89EF52FE2568EC9800387933 /* More */ = {
+			isa = PBXGroup;
+			children = (
+				89EF53072568F00700387933 /* MoreViewController.swift */,
+				89A144E0256A8ADE006D53B5 /* MoreCell.swift */,
+			);
+			path = More;
+			sourceTree = "<group>";
+		};
+		89EF53122568F2DA00387933 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				89EF53162568F67900387933 /* AppUtils.swift */,
+				89A144C125696BB1006D53B5 /* ShadowUtil.swift */,
+				89A144CB256A3025006D53B5 /* Loader.swift */,
+				89A144CD256A3091006D53B5 /* Ext_UIAlertController.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		89EF53132568F2DA00387933 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				89EF53142568F2F100387933 /* SignInManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		89EF53182568F9D700387933 /* Feature_Admin */ = {
+			isa = PBXGroup;
+			children = (
+				89EF53392569526F00387933 /* ABaseViewController.swift */,
+				89EF531C2568FA0100387933 /* AHome */,
+				89EF531D2568FA0100387933 /* AMember */,
+				89EF53232568FA2600387933 /* AMore */,
+			);
+			path = Feature_Admin;
+			sourceTree = "<group>";
+		};
+		89EF531C2568FA0100387933 /* AHome */ = {
+			isa = PBXGroup;
+			children = (
+				89EF53242568FA5100387933 /* AHomeViewController.swift */,
+			);
+			path = AHome;
+			sourceTree = "<group>";
+		};
+		89EF531D2568FA0100387933 /* AMember */ = {
+			isa = PBXGroup;
+			children = (
+				89EF53212568FA2200387933 /* AMemberListViewController.swift */,
+				89A144E4256AA03E006D53B5 /* MemberCell.swift */,
+			);
+			path = AMember;
+			sourceTree = "<group>";
+		};
+		89EF53232568FA2600387933 /* AMore */ = {
+			isa = PBXGroup;
+			children = (
+				89EF53262568FA5800387933 /* AMoreViewController.swift */,
+				89A144E2256A932E006D53B5 /* AMoreCell.swift */,
+				89A144E8256AB9AE006D53B5 /* LinkFamilyViewController.swift */,
+			);
+			path = AMore;
+			sourceTree = "<group>";
+		};
+		89EF533225692B9E00387933 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				89EF533325692BAB00387933 /* User.swift */,
+				89EF53352569501900387933 /* Transaction.swift */,
+				89A144E6256AA781006D53B5 /* ResultModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		A17F21E576235F11C4DF26AA /* Pods */ = {
@@ -179,6 +401,8 @@
 				89EF52B82567A1C300387933 /* Sources */,
 				89EF52B92567A1C300387933 /* Frameworks */,
 				89EF52BA2567A1C300387933 /* Resources */,
+				47AB2DA694DD8F8A5B9D3B6B /* [CP] Embed Pods Frameworks */,
+				E31CB6B904C1F624DB8B8B62 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -216,6 +440,8 @@
 				89EF52DC2567A1C600387933 /* Sources */,
 				89EF52DD2567A1C600387933 /* Frameworks */,
 				89EF52DE2567A1C600387933 /* Resources */,
+				20696CFA4999511A24958EB8 /* [CP] Embed Pods Frameworks */,
+				D262172365250D0287A83B74 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -275,9 +501,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				89EF52CF2567A1C500387933 /* LaunchScreen.storyboard in Resources */,
+				89A144DC256A3A84006D53B5 /* admin_fetchUsers.json in Resources */,
+				89EF532F2568FABA00387933 /* Admin.storyboard in Resources */,
+				89EF532D2568FA7000387933 /* Main.storyboard in Resources */,
+				89A144DD256A3A84006D53B5 /* admin_transact.json in Resources */,
+				89A144DE256A3A84006D53B5 /* admin_linkFamily.json in Resources */,
+				89A144DA256A3A84006D53B5 /* user_getTransactions.json in Resources */,
 				89EF52CC2567A1C500387933 /* Assets.xcassets in Resources */,
-				89EF52C72567A1C300387933 /* Main.storyboard in Resources */,
+				89EF532C2568FA7000387933 /* LaunchScreen.storyboard in Resources */,
+				89A144DF256A3A84006D53B5 /* user_onboard.json in Resources */,
+				89A144DB256A3A84006D53B5 /* user_getFamily.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,6 +531,40 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		20696CFA4999511A24958EB8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SundayFriends-SundayFriendsUITests/Pods-SundayFriends-SundayFriendsUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SundayFriends-SundayFriendsUITests/Pods-SundayFriends-SundayFriendsUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SundayFriends-SundayFriendsUITests/Pods-SundayFriends-SundayFriendsUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		47AB2DA694DD8F8A5B9D3B6B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SundayFriends/Pods-SundayFriends-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SundayFriends/Pods-SundayFriends-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SundayFriends/Pods-SundayFriends-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		524BB2A7854F15315B8A8B32 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -364,6 +631,40 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		D262172365250D0287A83B74 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SundayFriends-SundayFriendsUITests/Pods-SundayFriends-SundayFriendsUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SundayFriends-SundayFriendsUITests/Pods-SundayFriends-SundayFriendsUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SundayFriends-SundayFriendsUITests/Pods-SundayFriends-SundayFriendsUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E31CB6B904C1F624DB8B8B62 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SundayFriends/Pods-SundayFriends-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SundayFriends/Pods-SundayFriends-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SundayFriends/Pods-SundayFriends-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -371,9 +672,36 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				89EF52C42567A1C300387933 /* ViewController.swift in Sources */,
+				89A144CA256A2FFA006D53B5 /* NetworkService.swift in Sources */,
+				89EF53002568ECB500387933 /* SignInViewController.swift in Sources */,
+				89EF53172568F67900387933 /* AppUtils.swift in Sources */,
+				89A144CC256A3025006D53B5 /* Loader.swift in Sources */,
+				89EF53362569501900387933 /* Transaction.swift in Sources */,
+				89EF53222568FA2200387933 /* AMemberListViewController.swift in Sources */,
+				89A144E3256A932E006D53B5 /* AMoreCell.swift in Sources */,
+				89EF53022568EF8C00387933 /* AddFamilyViewController.swift in Sources */,
+				89A144E7256AA781006D53B5 /* ResultModel.swift in Sources */,
+				89EF533A2569526F00387933 /* ABaseViewController.swift in Sources */,
+				89EF53062568EFFE00387933 /* FamilyListViewController.swift in Sources */,
+				89A144C225696BB1006D53B5 /* ShadowUtil.swift in Sources */,
 				89EF52CA2567A1C300387933 /* SundayFriends.xcdatamodeld in Sources */,
+				89EF53152568F2F100387933 /* SignInManager.swift in Sources */,
+				89EF533425692BAB00387933 /* User.swift in Sources */,
+				89EF53082568F00700387933 /* MoreViewController.swift in Sources */,
+				89A144E9256AB9AE006D53B5 /* LinkFamilyViewController.swift in Sources */,
+				89EF53272568FA5800387933 /* AMoreViewController.swift in Sources */,
+				89A144CE256A3091006D53B5 /* Ext_UIAlertController.swift in Sources */,
+				89A144E5256AA03E006D53B5 /* MemberCell.swift in Sources */,
+				89A144C7256975F6006D53B5 /* TransactionCell.swift in Sources */,
+				89A144C525696DED006D53B5 /* TransactionsViewController.swift in Sources */,
+				89EF53252568FA5100387933 /* AHomeViewController.swift in Sources */,
+				89EF53382569526500387933 /* UBaseViewController.swift in Sources */,
 				89EF52C02567A1C300387933 /* AppDelegate.swift in Sources */,
+				89EF53042568EFAA00387933 /* HomeViewController.swift in Sources */,
+				89A144D0256A334A006D53B5 /* UserAPI.swift in Sources */,
+				89A144D2256A3367006D53B5 /* AdminAPI.swift in Sources */,
+				89EF53312569246600387933 /* FamilyCell.swift in Sources */,
+				89A144E1256A8ADE006D53B5 /* MoreCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -409,20 +737,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		89EF52C52567A1C300387933 /* Main.storyboard */ = {
+		89EF53282568FA7000387933 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				89EF52C62567A1C300387933 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		89EF52CD2567A1C500387933 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				89EF52CE2567A1C500387933 /* Base */,
+				89EF53292568FA7000387933 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		89EF532A2568FA7000387933 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				89EF532B2568FA7000387933 /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -554,7 +882,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.abhinavroy23.SundayFriends;
+				PRODUCT_BUNDLE_IDENTIFIER = com.SundayFriends.ios;
 				PRODUCT_NAME = "Sunday Friends";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -573,7 +901,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.abhinavroy23.SundayFriends;
+				PRODUCT_BUNDLE_IDENTIFIER = com.SundayFriends.ios;
 				PRODUCT_NAME = "Sunday Friends";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
