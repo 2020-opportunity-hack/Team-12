@@ -10,12 +10,11 @@ Learn & Earn ticket system of the Sunday Friends foundation is a key component o
 This solution for the ticket system would empower the family members as they develop financial management skills by reducing their dependency on others to access their ticket accounts. 
 
 ## Technologies Used
+ | Technologies
+--- | --- 
 Prototyping mobile app screens | Figma
---- | --- 
 Front end of mobile apps | Android (Java), Swift 
---- | --- 
 REST API | Spring, Core Java, AWS EC2 for deployment
---- | --- 
 Database | MySQL, AWS RDS 
 
 ## Overall Architecture
