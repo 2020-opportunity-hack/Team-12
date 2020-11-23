@@ -33,6 +33,9 @@ Deployment | AWS EC2 for Rest Api & AWS RDS for Database
 ## Database Schema
 ![alt text](https://github.com/2020-opportunity-hack/Team-12/blob/main/entitydiag.jpg?raw=true)
 
+## REST APIs
+![alt text](https://github.com/2020-opportunity-hack/Team-12/blob/main/API2.jpg?raw=true)
+
 ## Challenges
 1. The primary challenge had been coordinating different tasks in the current virtual environment. 
 2. Technical challenges were in keeping it a minimum viable product and not to involve too many dependencies. For eg. sign up for a member whose family is already registered. We simplified this by exposing the familyId after registration. So the next family member if wants to register needs to know the familyId.
