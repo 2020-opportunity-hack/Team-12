@@ -18,10 +18,10 @@ REST API | Spring, Core Java, AWS EC2 for deployment
 Database | MySQL, AWS RDS 
 
 ## Overall Architecture
-![alt text](https://github.com/2020-opportunity-hack/Team-12/blob/main/architecture.jpg?raw=true)
+![alt text](https://github.com/2020-opportunity-hack/Team-12/blob/main/architecture.jpg?raw=true = 700x350)
 
 ## Database Schema
-![alt text](https://github.com/2020-opportunity-hack/Team-12/blob/main/entitydiag.jpg?raw=true)
+![alt text](https://github.com/2020-opportunity-hack/Team-12/blob/main/entitydiag.jpg?raw=true = 700x350)
 
 ## Challenges
 1. The primary challenge had been coordinating different tasks in the current virtual environment. 
