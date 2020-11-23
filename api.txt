@@ -1,3 +1,4 @@
+
 Method: GET
 API: http://34.240.219.132:8080/admin/fetchUsers
 RESPONSE:
@@ -21,17 +22,19 @@ RESPONSE:
         "admin": true
     }
 ]
-
+-----------------------------------
 
 METHOD: PUT
 API: http://34.240.219.132:8080/admin/link_family?userId=1&familyId=2
 RESPONSE: STATUS 200 OK
 
+-----------------------------------
 
 METHOD: POST
 API: http://34.240.219.132:8080/admin/transact?userId=1&amount=100&type=1
 RESPONSE: STATUS 200 OK
 
+-----------------------------------
 
 METHOD: GET
 API: http://34.240.219.132:8080/user/get_family?familyId=1
@@ -58,8 +61,7 @@ RESPONSE:
 ]
 
 
-
-
+-----------------------------------
 
 METHOD: POST
 API: http://34.240.219.132:8080/user/onboard?name=Abhinav Roy&email=abhinav.roy23@gmail.com&imageUrl=https://lh3.googleusercontent.com/a-/AOh14GgqTkkLii5cHFz1Ro7HfNeXoK4HIsUah9Mvrpnr9pA=s100&familyId=1003
@@ -74,6 +76,7 @@ RESPONSE:
     "admin": false
 }
 
+-----------------------------------
 
 METHOD: GET
 API: http://34.240.219.132:8080/user/transactions?userId=1
@@ -116,3 +119,38 @@ RESPONSE:
     ]
 }
 
+-----------------------------------
+
+METHOD: PUT
+API: http://0.0.0.0:8080/admin/deactivate_user?userId=2&deactivate=false
+RESPONSE: STATUS 200 OK
+
+-----------------------------------
+
+METHOD: GET
+API: http://34.240.219.132:8080/admin/deactivatedUsers
+RESPONSE:
+[
+    {
+        "userId": 1,
+        "name": "ABC",
+        "email": "abc@gmail.com",
+        "familyId": 2,
+        "imageUrl": null,
+        "balance": 320,
+        "active": false,
+        "admin": false
+    },
+    {
+        "userId": 2,
+        "name": "PQR",
+        "email": "pqr@gmail.com",
+        "familyId": 1,
+        "imageUrl": null,
+        "balance": 1,
+        "active": false,
+        "admin": false
+    }
+]
+
+-----------------------------------
