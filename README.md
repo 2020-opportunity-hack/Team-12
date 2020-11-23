@@ -10,7 +10,7 @@ Learn & Earn ticket system of the Sunday Friends foundation is a key component o
 This solution for the ticket system would empower the family members as they develop financial management skills by reducing their dependency on others to access their ticket accounts. 
 
 ## Quick Preview
-1. [Complete System walkthrough](https://youtu.be/VftrN_VZDSc)
+1. [Complete System walkthrough](https://youtu.be/sgxF_pHiOtM)
 2. [User's documentation here](https://github.com/2020-opportunity-hack/Team-12/blob/main/Users_Flow.pdf)
 3. [User's demo video](https://youtu.be/nG2zKhh7eaI)
 4. [Admin's documentation here](https://github.com/2020-opportunity-hack/Team-12/blob/main/Admin_Flow.pdf)
