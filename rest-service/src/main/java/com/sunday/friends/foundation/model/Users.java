@@ -11,7 +11,7 @@ public class Users {
     private String name;
     private String email;
     private Integer familyId;
-    private boolean isAdmin;
+    private Boolean isAdmin;
     private String imageUrl;
     private Integer balance;
     private Boolean isActive;
@@ -77,7 +77,7 @@ public class Users {
         return isAdmin;
     }
 
-    public void setAdmin(boolean isAdmin) {
+    public void setAdmin(Boolean isAdmin) {
         this.isAdmin = isAdmin;
     }
 

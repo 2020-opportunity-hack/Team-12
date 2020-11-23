@@ -26,7 +26,18 @@ public class UserController {
     @GetMapping("/admin/fetchUsers")
     public List<Users> list(){
         try {
-            return userService.listAll();
+            return userService.getTotalList();
+        }
+        catch (Exception e){
+            System.out.println(e);
+            return null;
+        }
+    }
+
+    @GetMapping("/admin/deactivatedUsers")
+    public List<Users> getDeactivateList(){
+        try {
+            return userService.getDeactivateList();
         }
         catch (Exception e){
             System.out.println(e);

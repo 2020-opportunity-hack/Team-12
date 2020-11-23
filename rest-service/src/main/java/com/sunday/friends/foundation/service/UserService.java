@@ -41,6 +41,28 @@ public class UserService {
         return true;
     }
 
+    public List<Users> getDeactivateList() {
+        CriteriaBuilder builder = em.getCriteriaBuilder();
+        CriteriaQuery<Users> criteriaQuery = builder.createQuery(Users.class);
+
+        Root<Users> root = criteriaQuery.from(Users.class);
+        criteriaQuery.select(root);
+        criteriaQuery.where(builder.equal(root.get("active"), false));
+        List<Users> list = em.createQuery(criteriaQuery).getResultList();
+        return list;
+    }
+    public List<Users> getTotalList() {
+        CriteriaBuilder builder = em.getCriteriaBuilder();
+        CriteriaQuery<Users> criteriaQuery = builder.createQuery(Users.class);
+
+        Root<Users> root = criteriaQuery.from(Users.class);
+        criteriaQuery.select(root);
+        criteriaQuery.where(builder.equal(root.get("admin"), false));
+        criteriaQuery.where(builder.equal(root.get("active"), true));
+        List<Users> list = em.createQuery(criteriaQuery).getResultList();
+        return list;
+    }
+
     public List<Users> getFamilyList(Integer familyId) {
         CriteriaBuilder builder = em.getCriteriaBuilder();
         CriteriaQuery<Users> criteriaQuery = builder.createQuery(Users.class);
@@ -48,6 +70,8 @@ public class UserService {
 		Root<Users> root = criteriaQuery.from(Users.class);
 		criteriaQuery.select(root);
 		criteriaQuery.where(builder.equal(root.get("familyId"),familyId));
+        criteriaQuery.where(builder.equal(root.get("admin"), false));
+        criteriaQuery.where(builder.equal(root.get("active"), true));
 		List<Users> list = em.createQuery(criteriaQuery).getResultList();
 		return list;
     }
