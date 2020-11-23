@@ -98,7 +98,6 @@ public class Users {
     }
 
     @Column(name = "isActive")
-    @JsonIgnore
     public boolean isActive() {
         return isActive;
     }

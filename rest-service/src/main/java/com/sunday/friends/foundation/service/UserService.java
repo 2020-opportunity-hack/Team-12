@@ -100,6 +100,8 @@ public class UserService {
         criteriaQuery.select(root);
         criteriaQuery.where(builder.equal(root.get("email"),email));
         List<Users> list = em.createQuery(criteriaQuery).getResultList();
+        if(list.size() == 0)
+            return null;
         return list.get(0);
     }
 

@@ -105,6 +105,7 @@ public class UserController {
                     familyId = Integer.valueOf(json.get("familyId"));
 
                 Users newUser = new Users(json.get("name"), json.get("email"), familyId, json.get("imageUrl"));
+                newUser.setActive(true);
 
                 if(familyService.getFamilyList(familyId).size() == 0)
                     familyService.addFamily(familyId);
