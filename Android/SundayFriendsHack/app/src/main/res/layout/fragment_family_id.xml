@@ -5,41 +5,44 @@
     android:layout_height="match_parent"
     android:background="@color/colorWhite"
     android:clickable="true"
-    android:focusable="true">
+    android:focusable="true"
+    android:id="@+id/fragmentfamilyid_parent_layout">
 
     <ImageView
         android:id="@+id/fragfamilyid_image"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
+        android:layout_width="95dp"
+        android:layout_height="95dp"
         android:layout_marginTop="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/background_circle_dark_border"/>
 
     <TextView
-        android:id="@+id/fragfamilyid_static_text"
-        android:layout_width="match_parent"
+        android:id="@+id/fragfamilyid_static_text_2"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/fragfamilyid_et_family_id"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         android:layout_marginTop="16dp"
-        android:gravity="center"
-        android:text="Are other members of your family \n already registered? \n\nIf yes, you can join them by entering \nthe same family id"
-        android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@+id/fragfamilyid_image" />
+        android:text="Are other members of your family \n already registered? \n\nIf yes, you can join them by entering \nthe same family id"/>
 
     <EditText
         android:id="@+id/fragfamilyid_et_family_id"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:background="@drawable/background_edit_text_border"
-        android:hint="Family Id"
+        android:background="@drawable/background_login_form_edit_text"
+        android:hint="Family Id (Optional)"
         android:paddingStart="6dp"
         android:paddingTop="3dp"
         android:paddingEnd="6dp"
         android:paddingBottom="3dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fragfamilyid_static_text" />
+        app:layout_constraintTop_toBottomOf="@+id/fragfamilyid_image"
+        android:maxLines="1"/>
 
     <TextView
         android:id="@+id/fragfamily_btn_proceed"
@@ -55,7 +58,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fragfamilyid_et_family_id" />
+        app:layout_constraintTop_toBottomOf="@+id/fragfamilyid_static_text_2" />
 
     <TextView
         android:id="@+id/fragfamily_btn_skip"
@@ -65,11 +68,12 @@
         android:gravity="center"
         android:paddingTop="8dp"
         android:paddingBottom="8dp"
-        android:text="Skip"
+        android:text="Go to admin"
         android:textColor="@color/standardBlue"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fragfamily_btn_proceed" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="16dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

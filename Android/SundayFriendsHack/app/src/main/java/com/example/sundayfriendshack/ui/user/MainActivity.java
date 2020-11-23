@@ -23,8 +23,7 @@ import java.util.ArrayList;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class MainActivity extends AppCompatActivity implements
-        UserContract.Model.onGetFamilyMembers {
+public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
 
@@ -37,6 +36,7 @@ public class MainActivity extends AppCompatActivity implements
     private FragmentUserProfile mFragmentUserProfile;
 
 
+    private int mUserId;
 
 
     @Override
@@ -46,7 +46,12 @@ public class MainActivity extends AppCompatActivity implements
         ButterKnife.bind(this);
 
         if (savedInstanceState == null) {
-            mFragmentUserHome = new FragmentUserHome();
+            Bundle extras = getIntent().getExtras();
+            if (extras != null) {
+                mUserId = extras.getInt(Constants.KEY_START_HOMEPAGE_USER_ID);
+                Log.d(TAG, "onCreate: GOT THE USERID. " + mUserId);
+            }
+            mFragmentUserHome = FragmentUserHome.newInstance(mUserId);
             currentBottomNavFragment = mFragmentUserHome;
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.main_fragment_container, mFragmentUserHome, Constants.FRAGMENT_USER_HOME)
@@ -139,16 +144,6 @@ public class MainActivity extends AppCompatActivity implements
                 return false;
             }
         });
-    }
-
-    @Override
-    public void onSuccessGetFamilyMembers(ArrayList<FamilyMemberDto> familyMemberDtos) {
-
-    }
-
-    @Override
-    public void onFailedGetFamilyMembers(Throwable t) {
-        ToastManager.displayNetworkError(this, t);
     }
 
     @Override

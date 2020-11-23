@@ -18,11 +18,12 @@ import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 
 import butterknife.ButterKnife;
 
-public class LoginActivity extends AppCompatActivity implements LoginContract.Model.onRegisterUser {
+public class LoginActivity extends AppCompatActivity {
 
     private static final String TAG = "LoginActivity";
 
     private AuthStateManager mAuthStateManager;
+    private GoogleSignInAccount mAccount;
 
 
     @Override
@@ -33,8 +34,8 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Mo
 
         mAuthStateManager = new AuthStateManager(this);
 
-        GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
-        if(account != null){
+        mAccount = GoogleSignIn.getLastSignedInAccount(this);
+        if(mAccount != null){
             initMainActivity();
         }else{
             initFragmentLogin();
@@ -76,14 +77,4 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Mo
     }
 
 
-    @Override
-    public void onSuccessRegisterUser() {
-        Toast.makeText(this, "Success Registering User. ", Toast.LENGTH_SHORT).show();
-        //Do someother action
-    }
-
-    @Override
-    public void onFailedRegisterUser(Throwable t) {
-        ToastManager.displayNetworkError(this, t);
-    }
 }

@@ -12,24 +12,62 @@ import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.PUT;
 import retrofit2.http.Query;
 
 public class RetrofitInterfaces {
 
+    public interface GetDeactivatedUsers{
+        @GET("admin/deactivatedUsers")
+        Call<ArrayList<UserInfo>> listRepos();
+    }
+
+    public interface GetUserInfo{
+        @GET("user/get_user")
+        Call<UserInfo> listRepos(@Query("userId") String userId);
+    }
+
+    //Same endpoint as deactivate
+    public interface AdminActivateUser{
+        @PUT("admin/deactivate_user")
+        Call<Void> listRepos(@Query("userId") String userId);
+    }
+
+    public interface AdminDeactivateUser{
+        @PUT("admin/deactivate_user")
+        Call<Void> listRepos(@Query("userId") String userId);
+    }
 
     public interface AdminFetchUsers {
         @GET("admin/fetchUsers")
         Call<ArrayList<UserInfo>> listRepos();
     }
 
-    public interface LinkFamily {
-        @POST
-        Call<String> listRepos(@Query("userId") String userId, @Query("familyId") String familyId);
+    public interface RegisterFamilyId {
+        @PUT("admin/link_family")
+        Call<Void> listRepos(@Query("userId") String userId, @Query("familyId") String familyId);
     }
 
-    public interface AdminTransact {
-        @POST
-        Call<String> listRepos(@Body RequestBody info);
+    /**
+     * Action Type
+     * 0 = withdraw
+     * 1 = deposit
+     */
+    public interface AdminDepositTicket {
+        @POST("admin/transact")
+        Call<Void> listRepos(
+                @Query("userId") String userId,
+                @Query("amount") String amount,
+                @Query("type") String actionType
+        );
+    }
+
+    public interface AdminWithdrawTicket {
+        @POST("admin/transact")
+        Call<Void> listRepos(
+                @Query("userId") String userId,
+                @Query("amount") String amount,
+                @Query("type") String actionType);
     }
 
     public interface UserGetFamily {
@@ -37,9 +75,13 @@ public class RetrofitInterfaces {
         Call<ArrayList<FamilyMemberDto>> listRepos (@Query("familyId") int familyId);
     }
 
-    public interface RegisterUser{
+    public interface IsUserRegistered{
         @POST("user/onboard")
-        Call<ArrayList<String>> listRepos(@Body RequestBody userInfo);
+        Call<UserInfo> listRepos(
+                @Query("name") String name,
+                @Query("email") String email,
+                @Query("imageUrl") String imageUrl
+        );
     }
 
     public interface GetUserTransactions {

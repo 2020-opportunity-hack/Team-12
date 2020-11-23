@@ -53,6 +53,7 @@ public class UserFamilyMembersAdapter extends RecyclerView.Adapter<UserFamilyMem
                 .into(holder.familyMemberProfilePic);
 
         holder.familyMemberBalance.setText(String.valueOf(mList.get(i).getBalance()));
+        holder.familyMemberEmail.setText(mList.get(i).getEmail());
 
     }
 
@@ -68,6 +69,8 @@ public class UserFamilyMembersAdapter extends RecyclerView.Adapter<UserFamilyMem
         @BindView(R.id.vh_singlefamilymember_profile_pic) ImageView familyMemberProfilePic;
 
         @BindView(R.id.vh_singlefamilymember_user_balance) TextView familyMemberBalance;
+
+        @BindView(R.id.vh_singlefamilymember_email) TextView familyMemberEmail;
 
         int position;
 

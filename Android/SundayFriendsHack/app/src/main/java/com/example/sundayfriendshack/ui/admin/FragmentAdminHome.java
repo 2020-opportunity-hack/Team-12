@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.PopupWindow;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -18,7 +19,12 @@ import com.bumptech.glide.request.RequestOptions;
 import com.example.sundayfriendshack.manager.AuthStateManager;
 import com.example.sundayfriendshack.Constants;
 import com.example.sundayfriendshack.R;
+import com.example.sundayfriendshack.manager.SharedPrefManager;
 import com.example.sundayfriendshack.ui.menu.SettingsMenu;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -29,6 +35,10 @@ public class FragmentAdminHome extends Fragment {
     private Context mContext;
 
     @BindView(R.id.fragadminhome_toolbar_profile_pic) ImageView mToolbarProfilePic;
+
+    @BindView(R.id.fragadminhome_tv_user_name) TextView mTvName;
+
+    @BindView(R.id.frag_adminhome_date) TextView mTextViewDate;
 
     private AuthStateManager mAuthStateManager;
 
@@ -46,10 +56,27 @@ public class FragmentAdminHome extends Fragment {
         ButterKnife.bind(this, view);
 
 
-        Glide.with(mContext)
-                .load("https://i.imgur.com/2aDLPJy.jpg")
-                .apply(RequestOptions.circleCropTransform())
-                .into(mToolbarProfilePic);
+        String mProfilePic = SharedPrefManager.getInstance(mContext).getProfilePic();
+
+        String welcomeUser = "Welcome, " + SharedPrefManager.getInstance(mContext).getUserName();
+        mTvName.setText(welcomeUser);
+
+        if(mProfilePic == null
+                || mProfilePic.equals("null")){
+            Glide.with(mContext)
+                    .load(R.drawable.blank_profile_pic)
+                    .apply(RequestOptions.circleCropTransform())
+                    .into(mToolbarProfilePic);
+        }else{
+            Glide.with(mContext)
+                    .load(mProfilePic)
+                    .apply(RequestOptions.circleCropTransform())
+                    .into(mToolbarProfilePic);
+        }
+
+        SimpleDateFormat sdf = new SimpleDateFormat("EEE, MMM d, yyyy", Locale.getDefault());
+        String currentDateandTime = sdf.format(new Date());
+        mTextViewDate.setText(currentDateandTime);
 
 
 

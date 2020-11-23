@@ -8,5 +8,9 @@ public class ToastManager {
         Toast.makeText(context, "Network error. " + t, Toast.LENGTH_SHORT).show();
     }
 
+    public static void somethingWentWrongError(Context context, Throwable t){
+        Toast.makeText(context, "Sorry something went wrong. " + t, Toast.LENGTH_SHORT).show();
+    }
+
 
 }

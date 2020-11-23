@@ -7,7 +7,6 @@ import android.view.MenuItem;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 
 import com.example.sundayfriendshack.Constants;
 import com.example.sundayfriendshack.R;
@@ -72,6 +71,28 @@ public class AdminActivity extends AppCompatActivity {
     public void initDepositFragment(String name, int userId){
         FragmentDeposit fragmentDeposit = FragmentDeposit.newInstance(name, userId);
         fragmentDeposit.show(getSupportFragmentManager(), Constants.FRAGMENT_ADMIN_USER_DEPOSIT);
+    }
+
+    public void deactivateUser(int userId){
+        FragmentAdminUsers fragmentAdminUsers = (FragmentAdminUsers) getSupportFragmentManager()
+                .findFragmentByTag(Constants.FRAGMENT_ADMIN_LIST_OF_USERS);
+        if (fragmentAdminUsers != null) {
+            fragmentAdminUsers.deactivateUser(userId);
+        }
+    }
+
+    public void activateUser(int userId){
+        FragmentDeactivatedUsers deactivatedUsers = (FragmentDeactivatedUsers) getSupportFragmentManager()
+                .findFragmentByTag(Constants.FRAGMENT_DEACTIVATED_USERS);
+        if(deactivatedUsers != null){
+            deactivatedUsers.activateUser(userId);
+        }
+    }
+
+
+    public void initDeactivatedUsersFragment(){
+        FragmentDeactivatedUsers deactivatedUsers = FragmentDeactivatedUsers.newInstance();
+        deactivatedUsers.show(getSupportFragmentManager(), Constants.FRAGMENT_DEACTIVATED_USERS);
     }
 
 
@@ -186,5 +207,6 @@ public class AdminActivity extends AppCompatActivity {
         mFragmentAdminMore = (FragmentAdminMore) getSupportFragmentManager()
                 .getFragment(savedInstanceState, Constants.KEY_INSTANCE_STATE_ADMIN_MORE);
     }
+
 
 }

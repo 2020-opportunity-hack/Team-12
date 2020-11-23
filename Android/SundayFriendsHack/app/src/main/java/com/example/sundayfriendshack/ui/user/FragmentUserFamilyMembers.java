@@ -17,7 +17,10 @@ import com.example.sundayfriendshack.Constants;
 import com.example.sundayfriendshack.R;
 import com.example.sundayfriendshack.adapters.UserFamilyMembersAdapter;
 import com.example.sundayfriendshack.divider.SimpleDivider;
+import com.example.sundayfriendshack.manager.SharedPrefManager;
+import com.example.sundayfriendshack.manager.ToastManager;
 import com.example.sundayfriendshack.model.FamilyMemberDto;
+import com.example.sundayfriendshack.repo.UserRepo.UserContract;
 import com.example.sundayfriendshack.repo.UserRepo.UserRepo;
 
 import java.util.ArrayList;
@@ -25,7 +28,7 @@ import java.util.ArrayList;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class FragmentUserFamilyMembers extends Fragment {
+public class FragmentUserFamilyMembers extends Fragment implements UserContract.Model.onGetFamilyMembers {
 
     @BindView(R.id.fragfamilymembers_recycler) RecyclerView mRecycler;
 
@@ -41,6 +44,7 @@ public class FragmentUserFamilyMembers extends Fragment {
         super.onCreate(savedInstanceState);
         mContext = getContext();
 
+        mRepo = new UserRepo(mContext);
         familyMembersAdapter = new UserFamilyMembersAdapter(mContext, mListFamilyMembers);
     }
 
@@ -50,17 +54,19 @@ public class FragmentUserFamilyMembers extends Fragment {
         View view = inflater.inflate(R.layout.fragment_user_family_members, container, false);
         ButterKnife.bind(this, view);
 
+        /**
+         * for(int i = 0; i < 15; i++){
+         *             FamilyMemberDto familyMemberDto = new FamilyMemberDto();
+         *             familyMemberDto.setImageUrl("https://i.imgur.com/vjgnwL0.jpg");
+         *             familyMemberDto.setName("Alice Smith");
+         *             familyMemberDto.setBalance(50);
+         *             mListFamilyMembers.add(familyMemberDto);
+         *         }
+         */
 
-        for(int i = 0; i < 15; i++){
-            FamilyMemberDto familyMemberDto = new FamilyMemberDto();
-            familyMemberDto.setImageUrl("https://i.imgur.com/vjgnwL0.jpg");
-            familyMemberDto.setName("Alice Smith");
-            familyMemberDto.setBalance(50);
-            mListFamilyMembers.add(familyMemberDto);
-        }
 
-        //mRepo = new UserRepo(mContext);
-        //mRepo.getFamilyMembers();
+         mRepo = new UserRepo(mContext);
+         mRepo.getFamilyMembers(SharedPrefManager.getInstance(mContext).getFamilyId());
 
 
         mRecycler.setLayoutManager(new LinearLayoutManager(mContext));
@@ -71,5 +77,21 @@ public class FragmentUserFamilyMembers extends Fragment {
         mRecycler.setAdapter(familyMembersAdapter);
 
         return view;
+    }
+
+    @Override
+    public void onSuccessGetFamilyMembers(ArrayList<FamilyMemberDto> familyMemberDtos) {
+        try {
+            mListFamilyMembers.addAll(familyMemberDtos);
+            familyMembersAdapter.notifyDataSetChanged();
+        }catch (Exception e){
+            ToastManager.somethingWentWrongError(mContext, e);
+        }
+
+    }
+
+    @Override
+    public void onFailedGetFamilyMembers(Throwable t) {
+        ToastManager.displayNetworkError(mContext, t);
     }
 }

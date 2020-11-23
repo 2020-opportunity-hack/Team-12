@@ -5,8 +5,11 @@ import android.util.Log;
 
 import androidx.annotation.NonNull;
 
+import com.example.sundayfriendshack.Constants;
+import com.example.sundayfriendshack.model.UserInfo;
 import com.example.sundayfriendshack.network.RetrofitClientInstance;
 import com.example.sundayfriendshack.network.RetrofitInterfaces;
+import com.example.sundayfriendshack.ui.login.FamilyIdFragment;
 import com.example.sundayfriendshack.ui.login.LoginActivity;
 
 import java.util.ArrayList;
@@ -19,25 +22,48 @@ import retrofit2.Response;
 public class LoginRepo {
 
     private Context context;
-    private LoginActivity loginActivity;
+
+    private FamilyIdFragment familyIdFragment;
 
     public LoginRepo(Context context) {
         this.context = context;
+
+        LoginActivity loginActivity = (LoginActivity) context;
+        familyIdFragment = (FamilyIdFragment) loginActivity.getSupportFragmentManager()
+                .findFragmentByTag(Constants.FAMILY_ID_FRAGMENT);
     }
 
-    public void getUserData(RequestBody userInfo){
-        RetrofitInterfaces.RegisterUser service = RetrofitClientInstance.getRetrofitInstance()
-                .create(RetrofitInterfaces.RegisterUser.class);
-        Call<ArrayList<String>> call = service.listRepos(userInfo);
-        call.enqueue(new Callback<ArrayList<String>>() {
+    public void isUserRegistered(String name, String email, String imageUrl){
+
+        RetrofitInterfaces.IsUserRegistered service = RetrofitClientInstance.getRetrofitInstance()
+                .create(RetrofitInterfaces.IsUserRegistered.class);
+        Call<UserInfo> call = service.listRepos(name, email, imageUrl);
+        call.enqueue(new Callback<UserInfo>() {
             @Override
-            public void onResponse(@NonNull Call<ArrayList<String>> call, @NonNull Response<ArrayList<String>> response) {
-                loginActivity.onSuccessRegisterUser();
+            public void onResponse(@NonNull Call<UserInfo> call, @NonNull Response<UserInfo> response) {
+                familyIdFragment.onSuccessGetUser(response.body());
             }
 
             @Override
-            public void onFailure(@NonNull Call<ArrayList<String>> call, @NonNull Throwable t) {
-                loginActivity.onFailedRegisterUser(t);
+            public void onFailure(@NonNull Call<UserInfo> call, @NonNull Throwable t) {
+                familyIdFragment.onFailedGetUser(t);
+            }
+        });
+    }
+
+    public void registerFamilyId(int userId, int familyId){
+        RetrofitInterfaces.RegisterFamilyId service = RetrofitClientInstance.getRetrofitInstance()
+                .create(RetrofitInterfaces.RegisterFamilyId.class);
+        Call<Void> call = service.listRepos(String.valueOf(userId), String.valueOf(familyId));
+        call.enqueue(new Callback<Void>() {
+            @Override
+            public void onResponse(@NonNull Call<Void> call, @NonNull Response<Void> response) {
+                familyIdFragment.onSuccessRegisterFamilyId(response);
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<Void> call, @NonNull Throwable t) {
+                familyIdFragment.onFailedRegisterFamilyId(t);
             }
         });
     }

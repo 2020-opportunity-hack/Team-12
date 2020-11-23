@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -17,6 +18,8 @@ import com.bumptech.glide.request.RequestOptions;
 import com.example.sundayfriendshack.R;
 import com.example.sundayfriendshack.model.UserInfo;
 import com.example.sundayfriendshack.ui.admin.AdminActivity;
+import com.example.sundayfriendshack.ui.menu.DeactivateMenu;
+import com.example.sundayfriendshack.ui.menu.SettingsMenu;
 
 import java.util.ArrayList;
 
@@ -46,10 +49,22 @@ public class AdminListUsersAdapter extends RecyclerView.Adapter<AdminListUsersAd
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int i) {
-        Glide.with(mContext)
-                .load(mList.get(i).getImageUrl())
-                .apply(RequestOptions.circleCropTransform())
-                .into(holder.profilePic);
+
+
+        String imageUrl = mList.get(i).getImageUrl();
+
+        if(imageUrl == null
+                || imageUrl.equals("null")){
+            Glide.with(mContext)
+                    .load(R.drawable.blank_profile_pic)
+                    .apply(RequestOptions.circleCropTransform())
+                    .into(holder.profilePic);
+        }else{
+            Glide.with(mContext)
+                    .load(imageUrl)
+                    .apply(RequestOptions.circleCropTransform())
+                    .into(holder.profilePic);
+        }
 
         holder.userBalance.setText(String.valueOf(mList.get(i).getBalance()));
         holder.email.setText(mList.get(i).getEmail());
@@ -77,6 +92,8 @@ public class AdminListUsersAdapter extends RecyclerView.Adapter<AdminListUsersAd
 
         @BindView(R.id.vh_adminusers_parent_layout) ConstraintLayout parentLayout;
 
+        @BindView(R.id.vhadminusers_btn_more) ImageView btnMore;
+
         int position;
 
         public ViewHolder(@NonNull View itemView) {
@@ -85,6 +102,7 @@ public class AdminListUsersAdapter extends RecyclerView.Adapter<AdminListUsersAd
             btnWithdraw.setOnClickListener(this);
             btnDeposit.setOnClickListener(this);
             parentLayout.setOnClickListener(this);
+            btnMore.setOnClickListener(this);
         }
 
         @Override
@@ -112,6 +130,14 @@ public class AdminListUsersAdapter extends RecyclerView.Adapter<AdminListUsersAd
                             mList.get(position).getName(),
                             mList.get(position).getUserId()
                     );
+                    break;
+
+                case R.id.vhadminusers_btn_more:
+                    PopupWindow popupWindow = new DeactivateMenu(
+                            mContext,
+                            mList.get(position).getUserId()
+                    );
+                    popupWindow.showAsDropDown(btnMore);
                     break;
             }
 

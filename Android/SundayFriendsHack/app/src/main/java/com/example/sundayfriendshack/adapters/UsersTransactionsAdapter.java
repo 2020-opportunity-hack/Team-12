@@ -9,6 +9,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.sundayfriendshack.Constants;
 import com.example.sundayfriendshack.R;
 import com.example.sundayfriendshack.model.UserTransactionDto;
 
@@ -40,7 +41,7 @@ public class UsersTransactionsAdapter extends RecyclerView.Adapter<UsersTransact
     public void onBindViewHolder(@NonNull ViewHolder holder, int i) {
 
 
-        if(mList.get(i).getType() == 0){
+        if(mList.get(i).isType() == Constants.TICKET_ACTION_TYPE_BOOLEAN_DEPOSIT){
             holder.amount.setTextColor(context.getResources().getColor(R.color.standardGreen));
             holder.userAction.setText("Deposit");
 
@@ -48,7 +49,7 @@ public class UsersTransactionsAdapter extends RecyclerView.Adapter<UsersTransact
             String amount = "+ " + mList.get(i).getAmount();
             holder.amount.setText(amount);
 
-        }else if (mList.get(i).getType() == 1){
+        }else if (mList.get(i).isType() == Constants.TICKET_ACTION_TYPE_BOOLEAN_WITHDRAW){
             holder.amount.setTextColor(context.getResources().getColor(R.color.standardRed));
             holder.userAction.setText("Withdrawl");
 

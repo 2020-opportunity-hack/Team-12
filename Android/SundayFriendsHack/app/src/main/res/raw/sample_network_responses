@@ -1,0 +1,114 @@
+Method: GET
+API: http://34.240.219.132:8080/admin/fetchUsers
+RESPONSE:
+[
+    {
+        "userId": 1,
+        "name": "ABC",
+        "email": "abc@gmail.com",
+        "familyId": 2,
+        "imageUrl": null,
+        "balance": 100,
+        "admin": true
+    },
+    {
+        "userId": 2,
+        "name": "PQR",
+        "email": "pqr@gmail.com",
+        "familyId": 1,
+        "imageUrl": null,
+        "balance": 0,
+        "admin": true
+    }
+]
+
+
+METHOD: PUT
+API: http://34.240.219.132:8080/admin/link_family?userId=1&familyId=2
+RESPONSE: STATUS 200 OK
+
+
+METHOD: POST
+API: http://34.240.219.132:8080/admin/transact?userId=1&amount=100&type=1
+RESPONSE: STATUS 200 OK
+
+
+METHOD: GET
+API: http://34.240.219.132:8080/user/get_family?familyId=1
+RESPONSE:
+[
+    {
+        "userId": 2,
+        "name": "PQR",
+        "email": "pqr@gmail.com",
+        "familyId": 1,
+        "imageUrl": null,
+        "balance": 0,
+        "admin": true
+    },
+    {
+        "userId": 3,
+        "name": "John Doe",
+        "email": "johndoe@gmail.com",
+        "familyId": 1,
+        "imageUrl": null,
+        "balance": 0,
+        "admin": false
+    }
+]
+
+
+
+
+
+METHOD: POST
+API: http://34.240.219.132:8080/user/onboard?name=Abhinav Roy&email=abhinav.roy23@gmail.com&imageUrl=https://lh3.googleusercontent.com/a-/AOh14GgqTkkLii5cHFz1Ro7HfNeXoK4HIsUah9Mvrpnr9pA=s100&familyId=1003
+RESPONSE:
+{
+    "userId": 12,
+    "name": "Abhinav Roy",
+    "email": "abhinav.roy23@gmail.com",
+    "familyId": 1003,
+    "imageUrl": "https://lh3.googleusercontent.com/a-/AOh14GgqTkkLii5cHFz1Ro7HfNeXoK4HIsUah9Mvrpnr9pA=s100",
+    "balance": 0,
+    "admin": false
+}
+
+
+METHOD: GET
+API: http://34.240.219.132:8080/user/transactions?userId=1
+RESPONSE:
+[
+    {
+        "transactionid": 1,
+        "userId": 1,
+        "type": true,
+        "amount": 35,
+        "balanceAfterAction": 35,
+        "time": "2020-11-22T13:07:56.000+00:00"
+    },
+    {
+        "transactionid": 2,
+        "userId": 1,
+        "type": true,
+        "amount": 100,
+        "balanceAfterAction": 100,
+        "time": "2020-11-22T21:17:16.000+00:00"
+    },
+    {
+        "transactionid": 3,
+        "userId": 1,
+        "type": true,
+        "amount": 100,
+        "balanceAfterAction": 200,
+        "time": "2020-11-22T23:07:21.000+00:00"
+    },
+    {
+        "transactionid": 4,
+        "userId": 1,
+        "type": true,
+        "amount": 100,
+        "balanceAfterAction": 300,
+        "time": "2020-11-22T23:07:37.000+00:00"
+    }
+]

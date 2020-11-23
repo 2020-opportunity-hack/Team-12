@@ -24,16 +24,16 @@ public class UserTransactionDto {
     }
 
     public class UserTransaction{
-        private int type;
+        private boolean type;
         private int amount;
         private int balanceAfterAction;
-        private long time;
+        private String time;
 
-        public int getType() {
+        public boolean isType() {
             return type;
         }
 
-        public void setType(int type) {
+        public void setType(boolean type) {
             this.type = type;
         }
 
@@ -53,11 +53,11 @@ public class UserTransactionDto {
             this.balanceAfterAction = balanceAfterAction;
         }
 
-        public long getTime() {
+        public String getTime() {
             return time;
         }
 
-        public void setTime(long time) {
+        public void setTime(String time) {
             this.time = time;
         }
     }

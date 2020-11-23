@@ -39,10 +39,12 @@ public class AuthStateManager {
     public void handleSignInResult() {
             mAccount = GoogleSignIn.getLastSignedInAccount(mContext);
             if(mAccount == null){
+                Log.d(TAG, "handleSignInResult: Null Account starting login Activity");
                 initLoginActivity(mContext);
             }else{
                 //get UserId
                 //initMainActivity(mContext);
+                Log.d(TAG, "handleSignInResult: Not null starting family id");
                 initFamilyIdFragment(mContext);
             }
     }
@@ -51,6 +53,30 @@ public class AuthStateManager {
         if(mAccount != null){
             Log.d(TAG, "getGoogleId: " + mAccount.getId());
             return mAccount.getId();
+        }
+        return null;
+    }
+
+    public String getUserName(){
+        if(mAccount != null){
+            Log.d(TAG, "getUserName: " + mAccount.getDisplayName());
+            return mAccount.getDisplayName();
+        }
+        return null;
+    }
+
+    public String getEmail(){
+        if(mAccount != null){
+            Log.d(TAG, "getUserName: " + mAccount.getEmail());
+            return mAccount.getEmail();
+        }
+        return null;
+    }
+
+    public String getImageUrl(){
+        if(mAccount != null){
+            Log.d(TAG, "getUserName: " + mAccount.getPhotoUrl());
+            return String.valueOf(mAccount.getPhotoUrl());
         }
         return null;
     }

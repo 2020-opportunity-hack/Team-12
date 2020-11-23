@@ -5,7 +5,10 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -14,19 +17,34 @@ import androidx.fragment.app.DialogFragment;
 
 import com.example.sundayfriendshack.Constants;
 import com.example.sundayfriendshack.R;
+import com.example.sundayfriendshack.manager.ToastManager;
+import com.example.sundayfriendshack.repo.AdminRepo.AdminContract;
+import com.example.sundayfriendshack.repo.AdminRepo.AdminRepo;
+import com.example.sundayfriendshack.utils.KeyboardUtils;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class FragmentDeposit extends DialogFragment {
+public class FragmentDeposit extends DialogFragment implements AdminContract.Model.onTicketDeposit {
 
 
     @BindView(R.id.frag_admindeposit_toolbar_text)
     public TextView mTvToolbarText;
 
+    @BindView(R.id.frag_admindeposit_et_amount)
+    EditText mEtDeposit;
+
+    @BindView(R.id.frag_admindeposit_btn_deposit)
+    Button mBtnDeposit;
+
     private String mToolbarName;
     private Context mContext;
+
+    private int mUserId;
+    private AdminRepo mRepo;
+
+    private int mAmountTicketsToDeposit = -1;
 
     public static FragmentDeposit newInstance(String name, int userId){
         Bundle args = new Bundle();
@@ -51,7 +69,10 @@ public class FragmentDeposit extends DialogFragment {
 
         if(getArguments() != null){
             this.mToolbarName = getArguments().getString(Constants.KEY_FRAGMENT_DEPOSIT_NAME);
+            this.mUserId = getArguments().getInt(Constants.KEY_FRAGMENT_USER_ID);
         }
+
+        mRepo = new AdminRepo(mContext);
 
     }
 
@@ -79,6 +100,20 @@ public class FragmentDeposit extends DialogFragment {
 
     @OnClick(R.id.frag_admindeposit_btn_deposit)
     public void onBtnDepositClick(){
+        KeyboardUtils.hideKeyboard(mEtDeposit);
+        String stringAmountToDeposit = mEtDeposit.getText().toString().trim();
+        mAmountTicketsToDeposit = Integer.parseInt(stringAmountToDeposit);
+        mRepo.depositTicket(mUserId, mAmountTicketsToDeposit, Constants.TICKET_ACTION_TYPE_DEPOSIT);
+    }
 
+    @Override
+    public void onSuccessTicketDeposit() {
+        mBtnDeposit.setVisibility(View.INVISIBLE);
+        Toast.makeText(mContext, "Successfully deposited: " + mAmountTicketsToDeposit + " Tickets", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onFailedTicketDeposit(Throwable t) {
+        ToastManager.displayNetworkError(mContext, t);
     }
 }

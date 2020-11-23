@@ -4,11 +4,20 @@ public class UserInfo {
     private int userId;
     private String name;
     private String email;
-    private int familyId;
+    private Integer familyId;
     private boolean isAdmin;
     private String imageUrl;
     private String address;
     private int balance;
+    private boolean isActive;
+
+    public boolean isActive() {
+        return isActive;
+    }
+
+    public void setActive(boolean active) {
+        isActive = active;
+    }
 
     public int getUserId() {
         return userId;
@@ -34,11 +43,11 @@ public class UserInfo {
         this.email = email;
     }
 
-    public int getFamilyId() {
+    public Integer getFamilyId() {
         return familyId;
     }
 
-    public void setFamilyId(int familyId) {
+    public void setFamilyId(Integer familyId) {
         this.familyId = familyId;
     }
 

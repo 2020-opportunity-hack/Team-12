@@ -50,4 +50,7 @@
     <color name="square3color_accent">#70D88B</color>
     <color name="square4color_accent">#8CD9FB</color>
 
+    <color name="editTextColor">#f2f2f2</color>
+    <color name="settingsPressedColor">#0F000000</color>
+
 </resources>
