@@ -13,6 +13,7 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import javax.transaction.Transactional;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
 
@@ -60,6 +61,16 @@ public class UserService {
         criteriaQuery.where(builder.equal(root.get("admin"), false));
         criteriaQuery.where(builder.equal(root.get("active"), true));
         List<Users> list = em.createQuery(criteriaQuery).getResultList();
+
+        Iterator<Users> itr = list.iterator();
+        while (itr.hasNext()) {
+            Users user = itr.next();
+            if (user.isAdmin()) {
+                itr.remove();
+            }
+        }
+
+
         return list;
     }
 
@@ -73,6 +84,14 @@ public class UserService {
         criteriaQuery.where(builder.equal(root.get("admin"), false));
         criteriaQuery.where(builder.equal(root.get("active"), true));
 		List<Users> list = em.createQuery(criteriaQuery).getResultList();
+
+        Iterator<Users> itr = list.iterator();
+        while (itr.hasNext()) {
+            Users user = itr.next();
+            if (user.isAdmin()) {
+                itr.remove();
+            }
+        }
 		return list;
     }
 
