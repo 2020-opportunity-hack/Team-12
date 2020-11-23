@@ -8,8 +8,15 @@
 
 import UIKit
 
+enum LinkFamilyFlow {
+  case linkFamily
+  case deactivateUsers
+  case activateUsers
+}
+
 class LinkFamilyViewController: ABaseViewController {
   var members: [User] = [User]()
+  var flow: LinkFamilyFlow = .linkFamily
   
   @IBOutlet weak var tableView: UITableView!
   
@@ -21,20 +28,40 @@ class LinkFamilyViewController: ABaseViewController {
   func refresh() {
     Loader.shared.start(onView: self.view)
     DispatchQueue.global(qos: .background).async {
-      self.adminService.fetchUsers { (result) in
-        DispatchQueue.main.async {
-          Loader.shared.stop()
-        }
-        switch result {
-        case .success(let users):
-          self.members = [User]()
-          self.members.append(contentsOf: users)
+      if self.flow == .activateUsers {
+        self.adminService.fetchDeactivatedUsers { (result) in
           DispatchQueue.main.async {
-            self.tableView.reloadData()
+            Loader.shared.stop()
           }
-        case .failure(_):
+          switch result {
+          case .success(let users):
+            self.members = [User]()
+            self.members.append(contentsOf: users)
+            DispatchQueue.main.async {
+              self.tableView.reloadData()
+            }
+          case .failure(_):
+            DispatchQueue.main.async {
+              UIAlertController.showError(withMessage: "Failed to fetch users", onViewController: self)
+            }
+          }
+        }
+      } else {
+        self.adminService.fetchUsers { (result) in
           DispatchQueue.main.async {
-            UIAlertController.showError(withMessage: "Failed to fetch users", onViewController: self)
+            Loader.shared.stop()
+          }
+          switch result {
+          case .success(let users):
+            self.members = [User]()
+            self.members.append(contentsOf: users)
+            DispatchQueue.main.async {
+              self.tableView.reloadData()
+            }
+          case .failure(_):
+            DispatchQueue.main.async {
+              UIAlertController.showError(withMessage: "Failed to fetch users", onViewController: self)
+            }
           }
         }
       }
@@ -59,8 +86,14 @@ extension LinkFamilyViewController: UITableViewDelegate, UITableViewDataSource {
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     let user = members[indexPath.row]
     DispatchQueue.main.async {
-      if let userId = user.userId, let name = user.name{
-        self.showAmountDialog(userId: userId, name: name)
+      if let userId = user.userId, let name = user.name {
+        if self.flow == .deactivateUsers {
+          self.showDeactivateDialog(userId: userId, name: name)
+        } else if self.flow == .activateUsers {
+          self.showActivateDialog(userId: userId, name: name)
+        } else {
+          self.showAmountDialog(userId: userId, name: name)
+        }
       } else {
         UIAlertController.showError(withMessage: "Invalid user", onViewController: self)
       }
@@ -117,6 +150,74 @@ extension LinkFamilyViewController: UITableViewDelegate, UITableViewDataSource {
               UIAlertController.showMessage(withTitle: "Success!", andMessage: "Family Successfully linked!", onViewController: self, okTappedCallback: {
                 self.navigationController?.popViewController(animated: true)
               })
+            }
+          } else {
+            DispatchQueue.main.async {
+              UIAlertController.showError(withMessage: "Oops! something went wrong. Please try again!", onViewController: self)
+            }
+          }
+        case .failure(_):
+          DispatchQueue.main.async {
+            UIAlertController.showError(withMessage: "Oops! something went wrong. Please try again!", onViewController: self)
+          }
+        }
+      }
+    }
+  }
+  
+}
+
+// MARK: Deactivate user
+extension LinkFamilyViewController {
+  
+  func showDeactivateDialog(userId: Int, name: String) {
+    let alertController = UIAlertController(title: "Deactivation", message: "Are you sure you want to deactivate \(name)?", preferredStyle: .alert)
+    let saveAction = UIAlertAction(title: "Confirm", style: .default, handler: { alert -> Void in
+      self.callDeactivationApi(userId: userId, deactivate: true)
+    })
+    let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: {
+      (action : UIAlertAction!) -> Void in })
+    
+    alertController.addAction(saveAction)
+    alertController.addAction(cancelAction)
+    
+    self.present(alertController, animated: true, completion: nil)
+  }
+  
+  func showActivateDialog(userId: Int, name: String) {
+    let alertController = UIAlertController(title: "Activation", message: "Are you sure you want to activate \(name)?", preferredStyle: .alert)
+    let saveAction = UIAlertAction(title: "Confirm", style: .default, handler: { alert -> Void in
+      self.callDeactivationApi(userId: userId, deactivate: false)
+    })
+    let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: {
+      (action : UIAlertAction!) -> Void in })
+    
+    alertController.addAction(saveAction)
+    alertController.addAction(cancelAction)
+    
+    self.present(alertController, animated: true, completion: nil)
+  }
+  
+  func callDeactivationApi(userId: Int, deactivate: Bool) {
+    Loader.shared.start(onView: self.view)
+    DispatchQueue.global(qos: .background).async {
+      self.adminService.deactivateUser(userId: userId, deactivate: deactivate) { (result) in
+        DispatchQueue.main.async {
+          Loader.shared.stop()
+        }
+        switch result {
+        case .success(let isSuccess):
+          if isSuccess {
+            DispatchQueue.main.async {
+              if deactivate {
+                UIAlertController.showMessage(withTitle: "Success!", andMessage: "User deactivated!", onViewController: self, okTappedCallback: {
+                  self.refresh()
+                })
+              } else {
+                UIAlertController.showMessage(withTitle: "Success!", andMessage: "User activated!", onViewController: self, okTappedCallback: {
+                  self.refresh()
+                })
+              }
             }
           } else {
             DispatchQueue.main.async {

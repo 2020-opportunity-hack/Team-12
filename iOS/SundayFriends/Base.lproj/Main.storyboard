@@ -177,22 +177,22 @@ If yes, You can join them by entering the same family Id</string>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BTt-j4-ETj">
                                         <rect key="frame" x="0.0" y="0.0" width="182" height="182"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="8ZH-WQ-5FP">
-                                                <rect key="frame" x="20" y="113.5" width="60" height="57.5"/>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Tickets_x3" translatesAutoresizingMaskIntoConstraints="NO" id="8ZH-WQ-5FP">
+                                                <rect key="frame" x="20" y="102" width="120" height="70"/>
                                                 <color key="tintColor" red="1" green="0.58431372550000005" blue="0.0" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="60" id="9GG-6U-QCF"/>
-                                                    <constraint firstAttribute="height" constant="60" id="gvx-wj-8Rp"/>
+                                                    <constraint firstAttribute="width" constant="120" id="9GG-6U-QCF"/>
+                                                    <constraint firstAttribute="height" constant="70" id="gvx-wj-8Rp"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Tickets" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XSc-A4-3HI">
-                                                <rect key="frame" x="20" y="30" width="100.5" height="24"/>
+                                                <rect key="frame" x="20" y="20" width="100.5" height="24"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="500" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JSZ-z9-Y1q">
-                                                <rect key="frame" x="20" y="59" width="58" height="36"/>
+                                                <rect key="frame" x="20" y="49" width="58" height="36"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -203,7 +203,7 @@ If yes, You can join them by entering the same family Id</string>
                                             <constraint firstAttribute="bottom" secondItem="8ZH-WQ-5FP" secondAttribute="bottom" constant="10" id="Gub-n0-hgr"/>
                                             <constraint firstItem="JSZ-z9-Y1q" firstAttribute="top" secondItem="XSc-A4-3HI" secondAttribute="bottom" constant="5" id="MBr-Rh-ALW"/>
                                             <constraint firstItem="XSc-A4-3HI" firstAttribute="leading" secondItem="BTt-j4-ETj" secondAttribute="leading" constant="20" id="WD2-Ht-G75"/>
-                                            <constraint firstItem="XSc-A4-3HI" firstAttribute="top" secondItem="BTt-j4-ETj" secondAttribute="top" constant="30" id="cwS-Ct-pBb"/>
+                                            <constraint firstItem="XSc-A4-3HI" firstAttribute="top" secondItem="BTt-j4-ETj" secondAttribute="top" constant="20" id="cwS-Ct-pBb"/>
                                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="XSc-A4-3HI" secondAttribute="trailing" id="e6f-Bk-zbM"/>
                                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="JSZ-z9-Y1q" secondAttribute="trailing" id="meO-GW-QQ2"/>
                                             <constraint firstItem="JSZ-z9-Y1q" firstAttribute="leading" secondItem="BTt-j4-ETj" secondAttribute="leading" constant="20" id="q3O-7u-R2p"/>
@@ -214,25 +214,25 @@ If yes, You can join them by entering the same family Id</string>
                                         <rect key="frame" x="192" y="0.0" width="182" height="182"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="55U-MM-c3P">
-                                                <rect key="frame" x="20" y="30" width="117.5" height="48"/>
+                                                <rect key="frame" x="20" y="20" width="117.5" height="48"/>
                                                 <string key="text">Recent
 Transactions</string>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="book.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="0mz-Xl-Tg4">
-                                                <rect key="frame" x="20" y="114" width="60" height="56.5"/>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Transactions_withdraw_x3" translatesAutoresizingMaskIntoConstraints="NO" id="0mz-Xl-Tg4">
+                                                <rect key="frame" x="20" y="102" width="120" height="70"/>
                                                 <color key="tintColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="60" id="Y18-d6-uwU"/>
-                                                    <constraint firstAttribute="height" constant="60" id="h5z-1l-UXi"/>
+                                                    <constraint firstAttribute="width" constant="120" id="Y18-d6-uwU"/>
+                                                    <constraint firstAttribute="height" constant="70" id="h5z-1l-UXi"/>
                                                 </constraints>
                                             </imageView>
                                         </subviews>
                                         <color key="backgroundColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="0.25" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstItem="55U-MM-c3P" firstAttribute="top" secondItem="ecm-QR-dsS" secondAttribute="top" constant="30" id="IXR-UB-okU"/>
+                                            <constraint firstItem="55U-MM-c3P" firstAttribute="top" secondItem="ecm-QR-dsS" secondAttribute="top" constant="20" id="IXR-UB-okU"/>
                                             <constraint firstItem="55U-MM-c3P" firstAttribute="leading" secondItem="ecm-QR-dsS" secondAttribute="leading" constant="20" id="IcA-tJ-E4p"/>
                                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="55U-MM-c3P" secondAttribute="trailing" id="LhW-d9-kmL"/>
                                             <constraint firstItem="0mz-Xl-Tg4" firstAttribute="leading" secondItem="ecm-QR-dsS" secondAttribute="leading" constant="20" id="bp1-Tv-9BS"/>
@@ -242,16 +242,16 @@ Transactions</string>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tri-El-Ot9">
                                         <rect key="frame" x="0.0" y="192" width="182" height="182"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.3.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="8Ad-pZ-g8N">
-                                                <rect key="frame" x="20" y="113.5" width="60" height="57"/>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Familymembers_x3" translatesAutoresizingMaskIntoConstraints="NO" id="8Ad-pZ-g8N">
+                                                <rect key="frame" x="20" y="92" width="120" height="80"/>
                                                 <color key="tintColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="60" id="iMm-wD-BcO"/>
-                                                    <constraint firstAttribute="height" constant="60" id="iUJ-hA-xYu"/>
+                                                    <constraint firstAttribute="width" constant="120" id="iMm-wD-BcO"/>
+                                                    <constraint firstAttribute="height" constant="80" id="iUJ-hA-xYu"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UC7-tg-dTC">
-                                                <rect key="frame" x="20" y="30" width="94.5" height="48"/>
+                                                <rect key="frame" x="20" y="20" width="94.5" height="48"/>
                                                 <string key="text">My Family
 Members</string>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="20"/>
@@ -263,7 +263,7 @@ Members</string>
                                         <constraints>
                                             <constraint firstItem="8Ad-pZ-g8N" firstAttribute="leading" secondItem="Tri-El-Ot9" secondAttribute="leading" constant="20" id="6yd-40-Sbp"/>
                                             <constraint firstAttribute="bottom" secondItem="8Ad-pZ-g8N" secondAttribute="bottom" constant="10" id="BX0-WA-gbx"/>
-                                            <constraint firstItem="UC7-tg-dTC" firstAttribute="top" secondItem="Tri-El-Ot9" secondAttribute="top" constant="30" id="Jxq-hu-tBO"/>
+                                            <constraint firstItem="UC7-tg-dTC" firstAttribute="top" secondItem="Tri-El-Ot9" secondAttribute="top" constant="20" id="Jxq-hu-tBO"/>
                                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="UC7-tg-dTC" secondAttribute="trailing" id="TCT-Rz-sXL"/>
                                             <constraint firstItem="UC7-tg-dTC" firstAttribute="leading" secondItem="Tri-El-Ot9" secondAttribute="leading" constant="20" id="xvm-uQ-pnt"/>
                                         </constraints>
@@ -272,17 +272,17 @@ Members</string>
                                         <rect key="frame" x="192" y="192" width="182" height="182"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Profile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Ow-cN-dSz">
-                                                <rect key="frame" x="20" y="30" width="93" height="24"/>
+                                                <rect key="frame" x="20" y="20" width="93" height="24"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="W46-kJ-Qz1">
-                                                <rect key="frame" x="20" y="113.5" width="60" height="57"/>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Profile_x3" translatesAutoresizingMaskIntoConstraints="NO" id="W46-kJ-Qz1">
+                                                <rect key="frame" x="20" y="72" width="120" height="100"/>
                                                 <color key="tintColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="60" id="XFA-ad-aV8"/>
-                                                    <constraint firstAttribute="width" constant="60" id="vFk-0G-7ix"/>
+                                                    <constraint firstAttribute="height" constant="100" id="XFA-ad-aV8"/>
+                                                    <constraint firstAttribute="width" constant="120" id="vFk-0G-7ix"/>
                                                 </constraints>
                                             </imageView>
                                         </subviews>
@@ -291,7 +291,7 @@ Members</string>
                                             <constraint firstItem="4Ow-cN-dSz" firstAttribute="leading" secondItem="2Gc-ED-zwb" secondAttribute="leading" constant="20" id="FV4-OT-mmQ"/>
                                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="4Ow-cN-dSz" secondAttribute="trailing" id="d2W-D7-k54"/>
                                             <constraint firstAttribute="bottom" secondItem="W46-kJ-Qz1" secondAttribute="bottom" constant="10" id="eqk-Nm-zFk"/>
-                                            <constraint firstItem="4Ow-cN-dSz" firstAttribute="top" secondItem="2Gc-ED-zwb" secondAttribute="top" constant="30" id="hW3-gW-QHy"/>
+                                            <constraint firstItem="4Ow-cN-dSz" firstAttribute="top" secondItem="2Gc-ED-zwb" secondAttribute="top" constant="20" id="hW3-gW-QHy"/>
                                             <constraint firstItem="W46-kJ-Qz1" firstAttribute="leading" secondItem="2Gc-ED-zwb" secondAttribute="leading" constant="20" id="mCz-i8-VdO"/>
                                         </constraints>
                                     </view>
@@ -784,12 +784,14 @@ Members</string>
         </scene>
     </scenes>
     <resources>
+        <image name="Familymembers_x3" width="326" height="153"/>
         <image name="Icon" width="1024" height="1024"/>
-        <image name="book.fill" catalog="system" width="128" height="100"/>
+        <image name="Profile_x3" width="444" height="234"/>
+        <image name="Tickets_x3" width="504" height="387"/>
+        <image name="Transactions_withdraw_x3" width="402" height="291"/>
         <image name="building-community large" width="288" height="384"/>
         <image name="chevron.right" catalog="system" width="96" height="128"/>
         <image name="google (1)" width="24" height="24"/>
-        <image name="heart.fill" catalog="system" width="128" height="109"/>
         <image name="house" catalog="system" width="128" height="110"/>
         <image name="house.fill" catalog="system" width="128" height="106"/>
         <image name="person" catalog="system" width="128" height="117"/>

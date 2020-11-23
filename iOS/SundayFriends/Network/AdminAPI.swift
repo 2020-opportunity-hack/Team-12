@@ -14,6 +14,8 @@ enum AdminAPIRequests: Requests {
   case fetchUsers
   case transact(userId: Int, amount: Int, type: Bool)
   case linkFamily(userId: Int, familyId: Int)
+  case deactivateUser(userId: Int, deactivate: Bool)
+  case fetchDeactivatedusers
   
   var url: URL? {
     switch self{
@@ -23,6 +25,10 @@ enum AdminAPIRequests: Requests {
       return URL.init(string: "\(BASE_URL)/admin/transact?userId=\(userId)&amount=\(amount)&type=\(type ? 1 : 0)")
     case .linkFamily(let userId, let familyId):
       return URL.init(string: "\(BASE_URL)/admin/link_family?userId=\(userId)&familyId=\(familyId)")
+    case .deactivateUser(let userId, let deactivate):
+      return URL.init(string: "\(BASE_URL)/admin/deactivate_user?userId=\(userId)&deactivate=\(deactivate)")
+    case .fetchDeactivatedusers:
+      return URL.init(string: "\(BASE_URL)/admin/deactivatedUsers")
     }
   }
   
@@ -31,6 +37,8 @@ enum AdminAPIRequests: Requests {
     case .fetchUsers: return nil
     case .transact(_,_,_): return nil
     case .linkFamily(_,_): return nil
+    case .deactivateUser(_,_): return nil
+    case .fetchDeactivatedusers: return nil
     }
   }
   
@@ -39,6 +47,8 @@ enum AdminAPIRequests: Requests {
     case .fetchUsers: return nil
     case .transact(_,_,_): return nil
     case .linkFamily(_,_): return nil
+    case .deactivateUser(_,_): return nil
+    case .fetchDeactivatedusers: return nil
     }
   }
 }
@@ -47,6 +57,8 @@ protocol AdminAPIInterface {
   func fetchUsers(completion: @escaping (Result<[User]>) -> ())
   func transact(userId: Int, amount: Int, type: Bool, completion: @escaping (Result<Bool>) -> ())
   func linkFamily(userId: Int, familyId: Int, completion: @escaping (Result<Bool>) -> ())
+  func deactivateUser(userId: Int, deactivate: Bool, completion: @escaping (Result<Bool>) -> ())
+  func fetchDeactivatedUsers(completion: @escaping (Result<[User]>) -> ())
 }
 
 class AdminAPI: AdminAPIInterface {
@@ -101,6 +113,38 @@ class AdminAPI: AdminAPIInterface {
     }
   }
   
+  func deactivateUser(userId: Int, deactivate: Bool, completion: @escaping (Result<Bool>) -> ()) {
+    let request = AdminAPIRequests.deactivateUser(userId: userId, deactivate: deactivate)
+    service.put(request: request, session: URLSession.shared) { (result, statusCode) in
+      switch result {
+      case .success(_):
+        if let code = statusCode, code == 200 {
+          completion(.success(true))
+        } else {
+          completion(.success(false))
+        }
+      case .failure(let error):
+        completion(.failure(error))
+      }
+    }
+  }
+  
+  func fetchDeactivatedUsers(completion: @escaping (Result<[User]>) -> ()) {
+    let request = AdminAPIRequests.fetchDeactivatedusers
+    service.get(request: request, session: URLSession.shared) { (result, statusCode) in
+      switch result {
+      case .success(let data):
+        do {
+          let userModel : [User] = try JSONDecoder().decode([User].self, from: data)
+          completion(.success(userModel))
+        } catch {
+          completion(.failure(error))
+        }
+      case .failure(let error):
+        completion(.failure(error))
+      }
+    }
+  }
   
 }
 
@@ -152,4 +196,11 @@ class AdminAPIMock: AdminAPIInterface {
     }
   }
   
+  func deactivateUser(userId: Int, deactivate: Bool, completion: @escaping (Result<Bool>) -> ()) {
+    completion(.failure(UserError.unableToParse))
+  }
+  
+  func fetchDeactivatedUsers(completion: @escaping (Result<[User]>) -> ()) {
+    completion(.failure(UserError.unableToParse))
+  }
 }

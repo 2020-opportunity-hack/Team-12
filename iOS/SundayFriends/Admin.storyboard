@@ -57,12 +57,12 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="list.dash" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="jiq-qh-XuO">
-                                        <rect key="frame" x="304" y="28" width="50" height="44"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Familymembers_x3" translatesAutoresizingMaskIntoConstraints="NO" id="jiq-qh-XuO">
+                                        <rect key="frame" x="234" y="10" width="120" height="80"/>
                                         <color key="tintColor" red="1" green="0.58431372550000005" blue="0.0" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="50" id="0qf-t2-sAf"/>
-                                            <constraint firstAttribute="height" constant="50" id="Qmo-3R-yDK"/>
+                                            <constraint firstAttribute="width" constant="120" id="0qf-t2-sAf"/>
+                                            <constraint firstAttribute="height" constant="80" id="Qmo-3R-yDK"/>
                                         </constraints>
                                     </imageView>
                                 </subviews>
@@ -84,12 +84,12 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plusminus.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="kSg-fA-ON3">
-                                        <rect key="frame" x="304" y="25.5" width="50" height="49"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Transactions_withdraw_x3" translatesAutoresizingMaskIntoConstraints="NO" id="kSg-fA-ON3">
+                                        <rect key="frame" x="234" y="10" width="120" height="80"/>
                                         <color key="tintColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="50" id="NYt-6p-Mda"/>
-                                            <constraint firstAttribute="height" constant="50" id="vhT-rR-mMz"/>
+                                            <constraint firstAttribute="width" constant="120" id="NYt-6p-Mda"/>
+                                            <constraint firstAttribute="height" constant="80" id="vhT-rR-mMz"/>
                                         </constraints>
                                     </imageView>
                                 </subviews>
@@ -111,12 +111,12 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="link.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="E78-em-xDG">
-                                        <rect key="frame" x="304" y="25.5" width="50" height="49"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Tickets_x3" translatesAutoresizingMaskIntoConstraints="NO" id="E78-em-xDG">
+                                        <rect key="frame" x="234" y="10" width="120" height="80"/>
                                         <color key="tintColor" red="0.2274509804" green="0.50980392159999999" blue="0.2274509804" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="50" id="BEx-Z8-8h3"/>
-                                            <constraint firstAttribute="height" constant="50" id="fRc-ar-7Ww"/>
+                                            <constraint firstAttribute="width" constant="120" id="BEx-Z8-8h3"/>
+                                            <constraint firstAttribute="height" constant="80" id="fRc-ar-7Ww"/>
                                         </constraints>
                                     </imageView>
                                 </subviews>
@@ -137,16 +137,48 @@
                                     <constraint firstAttribute="width" constant="30" id="ffb-TJ-jud"/>
                                 </constraints>
                             </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GEm-uK-xv9">
+                                <rect key="frame" x="20" y="700" width="374" height="100"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IlR-tw-Hxy">
+                                        <rect key="frame" x="20" y="24" width="159" height="52.5"/>
+                                        <string key="text">Activate or
+Deactivate user</string>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="22"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plusminus.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="2fD-rg-2dm">
+                                        <rect key="frame" x="234" y="10.5" width="120" height="79"/>
+                                        <color key="tintColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="80" id="QDT-AX-8Uz"/>
+                                            <constraint firstAttribute="width" constant="120" id="jEh-Cq-wI5"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="2kX-1v-e1Z"/>
+                                    <constraint firstItem="IlR-tw-Hxy" firstAttribute="leading" secondItem="GEm-uK-xv9" secondAttribute="leading" constant="20" id="5Tx-Ij-SVo"/>
+                                    <constraint firstAttribute="trailing" secondItem="2fD-rg-2dm" secondAttribute="trailing" constant="20" id="dDD-oh-Rcx"/>
+                                    <constraint firstItem="2fD-rg-2dm" firstAttribute="centerY" secondItem="GEm-uK-xv9" secondAttribute="centerY" id="gPU-bz-oX5"/>
+                                    <constraint firstItem="IlR-tw-Hxy" firstAttribute="centerY" secondItem="GEm-uK-xv9" secondAttribute="centerY" id="ggD-n6-i5Y"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="jTb-nI-kyi" firstAttribute="leading" secondItem="VmP-J5-uIt" secondAttribute="leading" constant="20" id="1ow-Br-D22"/>
+                            <constraint firstItem="GEm-uK-xv9" firstAttribute="top" secondItem="Vbi-UA-wIz" secondAttribute="bottom" constant="20" id="35E-0X-34Q"/>
                             <constraint firstItem="Vbi-UA-wIz" firstAttribute="top" secondItem="Vyp-qO-teR" secondAttribute="bottom" constant="20" id="78u-1v-Fs1"/>
                             <constraint firstItem="Eo9-q0-vOP" firstAttribute="trailing" secondItem="hW2-wI-33x" secondAttribute="trailing" constant="20" id="7iv-aA-AX7"/>
+                            <constraint firstItem="GEm-uK-xv9" firstAttribute="leading" secondItem="Eo9-q0-vOP" secondAttribute="leading" constant="20" id="8Bc-2F-Ued"/>
                             <constraint firstItem="WFO-5b-5n5" firstAttribute="top" secondItem="oOq-xG-hiC" secondAttribute="bottom" constant="20" id="8NS-Cc-BEL"/>
                             <constraint firstItem="N7P-3Q-EaT" firstAttribute="top" secondItem="Eo9-q0-vOP" secondAttribute="top" constant="30" id="9fk-dP-4Rq"/>
                             <constraint firstItem="WFO-5b-5n5" firstAttribute="leading" secondItem="Eo9-q0-vOP" secondAttribute="leading" constant="20" id="ADA-z1-Ny0"/>
                             <constraint firstItem="oOq-xG-hiC" firstAttribute="leading" secondItem="VmP-J5-uIt" secondAttribute="leading" constant="20" id="BVd-pw-3Fa"/>
+                            <constraint firstItem="Eo9-q0-vOP" firstAttribute="trailing" secondItem="GEm-uK-xv9" secondAttribute="trailing" constant="20" id="EZt-e1-LSK"/>
                             <constraint firstItem="Eo9-q0-vOP" firstAttribute="trailing" secondItem="Vbi-UA-wIz" secondAttribute="trailing" constant="20" id="Fgh-wP-WRu"/>
                             <constraint firstItem="Eo9-q0-vOP" firstAttribute="trailing" secondItem="WFO-5b-5n5" secondAttribute="trailing" constant="20" id="JR0-lf-vSm"/>
                             <constraint firstItem="Vyp-qO-teR" firstAttribute="leading" secondItem="Eo9-q0-vOP" secondAttribute="leading" constant="20" id="Kc5-h5-OI5"/>
@@ -170,6 +202,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Home" id="0Hd-ut-Jnv"/>
                     <connections>
+                        <outlet property="activateDeactivateCard" destination="GEm-uK-xv9" id="sl4-Qy-tjr"/>
                         <outlet property="dateLabel" destination="oOq-xG-hiC" id="gSW-yz-ARd"/>
                         <outlet property="greetingLabel" destination="hW2-wI-33x" id="A0j-ZL-X0D"/>
                         <outlet property="linkFamilyCard" destination="Vbi-UA-wIz" id="Lpv-XR-x6H"/>
@@ -430,6 +463,9 @@
                                 <state key="normal" title="Sign out">
                                     <color key="titleColor" red="0.2274509804" green="0.50980392159999999" blue="0.2274509804" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="signOutAction:" destination="gzG-4h-aVG" eventType="touchUpInside" id="WhV-Yo-TJK"/>
+                                </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="43u-NY-IGi">
                                 <rect key="frame" x="0.0" y="331" width="414" height="428"/>
@@ -507,6 +543,7 @@
                         <outlet property="headerView" destination="pD6-LZ-wDA" id="T2k-29-brn"/>
                         <outlet property="name" destination="1u0-SN-JRT" id="WiQ-XI-uKS"/>
                         <outlet property="profileImage" destination="0dR-dn-xnD" id="fnO-BQ-ONK"/>
+                        <outlet property="signOutButton" destination="xw8-SV-h37" id="ouq-fj-Oub"/>
                         <outlet property="tableView" destination="43u-NY-IGi" id="AKb-uf-wJ9"/>
                     </connections>
                 </viewController>
@@ -631,12 +668,13 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Familymembers_x3" width="326" height="153"/>
+        <image name="Tickets_x3" width="504" height="387"/>
+        <image name="Transactions_withdraw_x3" width="402" height="291"/>
         <image name="chevron.right" catalog="system" width="96" height="128"/>
         <image name="house" catalog="system" width="128" height="110"/>
         <image name="house.fill" catalog="system" width="128" height="106"/>
-        <image name="link.circle" catalog="system" width="128" height="121"/>
         <image name="list.bullet" catalog="system" width="128" height="88"/>
-        <image name="list.dash" catalog="system" width="128" height="85"/>
         <image name="person.circle.fill" catalog="system" width="128" height="121"/>
         <image name="person.crop.circle.fill.badge.checkmark" catalog="system" width="128" height="101"/>
         <image name="plusminus.circle" catalog="system" width="128" height="121"/>

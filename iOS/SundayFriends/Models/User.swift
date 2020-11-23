@@ -17,6 +17,7 @@ class User: Codable {
   var imageUrl: String?
   var address: String?
   var balance: Int?
+  var active: Bool?
   
   init() {}
 }

@@ -76,6 +76,7 @@ extension SignInManager: GIDSignInDelegate {
     DispatchQueue.global(qos: .background).async {
       self.service.onboardUser(user: user) { (result) in
         DispatchQueue.main.async {
+          Loader.shared.stop()
           switch result {
           case .success(let user):
             SignInManager.shared.currentUser = user
@@ -87,7 +88,6 @@ extension SignInManager: GIDSignInDelegate {
           case .failure(_):
             if let handler = self.handler { handler(.notSignedIn)}
           }
-          Loader.shared.stop()
           SignInManager.shared.isManualLogin = false
         }
       }
