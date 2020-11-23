@@ -91,6 +91,9 @@ public class UserService {
             if (user.isAdmin()) {
                 itr.remove();
             }
+            else if(user.getFamilyId() != familyId) {
+                itr.remove();
+            }
         }
 		return list;
     }
@@ -142,6 +145,19 @@ public class UserService {
         Root<Users> root = criteriaQuery.from(Users.class);
         criteriaQuery.select(root);
         criteriaQuery.where(builder.equal(root.get("email"),email));
+        List<Users> list = em.createQuery(criteriaQuery).getResultList();
+        if(list.size() == 0)
+            return null;
+        return list.get(0);
+    }
+
+    public Users getUser(Integer userId) {
+        CriteriaBuilder builder = em.getCriteriaBuilder();
+        CriteriaQuery<Users> criteriaQuery = builder.createQuery(Users.class);
+
+        Root<Users> root = criteriaQuery.from(Users.class);
+        criteriaQuery.select(root);
+        criteriaQuery.where(builder.equal(root.get("userId"),userId));
         List<Users> list = em.createQuery(criteriaQuery).getResultList();
         if(list.size() == 0)
             return null;
