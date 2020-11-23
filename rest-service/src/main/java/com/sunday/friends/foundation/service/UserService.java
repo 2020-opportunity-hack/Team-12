@@ -91,6 +91,9 @@ public class UserService {
             if (user.isAdmin()) {
                 itr.remove();
             }
+            else if(user.getFamilyId() != familyId) {
+                itr.remove();
+            }
         }
 		return list;
     }
