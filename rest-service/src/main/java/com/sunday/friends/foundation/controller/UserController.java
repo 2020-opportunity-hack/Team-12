@@ -71,7 +71,13 @@ public class UserController {
     @ResponseBody
     public Users onboardUser(@RequestParam Map<String, String> json) {
             try {
+                // Existing User
+                String email = json.get("email");
+                Users existingUser = userService.getUser(email);
+                if(existingUser != null)
+                    return existingUser;
 
+                // New User
                 Integer familyId;
                 if(json.get("familyId") == null)
                     familyId = familyService.addFamily();

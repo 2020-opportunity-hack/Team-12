@@ -91,4 +91,15 @@ public class UserService {
             userRepository.save(result);
         });
     }
+
+    public Users getUser(String email) {
+        CriteriaBuilder builder = em.getCriteriaBuilder();
+        CriteriaQuery<Users> criteriaQuery = builder.createQuery(Users.class);
+
+        Root<Users> root = criteriaQuery.from(Users.class);
+        criteriaQuery.select(root);
+        criteriaQuery.where(builder.equal(root.get("email"),email));
+        List<Users> list = em.createQuery(criteriaQuery).getResultList();
+        return list.get(0);
+    }
 }
