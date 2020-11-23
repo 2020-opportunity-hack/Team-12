@@ -1,6 +1,7 @@
 package com.sunday.friends.foundation.controller;
 
 import com.sunday.friends.foundation.model.Transactions;
+import com.sunday.friends.foundation.model.UserTransaction;
 import com.sunday.friends.foundation.model.Users;
 import com.sunday.friends.foundation.service.TransactionsService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,12 +26,13 @@ public class TransactionsController {
     }
 
     @GetMapping("/transactions")
-    public List<Transactions> getTransactionList(@RequestParam Map<String, String> json){
+    public UserTransaction getTransactionList(@RequestParam Map<String, String> json){
         try {
             Integer userId = Integer.valueOf(json.get("userId"));
             List<Transactions> transactionsList = transactionsService.getTransactionList(userId);
             System.out.println(userId);
-            return transactionsList;
+            UserTransaction userTransaction = new UserTransaction(userId, transactionsList);
+            return userTransaction;
         }
         catch (Exception e){
             System.out.println(e);
