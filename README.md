@@ -1,7 +1,7 @@
 
 ## Team-12
 
-# NPO - Sunday Friends Foundation
+## About NPO - Sunday Friends Foundation
 - [About Sunday Friends Foundation](https://www.sundayfriends.org)
 - [NPO Slack](https://opportunity-hack.slack.com/archives/C01CUAMHHKM)
 
