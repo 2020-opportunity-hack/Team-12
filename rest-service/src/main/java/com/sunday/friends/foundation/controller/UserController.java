@@ -59,6 +59,20 @@ public class UserController {
         }
     }
 
+    @GetMapping("/user/get_user")
+    public Users getUser(@RequestParam Map<String, String> json){
+        try {
+            Integer userId = Integer.valueOf(json.get("userId"));
+            Users user = userService.getUser(userId);
+            System.out.println(userId);
+            return user;
+        }
+        catch (Exception e){
+            System.out.println(e);
+            return null;
+        }
+    }
+
     @RequestMapping(value = "/admin/link_family", method = RequestMethod.PUT)
     @ResponseBody
     public ResponseEntity<?> updateFamilyLink(@RequestParam Map<String, String> json) {

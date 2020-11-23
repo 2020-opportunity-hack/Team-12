@@ -148,6 +148,19 @@ public class UserService {
         return list.get(0);
     }
 
+    public Users getUser(Integer userId) {
+        CriteriaBuilder builder = em.getCriteriaBuilder();
+        CriteriaQuery<Users> criteriaQuery = builder.createQuery(Users.class);
+
+        Root<Users> root = criteriaQuery.from(Users.class);
+        criteriaQuery.select(root);
+        criteriaQuery.where(builder.equal(root.get("userId"),userId));
+        List<Users> list = em.createQuery(criteriaQuery).getResultList();
+        if(list.size() == 0)
+            return null;
+        return list.get(0);
+    }
+
     public boolean deactivateUser(Integer userId, String deactivate) {
         Optional<Users> usersOptional = userRepository.findById(userId);
         usersOptional.ifPresent((Users result) -> {
