@@ -1,0 +1,11 @@
+EC2 connection details:
+
+1. Open Putty
+2. ec2-user@ec2-34-240-219-132.eu-west-1.compute.amazonaws.com
+3. SSH -> Auth -> load 'sundayfriends.ppk' file
+
+RDS connection details:
+#spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+#spring.datasource.url = jdbc:mysql://sundayfriends.c62g6f6vgqum.eu-west-1.rds.amazonaws.com/sundayfriends
+#spring.datasource.username = admin
+#spring.datasource.password = adminadmin
