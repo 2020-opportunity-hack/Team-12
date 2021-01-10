@@ -24,9 +24,10 @@ public class UserController {
     private FamilyService familyService;
 
     @GetMapping("/admin/fetchUsers")
-    public List<Users> list(){
+    public List<Users> list(@RequestParam Map<String, String> json){
         try {
-            return userService.getTotalList();
+            String searchQuery = String.valueOf(json.get("searchQuery"));
+            return userService.getTotalList(searchQuery);
         }
         catch (Exception e){
             System.out.println(e);
@@ -49,7 +50,8 @@ public class UserController {
     public List<Users> getFamilyList(@RequestParam Map<String, String> json){
         try {
             Integer familyId = Integer.valueOf(json.get("familyId"));
-            List<Users> userList = userService.getFamilyList(familyId);
+            String searchQuery = String.valueOf(json.get("searchQuery"));
+            List<Users> userList = userService.getFamilyList(familyId,searchQuery);
             System.out.println(familyId);
             return userList;
         }
@@ -131,7 +133,7 @@ public class UserController {
                     familyId = Integer.valueOf(json.get("familyId"));
 
                 Users newUser = new Users(json.get("name"), json.get("email"), familyId, json.get("imageUrl"));
-                newUser.setActive(true);
+                newUser.setActive(false);
 
                 if(familyService.getFamilyList(familyId).size() == 0)
                     familyService.addFamily(familyId);

@@ -52,7 +52,7 @@ public class UserService {
         List<Users> list = em.createQuery(criteriaQuery).getResultList();
         return list;
     }
-    public List<Users> getTotalList() {
+    public List<Users> getTotalList(String searchQuery) {
         CriteriaBuilder builder = em.getCriteriaBuilder();
         CriteriaQuery<Users> criteriaQuery = builder.createQuery(Users.class);
 
@@ -60,6 +60,9 @@ public class UserService {
         criteriaQuery.select(root);
         criteriaQuery.where(builder.equal(root.get("admin"), false));
         criteriaQuery.where(builder.equal(root.get("active"), true));
+        if (null != searchQuery && !searchQuery.isEmpty() && "null" != searchQuery) {
+            criteriaQuery.where(builder.like(root.get("email"),"%"+searchQuery+"%"));
+        }
         List<Users> list = em.createQuery(criteriaQuery).getResultList();
 
         Iterator<Users> itr = list.iterator();
@@ -74,7 +77,7 @@ public class UserService {
         return list;
     }
 
-    public List<Users> getFamilyList(Integer familyId) {
+    public List<Users> getFamilyList(Integer familyId, String searchQuery) {
         CriteriaBuilder builder = em.getCriteriaBuilder();
         CriteriaQuery<Users> criteriaQuery = builder.createQuery(Users.class);
 
@@ -83,6 +86,9 @@ public class UserService {
 		criteriaQuery.where(builder.equal(root.get("familyId"),familyId));
         criteriaQuery.where(builder.equal(root.get("admin"), false));
         criteriaQuery.where(builder.equal(root.get("active"), true));
+        if (null != searchQuery && !searchQuery.isEmpty() && "null" != searchQuery) {
+            criteriaQuery.where(builder.like(root.get("email"),"%"+searchQuery+"%"));
+        }
 		List<Users> list = em.createQuery(criteriaQuery).getResultList();
 
         Iterator<Users> itr = list.iterator();
