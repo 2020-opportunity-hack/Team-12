@@ -8,8 +8,8 @@
 
 import UIKit
 
-//private var BASE_URL: String = "http://34.240.219.132:8080"
-private var BASE_URL: String = "http://localhost:8080"
+private var BASE_URL: String = "http://34.240.219.132:8080"
+//private var BASE_URL: String = "http://localhost:8080"
 
 enum AdminAPIRequests: Requests {
   case fetchUsers(searchQuery: String?)
