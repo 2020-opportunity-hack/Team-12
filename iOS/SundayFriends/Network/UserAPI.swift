@@ -8,11 +8,12 @@
 
 import UIKit
 
-private var BASE_URL: String = "http://34.240.219.132:8080"
+//private var BASE_URL: String = "http://34.240.219.132:8080"
+private var BASE_URL: String = "http://localhost:8080"
 
 enum UserAPIRequests: Requests {
   case onboard(_ user: User?)
-  case getFamilyList(_ familyId: Int)
+  case getFamilyList(_ familyId: Int,_ searchQuery: String?)
   case getTransactionsList(_ userId: Int)
   
   var url: URL? {
@@ -29,8 +30,12 @@ enum UserAPIRequests: Requests {
         urlString.append("&familyId=\(familyId)")
       }
       return URL.init(string: urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)
-    case .getFamilyList(let familyId):
-      return URL.init(string: "\(BASE_URL)/user/get_family?familyId=\(familyId)")
+    case .getFamilyList(let familyId, let searchQuery):
+      if let searchQueery = searchQuery {
+        return URL.init(string: "\(BASE_URL)/user/get_family?familyId=\(familyId)&searchQuery=\(searchQueery)")
+      } else {
+        return URL.init(string: "\(BASE_URL)/user/get_family?familyId=\(familyId)")
+      }
     case .getTransactionsList(let userId):
       return URL.init(string: "\(BASE_URL)/user/transactions?userId=\(userId)")
     }
@@ -39,7 +44,7 @@ enum UserAPIRequests: Requests {
   var header: [String : String]?{
     switch self{
     case .onboard(_): return nil
-    case .getFamilyList(_): return nil
+    case .getFamilyList(_,_): return nil
     case .getTransactionsList(_): return nil
     }
   }
@@ -47,7 +52,7 @@ enum UserAPIRequests: Requests {
   var body: [String : AnyHashable]?{
     switch self{
     case .onboard(_): return nil
-    case .getFamilyList(_): return nil
+    case .getFamilyList(_,_): return nil
     case .getTransactionsList(_): return nil
     }
   }
@@ -55,7 +60,7 @@ enum UserAPIRequests: Requests {
 
 protocol UserAPIInterface {
   func onboardUser(user: User?, completion: @escaping (Result<User>) -> ())
-  func getFamilyList(familyId: Int, completion: @escaping (Result<[User]>) -> ())
+  func getFamilyList(familyId: Int, searchQuery: String?, completion: @escaping (Result<[User]>) -> ())
   func getTransactionsList(userId: Int, completion: @escaping (Result<TransactionMap>) -> ())
 }
 
@@ -80,8 +85,8 @@ class UserAPI: UserAPIInterface {
     }
   }
   
-  func getFamilyList(familyId: Int, completion: @escaping (Result<[User]>) -> ()) {
-    let request = UserAPIRequests.getFamilyList(familyId)
+  func getFamilyList(familyId: Int, searchQuery: String?, completion: @escaping (Result<[User]>) -> ()) {
+    let request = UserAPIRequests.getFamilyList(familyId, searchQuery)
     service.get(request: request, session: URLSession.shared) { (result, statusCode) in
       switch result {
       case .success(let data):
@@ -142,7 +147,7 @@ class UserAPIMock: UserAPIInterface {
     }
   }
   
-  func getFamilyList(familyId: Int, completion: @escaping (Result<[User]>) -> ()) {
+  func getFamilyList(familyId: Int, searchQuery: String?, completion: @escaping (Result<[User]>) -> ()) {
     if let path = Bundle.main.path(forResource: "user_getFamily", ofType: "json") {
       do {
         let url = URL.init(fileURLWithPath: path)

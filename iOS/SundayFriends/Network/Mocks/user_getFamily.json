@@ -7,7 +7,8 @@
     "isAdmin": false,
     "imageUrl": "https://lh3.googleusercontent.com/a-/AOh14GgqTkkLii5cHFz1Ro7HfNeXoK4HIsUah9Mvrpnr9pA=s100",
     "address": "abc lane, xyz city",
-    "balance": 550
+    "balance": 550,
+    "active": true
   },
   {
     "userId": 346435,
@@ -17,7 +18,8 @@
     "isAdmin": false,
     "imageUrl": "",
     "address": "",
-    "balance": 525
+    "balance": 525,
+    "active": true
   },
   {
     "userId": 346434,
@@ -27,6 +29,7 @@
     "isAdmin": false,
     "imageUrl": "",
     "address": "",
-    "balance": 250
+    "balance": 250,
+    "active": true
   }
 ]

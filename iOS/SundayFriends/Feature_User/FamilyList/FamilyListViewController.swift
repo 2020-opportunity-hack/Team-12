@@ -12,22 +12,39 @@ class FamilyListViewController: UBaseViewController {
   
   @IBOutlet weak var tableView: UITableView!
   var familyList: [User] = [User]()
+  @IBOutlet weak var searchButton: UIButton!
+  @IBOutlet weak var searchBar: UISearchBar!
   
-  @IBAction func refreshAction(_ sender: Any) {
+  @IBAction func refreshBarButtonClicked(_ sender: Any) {
+    self.searchBar.resignFirstResponder()
+    self.searchBar.text = ""
     self.refresh()
+  }
+  
+  @IBAction func searchAction(_ sender: Any) {
+    self.searchBar.resignFirstResponder()
+    if let text = self.searchBar.text {
+      self.refresh(searchText: text)
+    }
   }
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    refresh()
+    self.customizeSearch()
+    self.refresh()
   }
   
-  func refresh(){
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    self.searchBar.resignFirstResponder()
+  }
+  
+  func refresh(searchText: String? = nil){
     Loader.shared.start(onView: self.view)
     if let user = SignInManager.shared.currentUser, let familyId = user.familyId {
      self.familyList = [User]()
       //Append self
-      self.familyList.append(user)
+      //self.familyList.append(user)
       
 //      //Append dummy user
 //      let user1 = User()
@@ -41,13 +58,13 @@ class FamilyListViewController: UBaseViewController {
 //      self.familyList.append(user1)
       
       DispatchQueue.global(qos: .background).async {
-        self.service.getFamilyList(familyId: familyId) { (result) in
+        self.service.getFamilyList(familyId: familyId, searchQuery: searchText) { (result) in
           switch result {
           case .success(let users):
             
             //Append all family members execept self
-            let familyExceptUser = users.filter{ $0.userId != user.userId }
-            self.familyList.append(contentsOf: familyExceptUser)
+            //let familyExceptUser = users.filter{ $0.userId != user.userId }
+            self.familyList.append(contentsOf: users)
           case .failure(let error):
             DispatchQueue.main.async {
               if error.localizedDescription == UserError.empty.localizedDescription{
@@ -65,6 +82,30 @@ class FamilyListViewController: UBaseViewController {
       }
     }
   }
+  
+  func customizeSearch() {
+    self.searchButton.layer.cornerRadius = 10
+  }
+  
+}
+
+extension FamilyListViewController: UISearchBarDelegate {
+  
+  func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+    self.searchBar.resignFirstResponder()
+    if let text = self.searchBar.text {
+      self.refresh(searchText: text)
+    }
+  }
+  
+  func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+    if searchText.isEmpty {
+      if let text = self.searchBar.text {
+        self.refresh(searchText: text)
+      }
+    }
+  }
+  
 }
 
 extension FamilyListViewController: UITableViewDataSource, UITableViewDelegate {

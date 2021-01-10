@@ -17,11 +17,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     SignInManager.shared.kickOff { (status) in
       switch status {
-      case .notSignedIn:
+      case .notSignedIn(let message):
         let instance = SignInViewController.userInstance
         UIApplication.shared.windows.first?.rootViewController = instance
         if SignInManager.shared.isManualLogin {
-          UIAlertController.showError(withMessage: "Looks like we were not able to log you in. Pelase try again!", onViewController: instance)
+          if let message = message {
+            UIAlertController.showError(withMessage: message, onViewController: instance)
+          } else {
+            UIAlertController.showError(withMessage: "we were not able to log you in. Pelase try again!", onViewController: instance)
+          }
         }
         break
       case .signedIn((let role)):

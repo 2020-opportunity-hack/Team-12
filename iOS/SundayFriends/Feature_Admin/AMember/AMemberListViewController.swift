@@ -12,16 +12,34 @@ class AMemberListViewController: ABaseViewController {
   var members: [User] = [User]()
   
   @IBOutlet weak var tableView: UITableView!
+  @IBOutlet weak var searchBar: UISearchBar!
+  @IBOutlet weak var searchButton: UIButton!
+  
+  
+  @IBAction func refreshBarButtonClicked(_ sender: Any) {
+    self.searchBar.resignFirstResponder()
+    self.searchBar.text = ""
+    self.refresh()
+  }
+  
+  
+  @IBAction func searchClicked(_ sender: Any) {
+    self.searchBar.resignFirstResponder()
+    if let text = self.searchBar.text {
+      self.refresh(searchText: text)
+    }
+  }
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    self.customizeSearch()
     refresh()
   }
   
-  func refresh() {
+  func refresh(searchText: String? = nil) {
     Loader.shared.start(onView: self.view)
     DispatchQueue.global(qos: .background).async {
-      self.adminService.fetchUsers { (result) in
+      self.adminService.fetchUsers(searchQuery: searchText) { (result) in
         DispatchQueue.main.async {
           Loader.shared.stop()
         }
@@ -37,6 +55,28 @@ class AMemberListViewController: ABaseViewController {
             UIAlertController.showError(withMessage: "Failed to fetch users", onViewController: self)
           }
         }
+      }
+    }
+  }
+  
+  func customizeSearch() {
+    self.searchButton.layer.cornerRadius = 10
+  }
+}
+
+extension AMemberListViewController: UISearchBarDelegate {
+  
+  func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+    self.searchBar.resignFirstResponder()
+    if let text = self.searchBar.text {
+      self.refresh(searchText: text)
+    }
+  }
+  
+  func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+    if searchText.isEmpty {
+      if let text = self.searchBar.text {
+        self.refresh(searchText: text)
       }
     }
   }

@@ -47,7 +47,7 @@ class LinkFamilyViewController: ABaseViewController {
           }
         }
       } else {
-        self.adminService.fetchUsers { (result) in
+        self.adminService.fetchUsers(searchQuery: nil) { (result) in
           DispatchQueue.main.async {
             Loader.shared.stop()
           }

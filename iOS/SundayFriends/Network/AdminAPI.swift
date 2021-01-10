@@ -8,10 +8,11 @@
 
 import UIKit
 
-private var BASE_URL: String = "http://34.240.219.132:8080"
+//private var BASE_URL: String = "http://34.240.219.132:8080"
+private var BASE_URL: String = "http://localhost:8080"
 
 enum AdminAPIRequests: Requests {
-  case fetchUsers
+  case fetchUsers(searchQuery: String?)
   case transact(userId: Int, amount: Int, type: Bool)
   case linkFamily(userId: Int, familyId: Int)
   case deactivateUser(userId: Int, deactivate: Bool)
@@ -19,7 +20,10 @@ enum AdminAPIRequests: Requests {
   
   var url: URL? {
     switch self{
-    case .fetchUsers:
+    case .fetchUsers(let searchQuery):
+      if let searchQuery = searchQuery {
+        return URL.init(string: "\(BASE_URL)/admin/fetchUsers?searchQuery=\(searchQuery)")
+      }
       return URL.init(string: "\(BASE_URL)/admin/fetchUsers")
     case .transact(let userId, let amount, let type):
       return URL.init(string: "\(BASE_URL)/admin/transact?userId=\(userId)&amount=\(amount)&type=\(type ? 1 : 0)")
@@ -54,7 +58,7 @@ enum AdminAPIRequests: Requests {
 }
 
 protocol AdminAPIInterface {
-  func fetchUsers(completion: @escaping (Result<[User]>) -> ())
+  func fetchUsers(searchQuery: String?, completion: @escaping (Result<[User]>) -> ())
   func transact(userId: Int, amount: Int, type: Bool, completion: @escaping (Result<Bool>) -> ())
   func linkFamily(userId: Int, familyId: Int, completion: @escaping (Result<Bool>) -> ())
   func deactivateUser(userId: Int, deactivate: Bool, completion: @escaping (Result<Bool>) -> ())
@@ -64,8 +68,8 @@ protocol AdminAPIInterface {
 class AdminAPI: AdminAPIInterface {
   let service: Service = NetworkService()
   
-  func fetchUsers(completion: @escaping (Result<[User]>) -> ()) {
-    let request = AdminAPIRequests.fetchUsers
+  func fetchUsers(searchQuery: String?, completion: @escaping (Result<[User]>) -> ()) {
+    let request = AdminAPIRequests.fetchUsers(searchQuery: searchQuery)
     service.get(request: request, session: URLSession.shared) { (result, statusCode) in
       switch result {
       case .success(let data):
@@ -151,7 +155,7 @@ class AdminAPI: AdminAPIInterface {
 
 class AdminAPIMock: AdminAPIInterface {
   
-  func fetchUsers(completion: @escaping (Result<[User]>) -> ()) {
+  func fetchUsers(searchQuery: String?, completion: @escaping (Result<[User]>) -> ()) {
     if let path = Bundle.main.path(forResource: "admin_fetchUsers", ofType: "json") {
       do {
         let url = URL.init(fileURLWithPath: path)

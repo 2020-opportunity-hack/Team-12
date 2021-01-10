@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
+        <deployment version="4864" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -268,7 +268,7 @@ Deactivate user</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="sWq-Gi-nze">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <rect key="frame" x="0.0" y="144" width="414" height="669"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="MemberCell" rowHeight="110" id="K7W-xE-hMs" customClass="MemberCell" customModule="Sunday_Friends" customModuleProvider="target">
@@ -385,18 +385,55 @@ Deactivate user</string>
                                     <outlet property="delegate" destination="PwL-mh-GbD" id="rVg-Vw-9na"/>
                                 </connections>
                             </tableView>
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="8Ql-Ez-EH2">
+                                <rect key="frame" x="0.0" y="88" width="313" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <scopeButtonTitles>
+                                    <string>Title</string>
+                                    <string>Title</string>
+                                </scopeButtonTitles>
+                                <connections>
+                                    <outlet property="delegate" destination="PwL-mh-GbD" id="9zt-1t-hRN"/>
+                                </connections>
+                            </searchBar>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VLg-aU-lpY">
+                                <rect key="frame" x="323" y="98" width="81" height="36"/>
+                                <color key="backgroundColor" red="0.2274509804" green="0.50980392159999999" blue="0.2274509804" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                <inset key="contentEdgeInsets" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
+                                <state key="normal" title="Search">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="searchClicked:" destination="PwL-mh-GbD" eventType="touchUpInside" id="0P1-iG-vBS"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="VLg-aU-lpY" firstAttribute="top" secondItem="JGL-4V-FWc" secondAttribute="top" constant="10" id="4ZL-O6-kn7"/>
+                            <constraint firstItem="sWq-Gi-nze" firstAttribute="top" secondItem="VLg-aU-lpY" secondAttribute="bottom" constant="10" id="D9o-eT-Ngr"/>
+                            <constraint firstItem="JGL-4V-FWc" firstAttribute="trailing" secondItem="VLg-aU-lpY" secondAttribute="trailing" constant="10" id="JNx-oR-0XU"/>
                             <constraint firstItem="JGL-4V-FWc" firstAttribute="bottom" secondItem="sWq-Gi-nze" secondAttribute="bottom" id="KtM-5o-dEC"/>
+                            <constraint firstItem="8Ql-Ez-EH2" firstAttribute="top" secondItem="JGL-4V-FWc" secondAttribute="top" id="PeS-B5-odk"/>
+                            <constraint firstItem="8Ql-Ez-EH2" firstAttribute="leading" secondItem="JGL-4V-FWc" secondAttribute="leading" id="glA-pJ-Ukq"/>
                             <constraint firstItem="JGL-4V-FWc" firstAttribute="trailing" secondItem="sWq-Gi-nze" secondAttribute="trailing" id="ifa-So-4m3"/>
-                            <constraint firstItem="sWq-Gi-nze" firstAttribute="top" secondItem="JGL-4V-FWc" secondAttribute="top" id="q0m-yu-jrR"/>
                             <constraint firstItem="sWq-Gi-nze" firstAttribute="leading" secondItem="JGL-4V-FWc" secondAttribute="leading" id="q7E-eX-M2Q"/>
+                            <constraint firstItem="sWq-Gi-nze" firstAttribute="top" secondItem="8Ql-Ez-EH2" secondAttribute="bottom" id="ubu-bq-lgx"/>
+                            <constraint firstItem="VLg-aU-lpY" firstAttribute="leading" secondItem="8Ql-Ez-EH2" secondAttribute="trailing" constant="10" id="xl3-Xl-Ojb"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="JGL-4V-FWc"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Members" id="vYE-Br-bGv"/>
+                    <navigationItem key="navigationItem" title="Members" id="vYE-Br-bGv">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="arrow.clockwise" catalog="system" id="X9W-J1-H91">
+                            <connections>
+                                <action selector="refreshBarButtonClicked:" destination="PwL-mh-GbD" id="r3e-HY-el1"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="searchBar" destination="8Ql-Ez-EH2" id="cqj-5b-xT6"/>
+                        <outlet property="searchButton" destination="VLg-aU-lpY" id="6Dy-EX-V3l"/>
                         <outlet property="tableView" destination="sWq-Gi-nze" id="2Uw-Ny-Oak"/>
                     </connections>
                 </viewController>
@@ -443,32 +480,34 @@ Deactivate user</string>
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g4Y-in-kio">
+                                        <rect key="frame" x="334" y="50" width="70" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                        <state key="normal" title="Sign out">
+                                            <color key="titleColor" red="0.2274509804" green="0.50980392159999999" blue="0.2274509804" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="signOutAction:" destination="gzG-4h-aVG" eventType="touchUpInside" id="424-EK-xf4"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="0dR-dn-xnD" firstAttribute="top" secondItem="pD6-LZ-wDA" secondAttribute="top" constant="100" id="A8u-gQ-Lcg"/>
                                     <constraint firstItem="7zR-2C-qQb" firstAttribute="top" secondItem="L1i-UE-3Ic" secondAttribute="bottom" constant="20" id="Fcb-RO-pTP"/>
+                                    <constraint firstAttribute="trailing" secondItem="g4Y-in-kio" secondAttribute="trailing" constant="10" id="LRI-sA-FA8"/>
                                     <constraint firstAttribute="bottom" secondItem="7zR-2C-qQb" secondAttribute="bottom" constant="20" id="SFV-pk-QVr"/>
                                     <constraint firstItem="1u0-SN-JRT" firstAttribute="top" secondItem="0dR-dn-xnD" secondAttribute="bottom" constant="20" id="YPM-v2-aFU"/>
                                     <constraint firstItem="L1i-UE-3Ic" firstAttribute="centerX" secondItem="pD6-LZ-wDA" secondAttribute="centerX" id="e9n-6L-eYI"/>
                                     <constraint firstItem="0dR-dn-xnD" firstAttribute="centerX" secondItem="pD6-LZ-wDA" secondAttribute="centerX" id="ox3-GI-50G"/>
                                     <constraint firstItem="1u0-SN-JRT" firstAttribute="centerX" secondItem="pD6-LZ-wDA" secondAttribute="centerX" id="sBb-1w-ZYd"/>
                                     <constraint firstItem="7zR-2C-qQb" firstAttribute="centerX" secondItem="pD6-LZ-wDA" secondAttribute="centerX" id="v39-f5-irY"/>
+                                    <constraint firstItem="g4Y-in-kio" firstAttribute="top" secondItem="0dR-dn-xnD" secondAttribute="top" constant="-50" id="xRj-pl-Hzv"/>
                                     <constraint firstItem="L1i-UE-3Ic" firstAttribute="top" secondItem="1u0-SN-JRT" secondAttribute="bottom" constant="2" id="yON-WA-TWV"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xw8-SV-h37">
-                                <rect key="frame" x="172" y="759" width="70" height="34"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
-                                <state key="normal" title="Sign out">
-                                    <color key="titleColor" red="0.2274509804" green="0.50980392159999999" blue="0.2274509804" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="signOutAction:" destination="gzG-4h-aVG" eventType="touchUpInside" id="WhV-Yo-TJK"/>
-                                </connections>
-                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="43u-NY-IGi">
-                                <rect key="frame" x="0.0" y="331" width="414" height="428"/>
+                                <rect key="frame" x="0.0" y="331" width="414" height="482"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="AMoreCell" rowHeight="60" id="lXT-9E-jYK" customClass="AMoreCell" customModule="Sunday_Friends" customModuleProvider="target">
@@ -526,24 +565,22 @@ Deactivate user</string>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="43u-NY-IGi" firstAttribute="top" secondItem="pD6-LZ-wDA" secondAttribute="bottom" id="3PV-nt-gDA"/>
-                            <constraint firstItem="Lna-ZS-flx" firstAttribute="bottom" secondItem="xw8-SV-h37" secondAttribute="bottom" constant="20" id="BC3-t6-VkX"/>
-                            <constraint firstItem="xw8-SV-h37" firstAttribute="top" secondItem="43u-NY-IGi" secondAttribute="bottom" id="DAH-xx-sxU"/>
                             <constraint firstItem="Lna-ZS-flx" firstAttribute="trailing" secondItem="43u-NY-IGi" secondAttribute="trailing" id="bYH-Ug-U7n"/>
+                            <constraint firstItem="Lna-ZS-flx" firstAttribute="bottom" secondItem="43u-NY-IGi" secondAttribute="bottom" id="f7e-BU-GkR"/>
                             <constraint firstItem="pD6-LZ-wDA" firstAttribute="trailing" secondItem="Lna-ZS-flx" secondAttribute="trailing" id="hYz-ge-j4D"/>
                             <constraint firstItem="43u-NY-IGi" firstAttribute="leading" secondItem="Lna-ZS-flx" secondAttribute="leading" id="nrm-HL-qXe"/>
                             <constraint firstItem="pD6-LZ-wDA" firstAttribute="leading" secondItem="Lna-ZS-flx" secondAttribute="leading" id="oqg-oy-TFB"/>
                             <constraint firstItem="pD6-LZ-wDA" firstAttribute="top" secondItem="VuE-7d-D2S" secondAttribute="top" id="wDH-Em-iwN"/>
-                            <constraint firstItem="xw8-SV-h37" firstAttribute="centerX" secondItem="Lna-ZS-flx" secondAttribute="centerX" id="xOU-TV-Orm"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Lna-ZS-flx"/>
                     </view>
                     <navigationItem key="navigationItem" title="More" id="Tre-7p-HuD"/>
+                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="email" destination="L1i-UE-3Ic" id="QU6-uB-rOx"/>
                         <outlet property="headerView" destination="pD6-LZ-wDA" id="T2k-29-brn"/>
                         <outlet property="name" destination="1u0-SN-JRT" id="WiQ-XI-uKS"/>
                         <outlet property="profileImage" destination="0dR-dn-xnD" id="fnO-BQ-ONK"/>
-                        <outlet property="signOutButton" destination="xw8-SV-h37" id="ouq-fj-Oub"/>
                         <outlet property="tableView" destination="43u-NY-IGi" id="AKb-uf-wJ9"/>
                     </connections>
                 </viewController>
@@ -671,6 +708,7 @@ Deactivate user</string>
         <image name="Familymembers_x3" width="326" height="153"/>
         <image name="Tickets_x3" width="504" height="387"/>
         <image name="Transactions_withdraw_x3" width="402" height="291"/>
+        <image name="arrow.clockwise" catalog="system" width="115" height="128"/>
         <image name="chevron.right" catalog="system" width="96" height="128"/>
         <image name="house" catalog="system" width="128" height="110"/>
         <image name="house.fill" catalog="system" width="128" height="106"/>

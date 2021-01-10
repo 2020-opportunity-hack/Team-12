@@ -3,8 +3,9 @@
   "name": "Abhinav Roy",
   "email": "abhinav.roy23@gmail.com",
   "familyId": 101,
-  "isAdmin": true,
+  "admin": false,
   "imageUrl": "https://lh3.googleusercontent.com/a-/AOh14GgqTkkLii5cHFz1Ro7HfNeXoK4HIsUah9Mvrpnr9pA=s100",
   "address": "abc lane, xyz city",
-  "balance": 550
+  "balance": 550,
+  "active": true
 }
