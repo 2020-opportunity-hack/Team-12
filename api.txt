@@ -37,7 +37,7 @@ RESPONSE: STATUS 200 OK
 -----------------------------------
 
 METHOD: GET
-API: http://34.240.219.132:8080/user/get_family?familyId=1&?searchQuery=gmail
+API: http://34.240.219.132:8080/user/get_family?familyId=1&searchQuery=gmail
 RESPONSE:
 [
     {
