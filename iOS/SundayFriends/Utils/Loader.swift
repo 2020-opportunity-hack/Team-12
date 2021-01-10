@@ -19,7 +19,7 @@ class Loader: NSObject {
       loaderView = UIView.init(frame: appWindow.bounds)
       if let loaderView = loaderView {
         loaderView.backgroundColor = UIColor.black.withAlphaComponent(0.6)
-        let activityIndicator : UIActivityIndicatorView = UIActivityIndicatorView.init(style: .whiteLarge)
+        let activityIndicator : UIActivityIndicatorView = UIActivityIndicatorView.init(style: .large)
         activityIndicator.color = UIColor.white
         activityIndicator.center = loaderView.center
         DispatchQueue.main.async {
@@ -36,7 +36,7 @@ class Loader: NSObject {
     loaderView = UIView.init(frame: view.bounds)
     if let loaderView = loaderView {
       loaderView.backgroundColor = UIColor.black.withAlphaComponent(0.6)
-      let activityIndicator : UIActivityIndicatorView = UIActivityIndicatorView.init(style: .whiteLarge)
+      let activityIndicator : UIActivityIndicatorView = UIActivityIndicatorView.init(style: .large)
       activityIndicator.color = UIColor.white
       activityIndicator.center = loaderView.center
       DispatchQueue.main.async {

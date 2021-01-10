@@ -17,7 +17,7 @@ enum SignInRole {
 }
 
 enum SignInStatus{
-  case notSignedIn
+  case notSignedIn(_ message: String?)
   case signedIn(_ role: SignInRole)
 }
 
@@ -58,7 +58,7 @@ extension SignInManager: GIDSignInDelegate {
   
   func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
     if let _ = error {
-      if let handler = handler { handler(.notSignedIn) }
+      if let handler = handler { handler(.notSignedIn(nil)) }
       Loader.shared.stop()
       return
     }
@@ -82,11 +82,13 @@ extension SignInManager: GIDSignInDelegate {
             SignInManager.shared.currentUser = user
             if user.admin {
               if let handler = self.handler { handler(.signedIn(.admin))}
-            } else {
+            } else if let active = user.active, active{
               if let handler = self.handler { handler(.signedIn(.user))}
+            } else {
+              if let handler = self.handler { handler(.notSignedIn("Please contact admin to get your account activated!"))}
             }
           case .failure(_):
-            if let handler = self.handler { handler(.notSignedIn)}
+            if let handler = self.handler { handler(.notSignedIn(nil))}
           }
           SignInManager.shared.isManualLogin = false
         }

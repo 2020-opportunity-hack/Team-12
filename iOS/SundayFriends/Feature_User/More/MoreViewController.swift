@@ -10,6 +10,7 @@ import UIKit
 
 class MoreViewController: UBaseViewController {
   
+  @IBOutlet weak var toast: UILabel!
   @IBOutlet weak var headerView: UIView!
   @IBOutlet weak var profileImage: UIImageView!
   @IBOutlet weak var name: UILabel!
@@ -50,6 +51,10 @@ class MoreViewController: UBaseViewController {
       
       if let address = user.address {
         profileDS.append(("Address", address))
+      }
+      
+      if let familyId = user.familyId {
+        profileDS.append(("Family Id", "\(familyId)"))
       }
     }
   }
@@ -103,7 +108,37 @@ extension MoreViewController: UITableViewDataSource, UITableViewDelegate{
     let current = profileDS[indexPath.row]
     cell.nameLabel.text = current.header
     cell.detailLabel.text = current.value
+    if current.header == "Family Id" {
+      let imageView = UIImageView.init(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
+      imageView.tintColor = AppUtils.THEME_COLOR
+      imageView.image = UIImage.init(named: "copy")?.withRenderingMode(.alwaysTemplate)
+      cell.accessoryView = imageView
+    } else {
+      cell.accessoryView = nil
+    }
     return cell
+  }
+  
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    let current = profileDS[indexPath.row]
+    if current.header == "Family Id", let familyId = SignInManager.shared.currentUser?.familyId {
+      print("copied")
+      UIPasteboard.general.string = "\(familyId)"
+      showCopiedToast()
+    }
+  }
+  
+  func showCopiedToast(){
+    self.toast.text = " Family Id Copied! "
+    self.toast.layer.cornerRadius = 5
+    self.toast.clipsToBounds = true
+    self.toast.isHidden = false
+    self.toast.alpha = 1.0
+    UIView.animate(withDuration: 1.5, animations: {
+      self.toast.alpha = 0.0
+    }) { (success) in
+      self.toast.isHidden = true
+    }
   }
   
   func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {

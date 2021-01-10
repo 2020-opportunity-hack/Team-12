@@ -30,6 +30,8 @@ class FamilyCell: UITableViewCell {
   override func prepareForReuse() {
     if #available(iOS 13.0, *) {
       self.memberImage.image = UIImage.init(systemName: "person.circle.fill")
+    } else {
+      self.memberImage.image = nil
     }
   }
 }
