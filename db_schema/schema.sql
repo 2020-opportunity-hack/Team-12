@@ -1,59 +1,85 @@
-CREATE DATABASE IF NOT EXISTS sundayfriends;
-USE sundayfriends;
+CREATE DATABASE  IF NOT EXISTS `sundayfriends` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `sundayfriends`;
+-- MySQL dump 10.13  Distrib 8.0.22, for macos10.15 (x86_64)
+--
+-- Host: 127.0.0.1    Database: sundayfriends
+-- ------------------------------------------------------
+-- Server version 8.0.22
 
-CREATE TABLE IF NOT EXISTS `Family` (
-  `familyId` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `address` varchar(200),
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `Family`
+--
+
+DROP TABLE IF EXISTS `Family`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `Family` (
+  `familyId` int unsigned NOT NULL AUTO_INCREMENT,
+  `address` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`familyId`)
-) DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
-CREATE TABLE IF NOT EXISTS `Users` (
-  `userId` int(10) unsigned NOT NULL AUTO_INCREMENT,
+--
+-- Table structure for table `Transactions`
+--
+
+DROP TABLE IF EXISTS `Transactions`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `Transactions` (
+  `transactionid` int unsigned NOT NULL AUTO_INCREMENT,
+  `userId` int unsigned NOT NULL,
+  `type` tinyint(1) DEFAULT NULL,
+  `amount` int unsigned NOT NULL,
+  `balanceAfterAction` int unsigned NOT NULL,
+  `time` datetime DEFAULT NULL,
+  PRIMARY KEY (`transactionid`),
+  KEY `userId` (`userId`),
+  CONSTRAINT `transactions_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `Users` (`userId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `Users`
+--
+
+DROP TABLE IF EXISTS `Users`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `Users` (
+  `userId` int unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(200) NOT NULL,
   `email` varchar(200) NOT NULL,
-  `familyId` int(10) unsigned NOT NULL,
-  `isAdmin` boolean,
-  `imageUrl` varchar(600),
-  `balance` int(10) unsigned NOT NULL,
+  `familyId` int unsigned NOT NULL,
+  `isAdmin` tinyint(1) DEFAULT '0',
+  `imageUrl` varchar(600) DEFAULT NULL,
+  `balance` int unsigned NOT NULL,
+  `isActive` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`userId`),
-  FOREIGN KEY (`familyId`) REFERENCES Family(`familyId`)
-) DEFAULT CHARSET=utf8;
+  KEY `familyId` (`familyId`),
+  CONSTRAINT `users_ibfk_1` FOREIGN KEY (`familyId`) REFERENCES `Family` (`familyId`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
-CREATE TABLE IF NOT EXISTS `Transactions` (
-  `transactionid` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `userId` int(10) unsigned NOT NULL,
-  `type` boolean,
-  `amount` int(10) unsigned NOT NULL,
-  `balanceAfterAction` int(10) unsigned NOT NULL,
-  `time` datetime,
-  PRIMARY KEY (`transactionid`),
-  FOREIGN KEY (`userId`) REFERENCES Users(`userId`)
-) DEFAULT CHARSET=utf8;
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
-
-/*
--- In case of new family, insert into family table first and use that family id to make new insert in user table
-INSERT INTO `Family` (`address`) VALUES
-  ("New Jersey");
-
-INSERT INTO `Users` (`name`, `email`, `familyId`, `isAdmin`, `imageUrl`,  `balance`) VALUES
-  ('ABC', 'abc@gmail.com', 1, true, null, 0);
-  
-INSERT INTO `Users` (`name`, `email`, `familyId`, `isAdmin`, `imageUrl`,  `balance`) VALUES
-  ('DEF', 'def@gmail.com', 1, true, null, 0);
-
-INSERT INTO `Users` (`name`, `email`, `familyId`, `isAdmin`, `imageUrl`,  `balance`) VALUES
-  ('GHI', 'ghi@gmail.com', 1, true, null, 0);
-  
-INSERT INTO `Family` (`address`) VALUES
-  ("New York");
-  
-INSERT INTO `Users` (`name`, `email`, `familyId`, `isAdmin`, `imageUrl`,  `balance`) VALUES
-  ('PQR', 'pqr@gmail.com', 2, true, null, 0);
-  
-INSERT INTO `Transactions` (`userId`, `type`, `amount`, `balanceAfterAction`, `time`) VALUES
-  (1, true, 20, 20, now());
-  
-INSERT INTO `Transactions` (`userId`, `type`, `amount`, `balanceAfterAction`, `time`) VALUES
-  (1, true, 20, 40, now());
-*/
+-- Dump completed on 2021-01-16 19:54:44
