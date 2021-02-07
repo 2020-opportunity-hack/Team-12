@@ -27,7 +27,17 @@ public class UserController {
     public List<Users> list(@RequestParam Map<String, String> json){
         try {
             String searchQuery = String.valueOf(json.get("searchQuery"));
-            return userService.getTotalList(searchQuery);
+            String offsetString = json.get("offset");
+            Integer offset = null;
+            if (null != offsetString && !offsetString.isEmpty() && "null" != offsetString) {
+                offset = Integer.valueOf(json.get("offset"));
+            }
+            String limitString = json.get("limit");
+            Integer limit = null;
+            if (null != limitString && !limitString.isEmpty() && "null" != limitString) {
+                limit = Integer.valueOf(json.get("limit"));
+            }
+            return userService.getTotalList(searchQuery, offset, limit);
         }
         catch (Exception e){
             System.out.println(e);
@@ -36,9 +46,20 @@ public class UserController {
     }
 
     @GetMapping("/admin/deactivatedUsers")
-    public List<Users> getDeactivateList(){
+    public List<Users> getDeactivateList(@RequestParam Map<String, String> json){
         try {
-            return userService.getDeactivateList();
+            String searchQuery = String.valueOf(json.get("searchQuery"));
+            String offsetString = json.get("offset");
+            Integer offset = null;
+            if (null != offsetString && !offsetString.isEmpty() && "null" != offsetString) {
+                offset = Integer.valueOf(json.get("offset"));
+            }
+            String limitString = json.get("limit");
+            Integer limit = null;
+            if (null != limitString && !limitString.isEmpty() && "null" != limitString) {
+                limit = Integer.valueOf(json.get("limit"));
+            }
+            return userService.getDeactivateList(searchQuery, offset, limit);
         }
         catch (Exception e){
             System.out.println(e);
@@ -51,7 +72,17 @@ public class UserController {
         try {
             Integer familyId = Integer.valueOf(json.get("familyId"));
             String searchQuery = String.valueOf(json.get("searchQuery"));
-            List<Users> userList = userService.getFamilyList(familyId,searchQuery);
+            String offsetString = json.get("offset");
+            Integer offset = null;
+            if (null != offsetString && !offsetString.isEmpty() && "null" != offsetString) {
+                offset = Integer.valueOf(json.get("offset"));
+            }
+            String limitString = json.get("limit");
+            Integer limit = null;
+            if (null != limitString && !limitString.isEmpty() && "null" != limitString) {
+                limit = Integer.valueOf(json.get("limit"));
+            }
+            List<Users> userList = userService.getFamilyList(familyId, searchQuery, offset, limit);
             System.out.println(familyId);
             return userList;
         }
