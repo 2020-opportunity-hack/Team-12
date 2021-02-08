@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
@@ -24,6 +25,20 @@ public class FamilyService {
 
     public List<Family> listAll(){
         return familyRepository.findAll();
+    }
+
+    public List<Family> getTotalList(Integer offset, Integer limit) {
+        CriteriaBuilder builder = em.getCriteriaBuilder();
+        CriteriaQuery<Family> criteriaQuery = builder.createQuery(Family.class);
+
+        Root<Family> root = criteriaQuery.from(Family.class);
+        criteriaQuery.select(root);
+        TypedQuery typedQuery = em.createQuery(criteriaQuery);
+        if (null != offset && null != limit) {
+            typedQuery.setFirstResult(offset);
+            typedQuery.setMaxResults(limit);
+        }
+        return typedQuery.getResultList();
     }
 
     public List<Family> getFamilyList(Integer familyId) {

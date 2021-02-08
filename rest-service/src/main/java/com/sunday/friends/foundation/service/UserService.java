@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
@@ -42,17 +43,24 @@ public class UserService {
         return true;
     }
 
-    public List<Users> getDeactivateList() {
+    public List<Users> getDeactivateList(String searchQuery, Integer offset, Integer limit) {
         CriteriaBuilder builder = em.getCriteriaBuilder();
         CriteriaQuery<Users> criteriaQuery = builder.createQuery(Users.class);
 
         Root<Users> root = criteriaQuery.from(Users.class);
         criteriaQuery.select(root);
         criteriaQuery.where(builder.equal(root.get("active"), false));
-        List<Users> list = em.createQuery(criteriaQuery).getResultList();
-        return list;
+        if (null != searchQuery && !searchQuery.isEmpty() && "null" != searchQuery) {
+            criteriaQuery.where(builder.like(root.get("email"),"%"+searchQuery+"%"));
+        }
+        TypedQuery typedQuery = em.createQuery(criteriaQuery);
+        if (null != offset && null != limit) {
+            typedQuery.setFirstResult(offset);
+            typedQuery.setMaxResults(limit);
+        }
+        return typedQuery.getResultList();
     }
-    public List<Users> getTotalList(String searchQuery) {
+    public List<Users> getTotalList(String searchQuery, Integer offset, Integer limit) {
         CriteriaBuilder builder = em.getCriteriaBuilder();
         CriteriaQuery<Users> criteriaQuery = builder.createQuery(Users.class);
 
@@ -63,7 +71,12 @@ public class UserService {
         if (null != searchQuery && !searchQuery.isEmpty() && "null" != searchQuery) {
             criteriaQuery.where(builder.like(root.get("email"),"%"+searchQuery+"%"));
         }
-        List<Users> list = em.createQuery(criteriaQuery).getResultList();
+        TypedQuery typedQuery = em.createQuery(criteriaQuery);
+        if (null != offset && null != limit) {
+            typedQuery.setFirstResult(offset);
+            typedQuery.setMaxResults(limit);
+        }
+        List<Users> list = typedQuery.getResultList();
 
         Iterator<Users> itr = list.iterator();
         while (itr.hasNext()) {
@@ -72,12 +85,10 @@ public class UserService {
                 itr.remove();
             }
         }
-
-
         return list;
     }
 
-    public List<Users> getFamilyList(Integer familyId, String searchQuery) {
+    public List<Users> getFamilyList(Integer familyId, String searchQuery, Integer offset, Integer limit) {
         CriteriaBuilder builder = em.getCriteriaBuilder();
         CriteriaQuery<Users> criteriaQuery = builder.createQuery(Users.class);
 
@@ -89,7 +100,13 @@ public class UserService {
         if (null != searchQuery && !searchQuery.isEmpty() && "null" != searchQuery) {
             criteriaQuery.where(builder.like(root.get("email"),"%"+searchQuery+"%"));
         }
-		List<Users> list = em.createQuery(criteriaQuery).getResultList();
+        TypedQuery typedQuery = em.createQuery(criteriaQuery);
+        if (null != offset && null != limit) {
+            typedQuery.setFirstResult(offset);
+            typedQuery.setMaxResults(limit);
+        }
+
+        List<Users> list = typedQuery.getResultList();
 
         Iterator<Users> itr = list.iterator();
         while (itr.hasNext()) {
@@ -101,7 +118,7 @@ public class UserService {
                 itr.remove();
             }
         }
-		return list;
+        return list;
     }
 
     @Transactional

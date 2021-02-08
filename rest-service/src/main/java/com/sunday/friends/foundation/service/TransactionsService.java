@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
@@ -27,15 +28,20 @@ public class TransactionsService {
     }
 
 
-    public List<Transactions> getTransactionList(Integer userId) {
+    public List<Transactions> getTransactionList(Integer userId, Integer offset, Integer limit) {
         CriteriaBuilder builder = em.getCriteriaBuilder();
         CriteriaQuery<Transactions> criteriaQuery = builder.createQuery(Transactions.class);
 
         Root<Transactions> root = criteriaQuery.from(Transactions.class);
         criteriaQuery.select(root);
         criteriaQuery.where(builder.equal(root.get("userId"),userId));
-        List<Transactions> list = em.createQuery(criteriaQuery).getResultList();
-        return list;
+
+        TypedQuery typedQuery = em.createQuery(criteriaQuery);
+        if (null != offset && null != limit) {
+            typedQuery.setFirstResult(offset);
+            typedQuery.setMaxResults(limit);
+        }
+        return typedQuery.getResultList();
     }
 
     @Transactional

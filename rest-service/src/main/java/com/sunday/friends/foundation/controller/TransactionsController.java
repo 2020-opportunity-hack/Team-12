@@ -29,7 +29,17 @@ public class TransactionsController {
     public UserTransaction getTransactionList(@RequestParam Map<String, String> json){
         try {
             Integer userId = Integer.valueOf(json.get("userId"));
-            List<Transactions> transactionsList = transactionsService.getTransactionList(userId);
+            String offsetString = json.get("offset");
+            Integer offset = null;
+            if (null != offsetString && !offsetString.isEmpty() && "null" != offsetString) {
+                offset = Integer.valueOf(json.get("offset"));
+            }
+            String limitString = json.get("limit");
+            Integer limit = null;
+            if (null != limitString && !limitString.isEmpty() && "null" != limitString) {
+                limit = Integer.valueOf(json.get("limit"));
+            }
+            List<Transactions> transactionsList = transactionsService.getTransactionList(userId, offset, limit);
             System.out.println(userId);
             UserTransaction userTransaction = new UserTransaction(userId, transactionsList);
             return userTransaction;
