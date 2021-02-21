@@ -5,10 +5,7 @@ import com.sunday.friends.foundation.model.UserTransaction;
 import com.sunday.friends.foundation.model.Users;
 import com.sunday.friends.foundation.service.TransactionsService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Map;
@@ -18,13 +15,13 @@ import java.util.Map;
 public class TransactionsController {
     @Autowired
     private TransactionsService transactionsService;
-
+    @CrossOrigin("http://ec2-184-169-189-74.us-west-1.compute.amazonaws.com")
     @GetMapping("/AllTransactions")
     public List<Transactions> list(){
 
         return transactionsService.listAll();
     }
-
+    @CrossOrigin("http://ec2-184-169-189-74.us-west-1.compute.amazonaws.com")
     @GetMapping("/transactions")
     public UserTransaction getTransactionList(@RequestParam Map<String, String> json){
         try {

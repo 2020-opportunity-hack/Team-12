@@ -1,10 +1,7 @@
 package com.sunday.friends.foundation.controller;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
 import java.security.GeneralSecurityException;
@@ -12,6 +9,7 @@ import java.util.Map;
 import java.util.NoSuchElementException;
 
 public class VerifyTokenController {
+    @CrossOrigin("http://ec2-184-169-189-74.us-west-1.compute.amazonaws.com")
     @RequestMapping(value = "/tokensignin", method = RequestMethod.POST)
     @ResponseBody
     public ResponseEntity<Object> doVerify(@RequestParam Map<String, String> json) {
