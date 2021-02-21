@@ -7,6 +7,8 @@ import com.sunday.friends.foundation.service.TransactionsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
+import java.security.GeneralSecurityException;
 import java.util.List;
 import java.util.Map;
 
@@ -17,13 +19,19 @@ public class TransactionsController {
     private TransactionsService transactionsService;
     @CrossOrigin("http://ec2-184-169-189-74.us-west-1.compute.amazonaws.com")
     @GetMapping("/AllTransactions")
-    public List<Transactions> list(){
-
+    public List<Transactions> list(@RequestHeader Map<String, String> headers) throws GeneralSecurityException, IOException {
+        if(!TokenVerifier.verify(headers)){
+            return null;
+        }
         return transactionsService.listAll();
     }
     @CrossOrigin("http://ec2-184-169-189-74.us-west-1.compute.amazonaws.com")
     @GetMapping("/transactions")
-    public UserTransaction getTransactionList(@RequestParam Map<String, String> json){
+    public UserTransaction getTransactionList(@RequestParam Map<String, String> json, @RequestHeader Map<String, String> headers) throws GeneralSecurityException, IOException {
+
+        if(!TokenVerifier.verify(headers)){
+            return null;
+        }
         try {
             Integer userId = Integer.valueOf(json.get("userId"));
             String offsetString = json.get("offset");

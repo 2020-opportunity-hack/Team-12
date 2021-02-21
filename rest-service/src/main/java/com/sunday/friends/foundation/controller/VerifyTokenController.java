@@ -17,18 +17,20 @@ public class VerifyTokenController {
 
             String idToken = String.valueOf(json.get("idtoken"));
             String clientId = String.valueOf(json.get("clientId"));
-            TokenVerifier.verify(idToken, clientId);
+            //TokenVerifier.verify(idToken, clientId);
             return new ResponseEntity<>(HttpStatus.OK);
         }
 
         catch (NoSuchElementException e){
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        } catch (GeneralSecurityException e) {
-            e.printStackTrace();
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        } catch (IOException e) {
-            e.printStackTrace();
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
+//        catch (GeneralSecurityException e) {
+//            e.printStackTrace();
+//            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+//        }
+//        catch (IOException e) {
+//            e.printStackTrace();
+//            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+//        }
     }
 }

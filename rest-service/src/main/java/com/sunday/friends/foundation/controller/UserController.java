@@ -9,6 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.io.IOException;
+import java.security.GeneralSecurityException;
 import java.util.*;
 
 @RestController
@@ -24,7 +27,10 @@ public class UserController {
     private FamilyService familyService;
     @CrossOrigin("http://ec2-184-169-189-74.us-west-1.compute.amazonaws.com")
     @GetMapping("/admin/fetchUsers")
-    public List<Users> list(@RequestParam Map<String, String> json){
+    public List<Users> list(@RequestParam Map<String, String> json, @RequestHeader Map<String, String> headers) throws GeneralSecurityException, IOException {
+        if(!TokenVerifier.verify(headers)){
+            return null;
+        }
         try {
             String searchQuery = String.valueOf(json.get("searchQuery"));
             String offsetString = json.get("offset");
@@ -46,7 +52,10 @@ public class UserController {
     }
     @CrossOrigin("http://ec2-184-169-189-74.us-west-1.compute.amazonaws.com")
     @GetMapping("/admin/deactivatedUsers")
-    public List<Users> getDeactivateList(@RequestParam Map<String, String> json){
+    public List<Users> getDeactivateList(@RequestParam Map<String, String> json, @RequestHeader Map<String, String> headers) throws GeneralSecurityException, IOException {
+        if(!TokenVerifier.verify(headers)){
+            return null;
+        }
         try {
             String searchQuery = String.valueOf(json.get("searchQuery"));
             String offsetString = json.get("offset");
@@ -68,7 +77,10 @@ public class UserController {
     }
     @CrossOrigin("http://ec2-184-169-189-74.us-west-1.compute.amazonaws.com")
     @GetMapping("/user/get_family")
-    public List<Users> getFamilyList(@RequestParam Map<String, String> json){
+    public List<Users> getFamilyList(@RequestParam Map<String, String> json, @RequestHeader Map<String, String> headers) throws GeneralSecurityException, IOException {
+        if(!TokenVerifier.verify(headers)){
+            return null;
+        }
         try {
             Integer familyId = Integer.valueOf(json.get("familyId"));
             String searchQuery = String.valueOf(json.get("searchQuery"));
@@ -93,7 +105,10 @@ public class UserController {
     }
     @CrossOrigin("http://ec2-184-169-189-74.us-west-1.compute.amazonaws.com")
     @GetMapping("/user/get_user")
-    public Users getUser(@RequestParam Map<String, String> json){
+    public Users getUser(@RequestParam Map<String, String> json, @RequestHeader Map<String, String> headers) throws GeneralSecurityException, IOException {
+        if(!TokenVerifier.verify(headers)){
+            return null;
+        }
         try {
             Integer userId = Integer.valueOf(json.get("userId"));
             Users user = userService.getUser(userId);
@@ -108,7 +123,10 @@ public class UserController {
     @CrossOrigin("http://ec2-184-169-189-74.us-west-1.compute.amazonaws.com")
     @RequestMapping(value = "/admin/link_family", method = RequestMethod.PUT)
     @ResponseBody
-    public ResponseEntity<?> updateFamilyLink(@RequestParam Map<String, String> json) {
+    public ResponseEntity<?> updateFamilyLink(@RequestParam Map<String, String> json, @RequestHeader Map<String, String> headers) throws GeneralSecurityException, IOException {
+        if(!TokenVerifier.verify(headers)){
+            return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+        }
         try {
             Integer userId = Integer.valueOf(json.get("userId"));
             Integer familyId = Integer.valueOf(json.get("familyId"));
@@ -127,7 +145,10 @@ public class UserController {
     @CrossOrigin("http://ec2-184-169-189-74.us-west-1.compute.amazonaws.com")
     @RequestMapping(value = "/admin/deactivate_user", method = RequestMethod.PUT)
     @ResponseBody
-    public ResponseEntity<?> deactivateUser(@RequestParam Map<String, String> json) {
+    public ResponseEntity<?> deactivateUser(@RequestParam Map<String, String> json, @RequestHeader Map<String, String> headers) throws GeneralSecurityException, IOException {
+        if(!TokenVerifier.verify(headers)){
+            return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+        }
         try {
             Integer userId = Integer.valueOf(json.get("userId"));
             String deactivate = json.get("deactivate");
@@ -144,8 +165,8 @@ public class UserController {
     @CrossOrigin("http://ec2-184-169-189-74.us-west-1.compute.amazonaws.com")
     @RequestMapping(value = "/user/onboard", method = RequestMethod.POST)
     @ResponseBody
-    public Users onboardUser(@RequestParam Map<String, String> json) {
-            try {
+    public Users onboardUser(@RequestParam Map<String, String> json){
+        try {
                 // Existing User
                 String email = json.get("email");
                 Users existingUser = userService.getUser(email);
@@ -182,7 +203,10 @@ public class UserController {
     @CrossOrigin("http://ec2-184-169-189-74.us-west-1.compute.amazonaws.com")
     @RequestMapping(value = "/admin/transact", method = RequestMethod.POST)
     @ResponseBody
-    public ResponseEntity<?> doTransaction(@RequestParam Map<String, String> json) {
+    public ResponseEntity<?> doTransaction(@RequestParam Map<String, String> json, @RequestHeader Map<String, String> headers) throws GeneralSecurityException, IOException {
+        if(!TokenVerifier.verify(headers)){
+            return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+        }
         try {
 
             Integer userId = Integer.valueOf(json.get("userId"));
