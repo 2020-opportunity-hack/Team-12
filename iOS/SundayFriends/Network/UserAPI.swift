@@ -8,7 +8,7 @@
 
 import UIKit
 
-private var BASE_URL: String = "http://34.240.219.132:8080"
+private var BASE_URL: String = "http://184.169.189.74:8080"
 //private var BASE_URL: String = "http://localhost:8080"
 
 enum UserAPIRequests: Requests {
