@@ -24,6 +24,9 @@ class AMoreViewController: ABaseViewController {
     SignInManager.shared.signOut()
   }
   
+  @IBAction func editProfileAction(_ sender: Any) {
+    // Hidden in the case of Admin
+  }
   
   override func viewDidLoad() {
     super.viewDidLoad()
