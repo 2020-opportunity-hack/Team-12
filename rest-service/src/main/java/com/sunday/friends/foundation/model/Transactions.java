@@ -8,14 +8,14 @@ import java.util.Date;
 public class Transactions {
     private Integer transactionid;
     private Integer userId;
-    private boolean type;
+    private Integer type;
     private Integer amount;
     private Integer balanceAfterAction;
     @Column(name = "time", columnDefinition="DATETIME")
     @Temporal(TemporalType.TIMESTAMP)
     private Date time;
 
-    public Transactions(Integer userId, boolean type, Integer amount, Integer balanceAfterAction, Date time) {
+    public Transactions(Integer userId, Integer type, Integer amount, Integer balanceAfterAction, Date time) {
         this.transactionid = transactionid;
         this.userId = userId;
         this.type = type;
@@ -46,11 +46,11 @@ public class Transactions {
         this.userId = userId;
     }
 
-    public boolean isType() {
+    public Integer getType() {
         return type;
     }
 
-    public void setType(boolean type) {
+    public void setType(Integer type) {
         this.type = type;
     }
 
