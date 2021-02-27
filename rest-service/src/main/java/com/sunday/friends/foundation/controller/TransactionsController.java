@@ -17,7 +17,7 @@ import java.util.Map;
 public class TransactionsController {
     @Autowired
     private TransactionsService transactionsService;
-    @CrossOrigin("http://ec2-184-169-189-74.us-west-1.compute.amazonaws.com")
+    @CrossOrigin("http://ec2-184-169-189-74.us-west-1.compute.amazonaws.com:8081")
     @GetMapping("/AllTransactions")
     public List<Transactions> list(@RequestHeader Map<String, String> headers) throws GeneralSecurityException, IOException {
         if(!TokenVerifier.verify(headers)){
@@ -25,7 +25,7 @@ public class TransactionsController {
         }
         return transactionsService.listAll();
     }
-    @CrossOrigin("http://ec2-184-169-189-74.us-west-1.compute.amazonaws.com")
+    @CrossOrigin("http://ec2-184-169-189-74.us-west-1.compute.amazonaws.com:8081")
     @GetMapping("/transactions")
     public UserTransaction getTransactionList(@RequestParam Map<String, String> json, @RequestHeader Map<String, String> headers) throws GeneralSecurityException, IOException {
 

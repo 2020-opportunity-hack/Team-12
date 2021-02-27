@@ -17,9 +17,9 @@ public class TokenVerifier {
     public static boolean verify(@RequestHeader Map<String, String> headers) throws GeneralSecurityException, IOException {
 
         // Extract variables
-        String idTokenString = String.valueOf(headers.get("idToken"));
-        String clientId = String.valueOf(headers.get("idClient"));
-        String userId = String.valueOf(headers.get("idUser"));
+        String idTokenString = String.valueOf(headers.get("idtoken"));
+        String clientId = String.valueOf(headers.get("idclient"));
+        String emailId = String.valueOf(headers.get("idemail"));
 
         GoogleIdTokenVerifier verifier = new GoogleIdTokenVerifier.Builder(new NetHttpTransport(), new JacksonFactory())
                 .setAudience(Collections.singletonList(clientId))
@@ -35,11 +35,10 @@ public class TokenVerifier {
             Payload payload = idToken.getPayload();
             String emailToken = payload.getEmail();
             boolean emailVerified = Boolean.valueOf(payload.getEmailVerified());
-            String emailDb = getEmail(userId);
-
-            if (emailVerified && emailToken.equals(emailDb))
+            if (emailVerified && emailToken.equals(emailId))
                 return true;
         }
+
         return false;
 
     }

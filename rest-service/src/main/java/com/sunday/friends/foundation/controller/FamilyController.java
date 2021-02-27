@@ -16,7 +16,7 @@ public class FamilyController {
 
     @Autowired
     private FamilyService familyService;
-    @CrossOrigin("http://ec2-184-169-189-74.us-west-1.compute.amazonaws.com")
+    @CrossOrigin("http://ec2-184-169-189-74.us-west-1.compute.amazonaws.com:8081")
     @GetMapping("/Family")
     public List<Family> list(@RequestParam Map<String, String> json, @RequestHeader Map<String, String> headers) throws GeneralSecurityException, IOException {
 

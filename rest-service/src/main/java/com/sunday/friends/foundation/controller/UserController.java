@@ -25,7 +25,7 @@ public class UserController {
 
     @Autowired
     private FamilyService familyService;
-    @CrossOrigin("http://ec2-184-169-189-74.us-west-1.compute.amazonaws.com")
+    @CrossOrigin("http://ec2-184-169-189-74.us-west-1.compute.amazonaws.com:8081")
     @GetMapping("/admin/fetchUsers")
     public List<Users> list(@RequestParam Map<String, String> json, @RequestHeader Map<String, String> headers) throws GeneralSecurityException, IOException {
         if(!TokenVerifier.verify(headers)){
@@ -50,7 +50,8 @@ public class UserController {
             return null;
         }
     }
-    @CrossOrigin("http://ec2-184-169-189-74.us-west-1.compute.amazonaws.com")
+    //@CrossOrigin("http://ec2-184-169-189-74.us-west-1.compute.amazonaws.com")
+    @CrossOrigin("http://ec2-184-169-189-74.us-west-1.compute.amazonaws.com:8081")
     @GetMapping("/admin/deactivatedUsers")
     public List<Users> getDeactivateList(@RequestParam Map<String, String> json, @RequestHeader Map<String, String> headers) throws GeneralSecurityException, IOException {
         if(!TokenVerifier.verify(headers)){
@@ -75,7 +76,7 @@ public class UserController {
             return null;
         }
     }
-    @CrossOrigin("http://ec2-184-169-189-74.us-west-1.compute.amazonaws.com")
+    @CrossOrigin("http://ec2-184-169-189-74.us-west-1.compute.amazonaws.com:8081")
     @GetMapping("/user/get_family")
     public List<Users> getFamilyList(@RequestParam Map<String, String> json, @RequestHeader Map<String, String> headers) throws GeneralSecurityException, IOException {
         if(!TokenVerifier.verify(headers)){
@@ -103,7 +104,7 @@ public class UserController {
             return null;
         }
     }
-    @CrossOrigin("http://ec2-184-169-189-74.us-west-1.compute.amazonaws.com")
+    @CrossOrigin("http://ec2-184-169-189-74.us-west-1.compute.amazonaws.com:8081")
     @GetMapping("/user/get_user")
     public Users getUser(@RequestParam Map<String, String> json, @RequestHeader Map<String, String> headers) throws GeneralSecurityException, IOException {
         if(!TokenVerifier.verify(headers)){
@@ -120,7 +121,7 @@ public class UserController {
             return null;
         }
     }
-    @CrossOrigin("http://ec2-184-169-189-74.us-west-1.compute.amazonaws.com")
+    @CrossOrigin("http://ec2-184-169-189-74.us-west-1.compute.amazonaws.com:8081")
     @RequestMapping(value = "/admin/link_family", method = RequestMethod.PUT)
     @ResponseBody
     public ResponseEntity<?> updateFamilyLink(@RequestParam Map<String, String> json, @RequestHeader Map<String, String> headers) throws GeneralSecurityException, IOException {
@@ -142,7 +143,7 @@ public class UserController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
-    @CrossOrigin("http://ec2-184-169-189-74.us-west-1.compute.amazonaws.com")
+    @CrossOrigin("http://ec2-184-169-189-74.us-west-1.compute.amazonaws.com:8081")
     @RequestMapping(value = "/admin/deactivate_user", method = RequestMethod.PUT)
     @ResponseBody
     public ResponseEntity<?> deactivateUser(@RequestParam Map<String, String> json, @RequestHeader Map<String, String> headers) throws GeneralSecurityException, IOException {
@@ -162,10 +163,13 @@ public class UserController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
-    @CrossOrigin("http://ec2-184-169-189-74.us-west-1.compute.amazonaws.com")
+    @CrossOrigin("http://ec2-184-169-189-74.us-west-1.compute.amazonaws.com:8081")
     @RequestMapping(value = "/user/onboard", method = RequestMethod.POST)
     @ResponseBody
-    public Users onboardUser(@RequestParam Map<String, String> json){
+    public Users onboardUser(@RequestParam Map<String, String> json, @RequestHeader Map<String, String> headers) throws GeneralSecurityException, IOException {
+        if(!TokenVerifier.verify(headers)){
+            return null;
+        }
         try {
                 // Existing User
                 String email = json.get("email");
@@ -200,7 +204,7 @@ public class UserController {
                 return null;
             }
     }
-    @CrossOrigin("http://ec2-184-169-189-74.us-west-1.compute.amazonaws.com")
+    @CrossOrigin("http://ec2-184-169-189-74.us-west-1.compute.amazonaws.com:8081")
     @RequestMapping(value = "/admin/transact", method = RequestMethod.POST)
     @ResponseBody
     public ResponseEntity<?> doTransaction(@RequestParam Map<String, String> json, @RequestHeader Map<String, String> headers) throws GeneralSecurityException, IOException {

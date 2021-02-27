@@ -84,6 +84,9 @@ public class UserService {
             if (user.isAdmin()) {
                 itr.remove();
             }
+            if(!user.isActive()){
+                itr.remove();
+            }
         }
         return list;
     }
