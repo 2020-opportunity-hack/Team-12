@@ -215,12 +215,12 @@ public class UserController {
 
             Integer userId = Integer.valueOf(json.get("userId"));
             Integer amount = Integer.valueOf(json.get("amount"));
-            boolean type = false;
+            Integer type = 0;
             if(json.get("type").equals("1"))
-                type = true;
+                type = 1;
             Integer balance = userService.getBalance(userId);
             Integer balanceAfterAction = balance;
-            if(type == true)
+            if(type == 1)
                 balanceAfterAction += amount;
             else
                 balanceAfterAction -= amount;
