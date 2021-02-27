@@ -216,4 +216,11 @@ public class UserService {
             userRepository.save(result);
         });
     }
+
+    public void deleteUser(Integer userId) {
+        Users user = getUser(userId);
+        em.remove(user);
+    }
+
+
 }

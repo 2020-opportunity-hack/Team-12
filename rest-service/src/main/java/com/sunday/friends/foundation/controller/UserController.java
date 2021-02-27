@@ -259,4 +259,24 @@ public class UserController {
         }
     }
 
+
+    @CrossOrigin("http://ec2-184-169-189-74.us-west-1.compute.amazonaws.com:8081")
+    @RequestMapping(value = "/admin/deleteUser", method = RequestMethod.POST)
+    @ResponseBody
+    public ResponseEntity<?>  deleteUser(@RequestParam Map<String, String> json, @RequestHeader Map<String, String> headers) throws GeneralSecurityException, IOException {
+        if(!TokenVerifier.verify(headers)){
+            return null;
+        }
+        try {
+                Integer userId = Integer.valueOf(json.get("userId"));
+                userService.deleteUser(userId);
+
+                return new ResponseEntity<>(HttpStatus.OK);
+        }
+
+        catch (Exception e){
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
 }
