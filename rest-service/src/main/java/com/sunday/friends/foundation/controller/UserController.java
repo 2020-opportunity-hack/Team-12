@@ -239,5 +239,24 @@ public class UserController {
         }
     }
 
+    @CrossOrigin("http://ec2-184-169-189-74.us-west-1.compute.amazonaws.com:8081")
+    @RequestMapping(value = "/user/updateUser", method = RequestMethod.POST)
+    @ResponseBody
+    public ResponseEntity<?> updateUser(@RequestParam Map<String, String> json, @RequestHeader Map<String, String> headers) throws GeneralSecurityException, IOException {
+        if (!TokenVerifier.verify(headers)) {
+            return null;
+        }
+        try {
+            Integer userId = Integer.valueOf(json.get("userId"));
+            String email = json.get("email");
+            String name = json.get("name");
+            Integer familyId = Integer.valueOf(json.get("familyId"));
+            userService.updateUser(userId, name, email, familyId);
+            return new ResponseEntity<>(HttpStatus.OK);
+        }
+        catch (Exception e){
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
 
 }

@@ -202,4 +202,18 @@ public class UserService {
 
         return true;
     }
+
+    public void updateUser(Integer userId, String name, String email, Integer familyId) {
+        Optional<Users> usersOptional = userRepository.findById(userId);
+        usersOptional.ifPresent((Users result) -> {
+            if(name != null && name.length() != 0)
+                result.setName(name);
+            if(email != null && email.length() != 0)
+                result.setEmail(email);
+            if(familyId != null)
+                result.setFamilyId(familyId);
+
+            userRepository.save(result);
+        });
+    }
 }
