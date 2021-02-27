@@ -25,6 +25,9 @@ class MoreViewController: UBaseViewController {
     SignInManager.shared.signOut()
   }
   
+  @IBAction func editProfileAction(_ sender: Any) {
+    
+  }
   
   override func viewDidLoad() {
     super.viewDidLoad()

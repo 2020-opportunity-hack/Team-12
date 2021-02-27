@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
           if let message = message {
             UIAlertController.showError(withMessage: message, onViewController: instance)
           } else {
-            UIAlertController.showError(withMessage: "we were not able to log you in. Pelase try again!", onViewController: instance)
+            UIAlertController.showError(withMessage: "we were not able to log you in. Please try again!", onViewController: instance)
           }
         }
         break
