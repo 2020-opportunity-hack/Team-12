@@ -136,7 +136,7 @@ public class UserService {
 //                .setParameter(6, false)
 //                .executeUpdate();
 
-        user.setBalance(0);
+        user.setBalance(0.0f);
         user.setAdmin(false);
         userRepository.save(user);
         userRepository.flush();
@@ -146,7 +146,7 @@ public class UserService {
 //        return usersOptional;
     }
 
-    public Integer getBalance(Integer userId) {
+    public Float getBalance(Integer userId) {
         CriteriaBuilder builder = em.getCriteriaBuilder();
         CriteriaQuery<Users> criteriaQuery = builder.createQuery(Users.class);
 
@@ -157,7 +157,7 @@ public class UserService {
         return list.get(0).getBalance();
     }
 
-    public void updateBalance(Integer userId, Integer balanceAfterAction) {
+    public void updateBalance(Integer userId, Float balanceAfterAction) {
         Optional<Users> usersOptional = userRepository.findById(userId);
         usersOptional.ifPresent((Users result) -> {
             result.setBalance(balanceAfterAction);

@@ -81,9 +81,10 @@ public class TransactionsController {
             for (Users user : allUsers) {
                 if(!user.isActive() || user.isAdmin())
                     continue;
+
                 Integer userId = user.getUserId();
-                Integer balance = user.getBalance();
-                Integer interest = balance * Integer.valueOf(String.valueOf(rate)) / 100;
+                Float balance = user.getBalance();
+                Float interest = balance * rate / 100;
                 balance += interest;
                 Date date = Calendar.getInstance().getTime();
                 Transactions transactions = new Transactions(userId, 2, interest, balance, date);

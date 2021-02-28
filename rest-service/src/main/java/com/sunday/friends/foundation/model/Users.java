@@ -13,7 +13,7 @@ public class Users {
     private Integer familyId;
     private Boolean isAdmin;
     private String imageUrl;
-    private Integer balance;
+    private Float balance;
     private Boolean isActive;
 
     public Users() {
@@ -25,10 +25,10 @@ public class Users {
         this.familyId = familyId;
         this.imageUrl = imageUrl;
         this.isAdmin = false;
-        this.balance = 0;
+        this.balance = 0.0f;
     }
 
-    public Users(Integer userId, String name, String email, Integer familyId, boolean isAdmin, String imageUrl, Integer balance) {
+    public Users(Integer userId, String name, String email, Integer familyId, boolean isAdmin, String imageUrl, Float balance) {
         this.userId = userId;
         this.email = email;
         this.familyId = familyId;
@@ -89,11 +89,11 @@ public class Users {
         this.imageUrl = imageUrl;
     }
 
-    public Integer getBalance() {
+    public Float getBalance() {
         return balance;
     }
 
-    public void setBalance(Integer balance) {
+    public void setBalance(Float balance) {
         this.balance = balance;
     }
 

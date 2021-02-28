@@ -9,13 +9,13 @@ public class Transactions {
     private Integer transactionid;
     private Integer userId;
     private Integer type;
-    private Integer amount;
-    private Integer balanceAfterAction;
+    private Float amount;
+    private Float balanceAfterAction;
     @Column(name = "time", columnDefinition="DATETIME")
     @Temporal(TemporalType.TIMESTAMP)
     private Date time;
 
-    public Transactions(Integer userId, Integer type, Integer amount, Integer balanceAfterAction, Date time) {
+    public Transactions(Integer userId, Integer type, Float amount, Float balanceAfterAction, Date time) {
         this.transactionid = transactionid;
         this.userId = userId;
         this.type = type;
@@ -54,19 +54,19 @@ public class Transactions {
         this.type = type;
     }
 
-    public Integer getAmount() {
+    public Float getAmount() {
         return amount;
     }
 
-    public void setAmount(Integer amount) {
+    public void setAmount(Float amount) {
         this.amount = amount;
     }
 
-    public Integer getBalanceAfterAction() {
+    public Float getBalanceAfterAction() {
         return balanceAfterAction;
     }
 
-    public void setBalanceAfterAction(Integer balanceAfterAction) {
+    public void setBalanceAfterAction(Float balanceAfterAction) {
         this.balanceAfterAction = balanceAfterAction;
     }
 

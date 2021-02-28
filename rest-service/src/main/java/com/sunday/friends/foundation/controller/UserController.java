@@ -218,12 +218,12 @@ public class UserController {
         try {
 
             Integer userId = Integer.valueOf(json.get("userId"));
-            Integer amount = Integer.valueOf(json.get("amount"));
+            Float amount = Float.valueOf(json.get("amount"));
             Integer type = 0;
             if(json.get("type").equals("1"))
                 type = 1;
-            Integer balance = userService.getBalance(userId);
-            Integer balanceAfterAction = balance;
+            Float balance = userService.getBalance(userId);
+            Float balanceAfterAction = balance;
             if(type == 1)
                 balanceAfterAction += amount;
             else

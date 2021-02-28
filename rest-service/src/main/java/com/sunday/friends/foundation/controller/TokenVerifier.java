@@ -15,7 +15,6 @@ import java.util.Map;
 public class TokenVerifier {
 
     public static boolean verify(@RequestHeader Map<String, String> headers) throws GeneralSecurityException, IOException {
-
         // Extract variables
         String idTokenString = String.valueOf(headers.get("idtoken"));
         String clientId = String.valueOf(headers.get("idclient"));
@@ -38,7 +37,6 @@ public class TokenVerifier {
             if (emailVerified && emailToken.equals(emailId))
                 return true;
         }
-
         return false;
 
     }
