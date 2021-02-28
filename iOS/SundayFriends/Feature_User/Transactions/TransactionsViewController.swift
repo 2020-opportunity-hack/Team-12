@@ -12,7 +12,7 @@ class TransactionsViewController: UBaseViewController {
   
   var transactions: [Transaction] = [Transaction]()
   private var currentOffset: Int = 0
-  private var limit: Int = 20
+  private var limit: Int = 25
   public var userId: Int?
   @IBOutlet weak var tableView: UITableView!
   

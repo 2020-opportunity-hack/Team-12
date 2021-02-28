@@ -16,7 +16,7 @@ class User: Codable {
   var admin: Bool = false
   var imageUrl: String?
   var address: String?
-  var balance: Int?
+  var balance: Double?
   var active: Bool?
   
   init() {}
