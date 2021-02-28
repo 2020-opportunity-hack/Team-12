@@ -61,7 +61,7 @@ public class TransactionsController {
     }
 
     @CrossOrigin("http://ec2-184-169-189-74.us-west-1.compute.amazonaws.com:8081")
-    @RequestMapping(value = "/admin/monthlyInterest", method = RequestMethod.POST)
+    @RequestMapping(value = "/depositMonthlyInterest", method = RequestMethod.POST)
     @ResponseBody
     public ResponseEntity<?> monthlyInterest(@RequestParam Map<String, String> json, @RequestHeader Map<String, String> headers) throws GeneralSecurityException, IOException {
         if(!TokenVerifier.verify(headers)){
@@ -69,11 +69,12 @@ public class TransactionsController {
         }
         try {
             Integer rate= 5;
-            List<Users> allUsers = userService.getTotalList(null, null, null);
+            List<Users> allUsers = userService.listAll();
             for (Users user : allUsers) {
-
-                Integer userId = Integer.valueOf(json.get("userId"));
-                Integer balance = userService.getBalance(userId);
+                if(!user.isActive() || user.isAdmin())
+                    continue;
+                Integer userId = user.getUserId();
+                Integer balance = user.getBalance();
                 Integer interest = balance * rate / 100;
                 balance += interest;
                 Date date = Calendar.getInstance().getTime();
