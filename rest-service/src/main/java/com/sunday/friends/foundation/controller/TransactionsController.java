@@ -26,18 +26,18 @@ public class TransactionsController {
     private InterestService interestService;
     @CrossOrigin("http://ec2-184-169-189-74.us-west-1.compute.amazonaws.com:8081")
     @GetMapping("/user/AllTransactions")
-    public List<Transactions> list(@RequestHeader Map<String, String> headers) throws GeneralSecurityException, IOException {
+    public ResponseEntity<List<Transactions>> list(@RequestHeader Map<String, String> headers) throws GeneralSecurityException, IOException {
         if(!TokenVerifier.verify(headers)){
-            return null;
+            return new ResponseEntity<>(null, HttpStatus.UNAUTHORIZED);
         }
-        return transactionsService.listAll();
+        return new ResponseEntity<>(transactionsService.listAll(), HttpStatus.OK);
     }
     @CrossOrigin("http://ec2-184-169-189-74.us-west-1.compute.amazonaws.com:8081")
     @GetMapping("/user/transactions")
-    public UserTransaction getTransactionList(@RequestParam Map<String, String> json, @RequestHeader Map<String, String> headers) throws GeneralSecurityException, IOException {
+    public ResponseEntity<UserTransaction> getTransactionList(@RequestParam Map<String, String> json, @RequestHeader Map<String, String> headers) throws GeneralSecurityException, IOException {
 
         if(!TokenVerifier.verify(headers)){
-            return null;
+            return new ResponseEntity<>(null, HttpStatus.UNAUTHORIZED);
         }
         try {
             Integer userId = Integer.valueOf(json.get("userId"));
@@ -54,11 +54,11 @@ public class TransactionsController {
             List<Transactions> transactionsList = transactionsService.getTransactionList(userId, offset, limit);
             System.out.println(userId);
             UserTransaction userTransaction = new UserTransaction(userId, transactionsList);
-            return userTransaction;
+            return new ResponseEntity<>(userTransaction, HttpStatus.OK);
         }
         catch (Exception e){
             System.out.println(e);
-            return null;
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 

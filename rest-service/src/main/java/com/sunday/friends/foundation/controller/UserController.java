@@ -31,9 +31,9 @@ public class UserController {
     private FamilyService familyService;
     @CrossOrigin("http://ec2-184-169-189-74.us-west-1.compute.amazonaws.com:8081")
     @GetMapping("/admin/fetchUsers")
-    public List<Users> list(@RequestParam Map<String, String> json, @RequestHeader Map<String, String> headers) throws GeneralSecurityException, IOException {
+    public ResponseEntity<List<Users>> list(@RequestParam Map<String, String> json, @RequestHeader Map<String, String> headers) throws GeneralSecurityException, IOException {
         if(!TokenVerifier.verify(headers)){
-            return null;
+            return new ResponseEntity<>(null, HttpStatus.UNAUTHORIZED);
         }
         try {
             String searchQuery = String.valueOf(json.get("searchQuery"));
@@ -47,19 +47,18 @@ public class UserController {
             if (null != limitString && !limitString.isEmpty() && "null" != limitString) {
                 limit = Integer.valueOf(json.get("limit"));
             }
-            return userService.getTotalList(searchQuery, offset, limit);
+            return new ResponseEntity<>(userService.getTotalList(searchQuery, offset, limit), HttpStatus.OK);
         }
         catch (Exception e){
-            System.out.println(e);
-            return null;
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
     //@CrossOrigin("http://ec2-184-169-189-74.us-west-1.compute.amazonaws.com")
     @CrossOrigin("http://ec2-184-169-189-74.us-west-1.compute.amazonaws.com:8081")
     @GetMapping("/admin/deactivatedUsers")
-    public List<Users> getDeactivateList(@RequestParam Map<String, String> json, @RequestHeader Map<String, String> headers) throws GeneralSecurityException, IOException {
+    public ResponseEntity<List<Users>> getDeactivateList(@RequestParam Map<String, String> json, @RequestHeader Map<String, String> headers) throws GeneralSecurityException, IOException {
         if(!TokenVerifier.verify(headers)){
-            return null;
+            return new ResponseEntity<>(null, HttpStatus.UNAUTHORIZED);
         }
         try {
             String searchQuery = String.valueOf(json.get("searchQuery"));
@@ -73,18 +72,18 @@ public class UserController {
             if (null != limitString && !limitString.isEmpty() && "null" != limitString) {
                 limit = Integer.valueOf(json.get("limit"));
             }
-            return userService.getDeactivateList(searchQuery, offset, limit);
+            return new ResponseEntity<>(userService.getDeactivateList(searchQuery, offset, limit), HttpStatus.OK);
         }
         catch (Exception e){
             System.out.println(e);
-            return null;
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
     @CrossOrigin("http://ec2-184-169-189-74.us-west-1.compute.amazonaws.com:8081")
     @GetMapping("/user/get_family")
-    public List<Users> getFamilyList(@RequestParam Map<String, String> json, @RequestHeader Map<String, String> headers) throws GeneralSecurityException, IOException {
+    public ResponseEntity<List<Users>> getFamilyList(@RequestParam Map<String, String> json, @RequestHeader Map<String, String> headers) throws GeneralSecurityException, IOException {
         if(!TokenVerifier.verify(headers)){
-            return null;
+            return new ResponseEntity<>(null, HttpStatus.UNAUTHORIZED);
         }
         try {
             Integer familyId = Integer.valueOf(json.get("familyId"));
@@ -101,28 +100,28 @@ public class UserController {
             }
             List<Users> userList = userService.getFamilyList(familyId, searchQuery, offset, limit);
             System.out.println(familyId);
-            return userList;
+            return new ResponseEntity<>(userList, HttpStatus.OK);
         }
         catch (Exception e){
             System.out.println(e);
-            return null;
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
     @CrossOrigin("http://ec2-184-169-189-74.us-west-1.compute.amazonaws.com:8081")
     @GetMapping("/user/get_user")
-    public Users getUser(@RequestParam Map<String, String> json, @RequestHeader Map<String, String> headers) throws GeneralSecurityException, IOException {
+    public ResponseEntity<Users> getUser(@RequestParam Map<String, String> json, @RequestHeader Map<String, String> headers) throws GeneralSecurityException, IOException {
         if(!TokenVerifier.verify(headers)){
-            return null;
+            return new ResponseEntity<>(null, HttpStatus.UNAUTHORIZED);
         }
         try {
             Integer userId = Integer.valueOf(json.get("userId"));
             Users user = userService.getUser(userId);
             System.out.println(userId);
-            return user;
+            return new ResponseEntity<>(user, HttpStatus.OK);
         }
         catch (Exception e){
             System.out.println(e);
-            return null;
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
     @CrossOrigin("http://ec2-184-169-189-74.us-west-1.compute.amazonaws.com:8081")
@@ -170,9 +169,9 @@ public class UserController {
     @CrossOrigin("http://ec2-184-169-189-74.us-west-1.compute.amazonaws.com:8081")
     @RequestMapping(value = "/user/onboard", method = RequestMethod.POST)
     @ResponseBody
-    public Users onboardUser(@RequestParam Map<String, String> json, @RequestHeader Map<String, String> headers) throws GeneralSecurityException, IOException {
+    public ResponseEntity<Users> onboardUser(@RequestParam Map<String, String> json, @RequestHeader Map<String, String> headers) throws GeneralSecurityException, IOException {
         if(!TokenVerifier.verify(headers, json.get("email"))){
-            return null;
+            return new ResponseEntity<>(null, HttpStatus.UNAUTHORIZED);
         }
         try {
                 // Existing User
@@ -183,7 +182,7 @@ public class UserController {
                     return null;
                 // Existing Return
                 if(existingUser != null)
-                    return existingUser;
+                    return new ResponseEntity<>(existingUser, HttpStatus.OK);
 
                 // New User
                 Integer familyId;
@@ -201,11 +200,11 @@ public class UserController {
 //                    return new ResponseEntity<>(HttpStatus.OK);
 //                else
 //                    return new ResponseEntity<>(HttpStatus.CONFLICT);
-                return userService.onboardUser(newUser);
+                return new ResponseEntity<>(userService.onboardUser(newUser), HttpStatus.OK);
             }
 
             catch (Exception e){
-                return null;
+                return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
             }
     }
     @CrossOrigin("http://ec2-184-169-189-74.us-west-1.compute.amazonaws.com:8081")
