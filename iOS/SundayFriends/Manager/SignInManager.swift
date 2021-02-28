@@ -45,6 +45,7 @@ class SignInManager: NSObject {
     SignInManager.shared.isManualLogin = true
     GIDSignIn.sharedInstance()?.presentingViewController = UIApplication.shared.windows.first!.rootViewController!
     GIDSignIn.sharedInstance()?.signIn()
+    Loader.shared.start()
   }
   
   func signOut() {
