@@ -608,7 +608,7 @@ Members</string>
                                     <outlet property="delegate" destination="O8R-OR-KBQ" id="4aW-8X-Vx9"/>
                                 </connections>
                             </tableView>
-                            <searchBar contentMode="redraw" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="lo6-En-uQT">
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search by Email" translatesAutoresizingMaskIntoConstraints="NO" id="lo6-En-uQT">
                                 <rect key="frame" x="0.0" y="88" width="314" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <scopeButtonTitles>
@@ -801,6 +801,7 @@ Members</string>
                     <navigationItem key="navigationItem" title="More" id="5MR-JN-OjO"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="editButton" destination="oyM-in-okC" id="CLK-Ua-Wex"/>
                         <outlet property="email" destination="f1B-Rd-cy0" id="5Ga-QU-sEv"/>
                         <outlet property="headerView" destination="mMh-Re-GSe" id="gWm-Ok-pyK"/>
                         <outlet property="name" destination="Bey-xg-mZP" id="e2l-4X-8LB"/>

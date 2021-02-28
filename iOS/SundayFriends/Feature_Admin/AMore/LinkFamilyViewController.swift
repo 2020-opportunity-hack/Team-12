@@ -17,56 +17,102 @@ enum LinkFamilyFlow {
 class LinkFamilyViewController: ABaseViewController {
   var members: [User] = [User]()
   var flow: LinkFamilyFlow = .linkFamily
+  var offset: Int = 0
+  var limit: Int = 5
   
   @IBOutlet weak var tableView: UITableView!
   
+  @IBOutlet weak var searchBar: UISearchBar!
+  @IBOutlet weak var searchButton: UIButton!
+  
+  @IBAction func searchAction(_ sender: Any) {
+    self.searchBar.resignFirstResponder()
+    if let text = self.searchBar.text {
+      self.offset = 0
+      self.members = []
+      self.refresh(searchText: text)
+    }
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
+    self.searchButton.layer.cornerRadius = 10
     refresh()
   }
   
-  func refresh() {
-    Loader.shared.start(onView: self.view)
+  func refresh(searchText: String? = nil, loader: Bool = true) {
+    if loader { Loader.shared.start(onView: self.view) }
+    var aOffset: Int?
+    var aLimit: Int?
+    let text = searchText ?? ""
+    if text.isEmpty {
+      aOffset = self.offset
+      aLimit = self.limit
+    }
+    
     DispatchQueue.global(qos: .background).async {
       if self.flow == .activateUsers {
-        self.adminService.fetchDeactivatedUsers { (result) in
-          DispatchQueue.main.async {
-            Loader.shared.stop()
-          }
-          switch result {
-          case .success(let users):
-            self.members = [User]()
-            self.members.append(contentsOf: users)
-            DispatchQueue.main.async {
-              self.tableView.reloadData()
-            }
-          case .failure(_):
-            DispatchQueue.main.async {
-              UIAlertController.showError(withMessage: "Failed to fetch users", onViewController: self)
-            }
-          }
+        self.adminService.fetchDeactivatedUsers(searchQuery: searchText,
+                                                emailId: SignInManager.shared.currentUser?.email ?? "",
+                                                offset: aOffset,
+                                                limit: aLimit) { (result) in
+          self.executeResultClosure(withResult: result, text: text, loader: loader)
         }
       } else {
-        self.adminService.fetchUsers(searchQuery: nil) { (result) in
-          DispatchQueue.main.async {
-            Loader.shared.stop()
-          }
-          switch result {
-          case .success(let users):
-            self.members = [User]()
-            self.members.append(contentsOf: users)
-            DispatchQueue.main.async {
-              self.tableView.reloadData()
-            }
-          case .failure(_):
-            DispatchQueue.main.async {
-              UIAlertController.showError(withMessage: "Failed to fetch users", onViewController: self)
-            }
-          }
+        self.adminService.fetchUsers(emailId: SignInManager.shared.currentUser?.email ?? "",
+                                     searchQuery: searchText,
+                                     offset: aOffset,
+                                     limit: aLimit) { (result) in
+          self.executeResultClosure(withResult: result, text: text, loader: loader)
         }
       }
     }
   }
+  
+  private func executeResultClosure(withResult result: Result<[User]>, text: String, loader: Bool) {
+    DispatchQueue.main.async {
+      if loader { Loader.shared.stop() }
+    }
+    switch result {
+    case .success(let users):
+      self.members.append(contentsOf: users)
+      if text.isEmpty {
+        self.offset += self.limit
+        if users.count > 0 {
+          DispatchQueue.main.async { self.tableView.reloadData() }
+        }
+      } else {
+        DispatchQueue.main.async { self.tableView.reloadData() }
+      }
+    case .failure(_):
+      DispatchQueue.main.async {
+        UIAlertController.showError(withMessage: "Failed to fetch users", onViewController: self)
+      }
+    }
+  }
+}
+
+extension LinkFamilyViewController: UISearchBarDelegate {
+  
+  func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+    self.searchBar.resignFirstResponder()
+    if let text = self.searchBar.text {
+      self.offset = 0
+      self.members = []
+      self.refresh(searchText: text)
+    }
+  }
+  
+  func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+    if searchText.isEmpty {
+      if let text = self.searchBar.text {
+        self.offset = 0
+        self.members = []
+        self.refresh(searchText: text)
+      }
+    }
+  }
+  
 }
 
 extension LinkFamilyViewController: UITableViewDelegate, UITableViewDataSource {
@@ -112,6 +158,17 @@ extension LinkFamilyViewController: UITableViewDelegate, UITableViewDataSource {
     return .leastNormalMagnitude
   }
   
+  func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+    let text = self.searchBar.text ?? ""
+    if indexPath.row == self.members.count - 1, text.isEmpty {
+      self.refresh(loader: false)
+    }
+  }
+  
+  func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    self.searchBar.resignFirstResponder()
+  }
+  
   func showAmountDialog(userId: Int, name: String) {
     let alertController = UIAlertController(title: "Link Family", message: "Enter the family id you want to link \(name) to", preferredStyle: .alert)
     alertController.addTextField { (textField) in
@@ -128,7 +185,7 @@ extension LinkFamilyViewController: UITableViewDelegate, UITableViewDataSource {
       }
     })
     let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: {
-      (action : UIAlertAction!) -> Void in })
+                                      (action : UIAlertAction!) -> Void in })
     
     alertController.addAction(saveAction)
     alertController.addAction(cancelAction)
@@ -139,7 +196,7 @@ extension LinkFamilyViewController: UITableViewDelegate, UITableViewDataSource {
   func callApi(userId: Int, familyId: Int) {
     Loader.shared.start(onView: self.view)
     DispatchQueue.global(qos: .background).async {
-      self.adminService.linkFamily(userId: userId, familyId: familyId) { (result) in
+      self.adminService.linkFamily(emailId: SignInManager.shared.currentUser?.email ?? "", userId: userId, familyId: familyId) { (result) in
         DispatchQueue.main.async {
           Loader.shared.stop()
         }
@@ -176,7 +233,7 @@ extension LinkFamilyViewController {
       self.callDeactivationApi(userId: userId, deactivate: true)
     })
     let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: {
-      (action : UIAlertAction!) -> Void in })
+                                      (action : UIAlertAction!) -> Void in })
     
     alertController.addAction(saveAction)
     alertController.addAction(cancelAction)
@@ -190,7 +247,7 @@ extension LinkFamilyViewController {
       self.callDeactivationApi(userId: userId, deactivate: false)
     })
     let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: {
-      (action : UIAlertAction!) -> Void in })
+                                      (action : UIAlertAction!) -> Void in })
     
     alertController.addAction(saveAction)
     alertController.addAction(cancelAction)
@@ -201,7 +258,7 @@ extension LinkFamilyViewController {
   func callDeactivationApi(userId: Int, deactivate: Bool) {
     Loader.shared.start(onView: self.view)
     DispatchQueue.global(qos: .background).async {
-      self.adminService.deactivateUser(userId: userId, deactivate: deactivate) { (result) in
+      self.adminService.deactivateUser(emailId: SignInManager.shared.currentUser?.email ?? "", userId: userId, deactivate: deactivate) { (result) in
         DispatchQueue.main.async {
           Loader.shared.stop()
         }
@@ -211,10 +268,16 @@ extension LinkFamilyViewController {
             DispatchQueue.main.async {
               if deactivate {
                 UIAlertController.showMessage(withTitle: "Success!", andMessage: "User deactivated!", onViewController: self, okTappedCallback: {
+                  self.searchBar.text = nil
+                  self.offset = 0
+                  self.members = []
                   self.refresh()
                 })
               } else {
                 UIAlertController.showMessage(withTitle: "Success!", andMessage: "User activated!", onViewController: self, okTappedCallback: {
+                  self.searchBar.text = nil
+                  self.offset = 0
+                  self.members = []
                   self.refresh()
                 })
               }

@@ -33,7 +33,14 @@ final class NetworkService: Service {
   
   func get(request: Requests, session: URLSession = URLSession.shared, completion: @escaping (Result<Data>, Int?) -> Void) {
     if let url = request.url{
-      session.dataTask(with: url) { (data, response, error) in
+      var req : URLRequest = URLRequest.init(url: url)
+      req.httpMethod = "GET"
+      if let header = request.header{
+        for (key,value) in header{
+          req.setValue(value, forHTTPHeaderField: key)
+        }
+      }
+      session.dataTask(with: req) { (data, response, error) in
         let statusCode = (response as? HTTPURLResponse)?.statusCode
         if let error = error {
           completion(.failure(error),statusCode)

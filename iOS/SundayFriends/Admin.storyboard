@@ -412,7 +412,7 @@ Deactivate user</string>
                                     <outlet property="delegate" destination="PwL-mh-GbD" id="rVg-Vw-9na"/>
                                 </connections>
                             </tableView>
-                            <searchBar contentMode="redraw" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="8Ql-Ez-EH2">
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search by Email" translatesAutoresizingMaskIntoConstraints="NO" id="8Ql-Ez-EH2">
                                 <rect key="frame" x="0.0" y="88" width="314" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <scopeButtonTitles>
@@ -636,7 +636,7 @@ Deactivate user</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="uYv-Rm-Kmx">
-                                <rect key="frame" x="0.0" y="84" width="414" height="778"/>
+                                <rect key="frame" x="0.0" y="140" width="414" height="722"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="LinkFamilyCell" textLabel="ffv-sx-v2C" detailTextLabel="iu1-im-Cjj" rowHeight="60" style="IBUITableViewCellStyleSubtitle" id="Vna-Of-VqI">
@@ -679,26 +679,57 @@ Deactivate user</string>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search by Email" translatesAutoresizingMaskIntoConstraints="NO" id="KpU-CO-BeE">
+                                <rect key="frame" x="0.0" y="84" width="314" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <scopeButtonTitles>
+                                    <string>Title</string>
+                                    <string>Title</string>
+                                </scopeButtonTitles>
+                                <connections>
+                                    <outlet property="delegate" destination="Pcq-pz-a9q" id="bh0-01-Cc1"/>
+                                </connections>
+                            </searchBar>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j3I-ao-bbs">
+                                <rect key="frame" x="324" y="94" width="80" height="36"/>
+                                <color key="backgroundColor" red="0.2274509804" green="0.50980392159999999" blue="0.2274509804" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                <inset key="contentEdgeInsets" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
+                                <state key="normal" title="Search">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="searchAction:" destination="Pcq-pz-a9q" eventType="touchUpInside" id="bFR-Ys-oc3"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="EKg-9K-ItZ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="w7E-Js-aPZ" firstAttribute="leading" secondItem="EKg-9K-ItZ" secondAttribute="leading" id="2Qx-oO-NwF"/>
+                            <constraint firstItem="j3I-ao-bbs" firstAttribute="leading" secondItem="KpU-CO-BeE" secondAttribute="trailing" constant="10" id="Bpw-Un-fj2"/>
+                            <constraint firstItem="j3I-ao-bbs" firstAttribute="top" secondItem="w7E-Js-aPZ" secondAttribute="bottom" constant="10" id="Cc6-7J-ddB"/>
                             <constraint firstItem="w7E-Js-aPZ" firstAttribute="top" secondItem="EKg-9K-ItZ" secondAttribute="top" id="DCg-Nf-o8q"/>
                             <constraint firstItem="uYv-Rm-Kmx" firstAttribute="leading" secondItem="EKg-9K-ItZ" secondAttribute="leading" id="GxU-uM-0zQ"/>
                             <constraint firstItem="EKg-9K-ItZ" firstAttribute="trailing" secondItem="w7E-Js-aPZ" secondAttribute="trailing" id="Hfe-Oq-Hgf"/>
                             <constraint firstItem="EKg-9K-ItZ" firstAttribute="trailing" secondItem="uYv-Rm-Kmx" secondAttribute="trailing" id="OX4-ei-P9u"/>
                             <constraint firstItem="EKg-9K-ItZ" firstAttribute="bottom" secondItem="uYv-Rm-Kmx" secondAttribute="bottom" id="a9G-dh-pe2"/>
-                            <constraint firstItem="uYv-Rm-Kmx" firstAttribute="top" secondItem="w7E-Js-aPZ" secondAttribute="bottom" id="jjz-Ow-cuW"/>
+                            <constraint firstItem="EKg-9K-ItZ" firstAttribute="trailing" secondItem="j3I-ao-bbs" secondAttribute="trailing" constant="10" id="cmg-XD-BLz"/>
+                            <constraint firstItem="uYv-Rm-Kmx" firstAttribute="top" secondItem="KpU-CO-BeE" secondAttribute="bottom" id="dGO-Fx-qgX"/>
+                            <constraint firstItem="uYv-Rm-Kmx" firstAttribute="top" secondItem="j3I-ao-bbs" secondAttribute="bottom" constant="10" id="gsp-Sd-Q4W"/>
+                            <constraint firstItem="KpU-CO-BeE" firstAttribute="leading" secondItem="EKg-9K-ItZ" secondAttribute="leading" id="jzc-PN-2lw"/>
+                            <constraint firstItem="KpU-CO-BeE" firstAttribute="top" secondItem="w7E-Js-aPZ" secondAttribute="bottom" id="yJm-5o-4ni"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="searchBar" destination="KpU-CO-BeE" id="evQ-pT-kOj"/>
+                        <outlet property="searchButton" destination="j3I-ao-bbs" id="Jhs-Au-4uv"/>
                         <outlet property="tableView" destination="uYv-Rm-Kmx" id="3L0-uS-mT5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mpg-KB-LFU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2939" y="735"/>
+            <point key="canvasLocation" x="2937.68115942029" y="734.59821428571422"/>
         </scene>
         <!--Members-->
         <scene sceneID="wEZ-Au-XUK">

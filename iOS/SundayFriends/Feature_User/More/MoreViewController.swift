@@ -25,12 +25,15 @@ class MoreViewController: UBaseViewController {
     SignInManager.shared.signOut()
   }
   
+  
+  @IBOutlet weak var editButton: UIButton!
   @IBAction func editProfileAction(_ sender: Any) {
     
   }
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    self.editButton.isHidden = true
     configureProfileImage()
     configureName()
     configureEmail()
@@ -49,8 +52,6 @@ class MoreViewController: UBaseViewController {
       if let email = user.email {
         profileDS.append(("Email", email))
       }
-      
-      profileDS.append(("Phone", ""))
       
       if let address = user.address {
         profileDS.append(("Address", address))

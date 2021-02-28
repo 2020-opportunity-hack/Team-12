@@ -18,8 +18,8 @@ class TransactionMap: Codable {
 
 class Transaction: Codable {
   
-  var type: Bool?
-  var amount: Int?
+  var type: Int?
+  var amount: Double?
   var balanceAfterAction: Int?
   var time: String?
   

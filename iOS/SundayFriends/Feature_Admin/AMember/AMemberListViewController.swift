@@ -14,11 +14,14 @@ class AMemberListViewController: ABaseViewController {
   @IBOutlet weak var tableView: UITableView!
   @IBOutlet weak var searchBar: UISearchBar!
   @IBOutlet weak var searchButton: UIButton!
-  
+  var offset: Int = 0
+  let limit: Int = 5
   
   @IBAction func refreshBarButtonClicked(_ sender: Any) {
     self.searchBar.resignFirstResponder()
     self.searchBar.text = ""
+    self.offset = 0
+    self.members = []
     self.refresh()
   }
   
@@ -26,6 +29,8 @@ class AMemberListViewController: ABaseViewController {
   @IBAction func searchClicked(_ sender: Any) {
     self.searchBar.resignFirstResponder()
     if let text = self.searchBar.text {
+      self.offset = 0
+      self.members = []
       self.refresh(searchText: text)
     }
   }
@@ -36,19 +41,31 @@ class AMemberListViewController: ABaseViewController {
     refresh()
   }
   
-  func refresh(searchText: String? = nil) {
-    Loader.shared.start(onView: self.view)
+  func refresh(searchText: String? = nil, loader: Bool = true) {
+    if loader { Loader.shared.start(onView: self.view) }
+    var aOffset: Int?
+    var aLimit: Int?
+    let text = searchText ?? ""
+    if text.isEmpty {
+      aOffset = self.offset
+      aLimit = self.limit
+    }
+    
     DispatchQueue.global(qos: .background).async {
-      self.adminService.fetchUsers(searchQuery: searchText) { (result) in
+      self.adminService.fetchUsers(emailId: SignInManager.shared.currentUser?.email ?? "", searchQuery: searchText, offset: aOffset, limit: aLimit) { (result) in
         DispatchQueue.main.async {
-          Loader.shared.stop()
+          if loader { Loader.shared.stop() }
         }
         switch result {
         case .success(let users):
-          self.members = [User]()
           self.members.append(contentsOf: users)
-          DispatchQueue.main.async {
-            self.tableView.reloadData()
+          if text.isEmpty {
+            self.offset += self.limit
+            if users.count > 0 {
+              DispatchQueue.main.async { self.tableView.reloadData() }
+            }
+          } else {
+            DispatchQueue.main.async { self.tableView.reloadData() }
           }
         case .failure(_):
           DispatchQueue.main.async {
@@ -69,6 +86,8 @@ extension AMemberListViewController: UISearchBarDelegate {
   func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
     self.searchBar.resignFirstResponder()
     if let text = self.searchBar.text {
+      self.offset = 0
+      self.members = []
       self.refresh(searchText: text)
     }
   }
@@ -76,6 +95,8 @@ extension AMemberListViewController: UISearchBarDelegate {
   func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
     if searchText.isEmpty {
       if let text = self.searchBar.text {
+        self.offset = 0
+        self.members = []
         self.refresh(searchText: text)
       }
     }
@@ -119,6 +140,16 @@ extension AMemberListViewController : UITableViewDelegate, UITableViewDataSource
     self.navigationController?.pushViewController(controller, animated: true)
   }
   
+  func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+    let text = self.searchBar.text ?? ""
+    if indexPath.row == self.members.count - 1, text.isEmpty {
+      self.refresh(loader: false)
+    }
+  }
+  
+  func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    self.searchBar.resignFirstResponder()
+  }
 }
 
 extension AMemberListViewController: MemberCellDelegate {
@@ -166,7 +197,7 @@ extension AMemberListViewController: MemberCellDelegate {
   func callApi(type: Bool, userId: Int, amount: Int) {
     Loader.shared.start(onView: self.view)
     DispatchQueue.global(qos: .background).async {
-      self.adminService.transact(userId: userId, amount: amount, type: type) { (result) in
+      self.adminService.transact(emailId: SignInManager.shared.currentUser?.email ?? "", userId: userId, amount: amount, type: type) { (result) in
         DispatchQueue.main.async {
           Loader.shared.stop()
         }
@@ -176,10 +207,16 @@ extension AMemberListViewController: MemberCellDelegate {
             DispatchQueue.main.async {
               if !type {
                 UIAlertController.showMessage(withTitle: "Success", andMessage: "\(amount) tickets withdrawn fron user's account.", onViewController: self) {
+                  self.searchBar.text = nil
+                  self.offset = 0
+                  self.members = []
                   self.refresh()
                 }
               } else {
                 UIAlertController.showMessage(withTitle: "Success", andMessage: "\(amount) tickets deposited to user's account.", onViewController: self) {
+                  self.searchBar.text = nil
+                  self.offset = 0
+                  self.members = []
                   self.refresh()
                 }
               }
