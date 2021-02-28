@@ -875,15 +875,18 @@
 			baseConfigurationReference = B44B20BC546B6FB39849C129 /* Pods-SundayFriends.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 7C4PDZ9JP2;
 				INFOPLIST_FILE = SundayFriends/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.SundayFriends.ios;
+				PRODUCT_BUNDLE_IDENTIFIER = org.sundayfriends.ios;
 				PRODUCT_NAME = "Sunday Friends";
+				PROVISIONING_PROFILE_SPECIFIER = sundayFriends_dev;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -894,15 +897,18 @@
 			baseConfigurationReference = 9438919F085BB3F31197BA9D /* Pods-SundayFriends.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "Apple Distribution";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 7C4PDZ9JP2;
 				INFOPLIST_FILE = SundayFriends/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.SundayFriends.ios;
+				PRODUCT_BUNDLE_IDENTIFIER = org.sundayfriends.ios;
 				PRODUCT_NAME = "Sunday Friends";
+				PROVISIONING_PROFILE_SPECIFIER = sundayFriends_prod;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

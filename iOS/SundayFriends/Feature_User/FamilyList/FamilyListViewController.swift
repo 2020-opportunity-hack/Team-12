@@ -144,4 +144,7 @@ extension FamilyListViewController: UITableViewDataSource, UITableViewDelegate {
     return .leastNormalMagnitude
   }
   
+  func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    self.searchBar.resignFirstResponder()
+  }
 }
