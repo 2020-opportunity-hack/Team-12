@@ -52,6 +52,7 @@ public class TransactionsController {
                 limit = Integer.valueOf(json.get("limit"));
             }
             List<Transactions> transactionsList = transactionsService.getTransactionList(userId, offset, limit);
+            Collections.reverse(transactionsList);
             System.out.println(userId);
             UserTransaction userTransaction = new UserTransaction(userId, transactionsList);
             return new ResponseEntity<>(userTransaction, HttpStatus.OK);
