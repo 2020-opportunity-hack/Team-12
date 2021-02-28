@@ -1,8 +1,10 @@
 package com.sunday.friends.foundation.controller;
 
+import com.sunday.friends.foundation.model.Interest;
 import com.sunday.friends.foundation.model.Transactions;
 import com.sunday.friends.foundation.model.UserTransaction;
 import com.sunday.friends.foundation.model.Users;
+import com.sunday.friends.foundation.service.InterestService;
 import com.sunday.friends.foundation.service.TransactionsService;
 import com.sunday.friends.foundation.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,9 +21,10 @@ import java.util.*;
 public class TransactionsController {
     @Autowired
     private TransactionsService transactionsService;
-
     @Autowired
     private UserService userService;
+    @Autowired
+    private InterestService interestService;
     @CrossOrigin("http://ec2-184-169-189-74.us-west-1.compute.amazonaws.com:8081")
     @GetMapping("/AllTransactions")
     public List<Transactions> list(@RequestHeader Map<String, String> headers) throws GeneralSecurityException, IOException {
@@ -68,14 +71,19 @@ public class TransactionsController {
             return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
         }
         try {
-            Integer rate= 5;
+            Interest interestObj= interestService.getInterestObject();
+            Float rate = interestObj.getInterest();
+            Date currentDate = Calendar.getInstance().getTime();
+            Date lastUpdateDate = interestObj.getTimestamp();
+            if(lastUpdateDate!= null && currentDate.getMonth() == lastUpdateDate.getMonth())
+                 return new ResponseEntity<>(HttpStatus.CONFLICT);
             List<Users> allUsers = userService.listAll();
             for (Users user : allUsers) {
                 if(!user.isActive() || user.isAdmin())
                     continue;
                 Integer userId = user.getUserId();
                 Integer balance = user.getBalance();
-                Integer interest = balance * rate / 100;
+                Integer interest = balance * Integer.valueOf(String.valueOf(rate)) / 100;
                 balance += interest;
                 Date date = Calendar.getInstance().getTime();
                 Transactions transactions = new Transactions(userId, 2, interest, balance, date);
