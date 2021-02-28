@@ -18,16 +18,18 @@ class TransactionCell: UITableViewCell {
     super.awakeFromNib()
   }
   
-  func configure(isWithdrawl flag: Bool, date: String, amount: Int) {
-    if !flag {
+  func configure(type: Int, date: String, amount: Double) {
+    if type == 0 {
       self.type.text = "Withdrawl"
-    } else {
+    } else if type == 1 {
       self.type.text = "Deposit"
+    } else if type == 2 {
+      self.type.text = "Interest"
     }
     
     self.date.text = date
     
-    if !flag {
+    if type == 0 {
       self.amount.text = "- \(amount)"
       self.amount.textColor = UIColor.red
     } else {

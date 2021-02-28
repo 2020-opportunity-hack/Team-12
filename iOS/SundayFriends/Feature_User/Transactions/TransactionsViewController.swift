@@ -11,21 +11,29 @@ import UIKit
 class TransactionsViewController: UBaseViewController {
   
   var transactions: [Transaction] = [Transaction]()
+  private var currentOffset: Int = 0
+  private var limit: Int = 20
   public var userId: Int?
   @IBOutlet weak var tableView: UITableView!
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    Loader.shared.start(onView: self.view)
+    self.fetchData()
+  }
+  
+  private func fetchData(loader: Bool = true) {
+    if loader { Loader.shared.start(onView: self.view) } 
     if let userId = self.userId {
       DispatchQueue.global(qos: .background).async {
-        self.service.getTransactionsList(userId: userId) { (result) in
+        self.service.getTransactionsList(emailId: SignInManager.shared.currentUser?.email ?? "", userId: userId, offset: self.currentOffset, limit: self.limit) { (result) in
           switch result {
           case .success(let trans):
-            self.transactions = []
-            self.transactions.append(contentsOf: trans.transactions?.reversed() ?? [])
-            DispatchQueue.main.async {
-              self.tableView.reloadData()
+            if let transList = trans.transactions, !transList.isEmpty {
+              self.transactions.append(contentsOf: transList)
+              self.currentOffset += self.limit
+              DispatchQueue.main.async {
+                self.tableView.reloadData()
+              }
             }
             break
           case .failure(let error):
@@ -39,14 +47,14 @@ class TransactionsViewController: UBaseViewController {
             break
           }
           DispatchQueue.main.async {
-            Loader.shared.stop()
+            if loader { Loader.shared.stop() }
           }
         }
       }
     } else {
       DispatchQueue.main.async {
         UIAlertController.showError(withMessage: "Invalid user Id.", onViewController: self)
-        Loader.shared.stop()
+        if loader { Loader.shared.stop() }
       }
     }
   }
@@ -63,7 +71,7 @@ extension TransactionsViewController: UITableViewDelegate, UITableViewDataSource
       return UITableViewCell()
     }
     let trans = self.transactions[indexPath.row]
-    cell.configure(isWithdrawl: trans.type ?? false, date: trans.time ?? "Time not found", amount: trans.amount ?? 0)
+    cell.configure(type: trans.type ?? 0, date: trans.time ?? "Time not found", amount: trans.amount ?? 0.0)
     return cell
   }
   
@@ -77,6 +85,12 @@ extension TransactionsViewController: UITableViewDelegate, UITableViewDataSource
   
   func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
     return .leastNormalMagnitude
+  }
+  
+  func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+    if indexPath.row == self.transactions.count - 1 {
+      fetchData(loader: false)
+    }
   }
   
 }

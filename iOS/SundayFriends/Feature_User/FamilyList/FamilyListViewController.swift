@@ -58,7 +58,7 @@ class FamilyListViewController: UBaseViewController {
 //      self.familyList.append(user1)
       
       DispatchQueue.global(qos: .background).async {
-        self.service.getFamilyList(familyId: familyId, searchQuery: searchText) { (result) in
+        self.service.getFamilyList(emailId: SignInManager.shared.currentUser?.email ?? "", familyId: familyId, searchQuery: searchText) { (result) in
           switch result {
           case .success(let users):
             

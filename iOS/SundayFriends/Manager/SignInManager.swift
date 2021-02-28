@@ -9,7 +9,7 @@
 import UIKit
 import GoogleSignIn
 
-private let CLIENT_ID = "930104015926-ksuiehvsl4o0g1dtp1lv4mm2pain05vs.apps.googleusercontent.com"
+let CLIENT_ID = "930104015926-ksuiehvsl4o0g1dtp1lv4mm2pain05vs.apps.googleusercontent.com"
 
 enum SignInRole {
   case user
@@ -29,6 +29,7 @@ class SignInManager: NSObject {
   typealias STATUS_HANDLER = ((_ status: SignInStatus) -> ())
   var handler: STATUS_HANDLER?
   var currentUser: User?
+  var token: String = ""
   
   func kickOff(_ statusHandler: @escaping STATUS_HANDLER){
     self.handler = statusHandler
@@ -66,6 +67,9 @@ extension SignInManager: GIDSignInDelegate {
     let name = user.profile.name
     let email = user.profile.email
     let imageUrl = user.profile.imageURL(withDimension: 100)
+    if let auth = user.authentication {
+      SignInManager.shared.token = auth.idToken
+    }
     
     let user = User()
     user.name = name
@@ -74,7 +78,7 @@ extension SignInManager: GIDSignInDelegate {
     SignInManager.shared.currentUser = user
     
     DispatchQueue.global(qos: .background).async {
-      self.service.onboardUser(user: user) { (result) in
+      self.service.onboardUser(emailId: email ?? "", user: user) { (result) in
         DispatchQueue.main.async {
           Loader.shared.stop()
           switch result {

@@ -33,7 +33,7 @@ class AddFamilyViewController: UIViewController {
     Loader.shared.start()
     if let id = self.familyId, let familyId = Int(id), let user = SignInManager.shared.currentUser, let userId = user.userId {
       DispatchQueue.global(qos: .background).async {
-        self.adminService.linkFamily(userId: userId, familyId: familyId) { (result) in
+        self.adminService.linkFamily(emailId: SignInManager.shared.currentUser?.email ?? "", userId: userId, familyId: familyId) { (result) in
           DispatchQueue.main.async {
             switch result {
             case .success(let isSuccess):
