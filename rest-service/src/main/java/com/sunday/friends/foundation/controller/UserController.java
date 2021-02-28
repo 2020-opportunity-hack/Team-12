@@ -171,7 +171,7 @@ public class UserController {
     @RequestMapping(value = "/user/onboard", method = RequestMethod.POST)
     @ResponseBody
     public Users onboardUser(@RequestParam Map<String, String> json, @RequestHeader Map<String, String> headers) throws GeneralSecurityException, IOException {
-        if(!TokenVerifier.verify(headers)){
+        if(!TokenVerifier.verify(headers, json.get("email"))){
             return null;
         }
         try {

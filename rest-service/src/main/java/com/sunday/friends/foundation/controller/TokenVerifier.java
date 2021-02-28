@@ -13,8 +13,12 @@ import java.util.Collections;
 import java.util.Map;
 
 public class TokenVerifier {
-
     public static boolean verify(@RequestHeader Map<String, String> headers) throws GeneralSecurityException, IOException {
+        return verify(headers, null);
+    }
+
+
+    public static boolean verify(@RequestHeader Map<String, String> headers, String inputEmail) throws GeneralSecurityException, IOException {
         // Extract variables
         String idTokenString = String.valueOf(headers.get("idtoken"));
         String clientId = String.valueOf(headers.get("idclient"));
@@ -34,8 +38,12 @@ public class TokenVerifier {
             Payload payload = idToken.getPayload();
             String emailToken = payload.getEmail();
             boolean emailVerified = Boolean.valueOf(payload.getEmailVerified());
-            if (emailVerified && emailToken.equals(emailId))
+            if (emailVerified && emailToken.equals(emailId)){
+                if(inputEmail != null && !emailToken.equals(inputEmail))
+                    return false;
                 return true;
+            }
+
         }
         return false;
 
