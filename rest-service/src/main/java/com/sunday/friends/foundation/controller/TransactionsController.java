@@ -71,7 +71,7 @@ public class TransactionsController {
         }
         try {
             Interest interestObj= interestService.getInterestObject();
-            Float rate = interestObj.getInterest();
+            Float rate = interestObj.getInterest()/12;
             Date currentDate = Calendar.getInstance().getTime();
             Date lastUpdateDate = interestObj.getTimestamp();
             if(lastUpdateDate!= null && currentDate.getMonth() == lastUpdateDate.getMonth())
