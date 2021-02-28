@@ -17,7 +17,6 @@ import java.security.GeneralSecurityException;
 import java.util.*;
 
 @RestController
-@RequestMapping("/user")
 public class TransactionsController {
     @Autowired
     private TransactionsService transactionsService;
@@ -26,7 +25,7 @@ public class TransactionsController {
     @Autowired
     private InterestService interestService;
     @CrossOrigin("http://ec2-184-169-189-74.us-west-1.compute.amazonaws.com:8081")
-    @GetMapping("/AllTransactions")
+    @GetMapping("/user/AllTransactions")
     public List<Transactions> list(@RequestHeader Map<String, String> headers) throws GeneralSecurityException, IOException {
         if(!TokenVerifier.verify(headers)){
             return null;
@@ -34,7 +33,7 @@ public class TransactionsController {
         return transactionsService.listAll();
     }
     @CrossOrigin("http://ec2-184-169-189-74.us-west-1.compute.amazonaws.com:8081")
-    @GetMapping("/transactions")
+    @GetMapping("/user/transactions")
     public UserTransaction getTransactionList(@RequestParam Map<String, String> json, @RequestHeader Map<String, String> headers) throws GeneralSecurityException, IOException {
 
         if(!TokenVerifier.verify(headers)){
@@ -64,7 +63,7 @@ public class TransactionsController {
     }
 
     @CrossOrigin("http://ec2-184-169-189-74.us-west-1.compute.amazonaws.com:8081")
-    @RequestMapping(value = "/depositMonthlyInterest", method = RequestMethod.POST)
+    @RequestMapping(value = "/admin/depositMonthlyInterest", method = RequestMethod.POST)
     @ResponseBody
     public ResponseEntity<?> monthlyInterest(@RequestParam Map<String, String> json, @RequestHeader Map<String, String> headers) throws GeneralSecurityException, IOException {
         if(!TokenVerifier.verify(headers)){
