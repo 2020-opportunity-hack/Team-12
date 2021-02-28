@@ -20,7 +20,7 @@ class Transaction: Codable {
   
   var type: Int?
   var amount: Double?
-  var balanceAfterAction: Int?
+  var balanceAfterAction: Double?
   var time: String?
   
   init() {}

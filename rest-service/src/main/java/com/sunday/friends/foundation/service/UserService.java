@@ -1,11 +1,14 @@
 package com.sunday.friends.foundation.service;
 
 import com.sunday.friends.foundation.model.Family;
+import com.sunday.friends.foundation.model.Transactions;
 import com.sunday.friends.foundation.model.Users;
 import com.sunday.friends.foundation.repository.FamilyRepository;
 import com.sunday.friends.foundation.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityManager;
@@ -15,15 +18,27 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import javax.transaction.Transactional;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Optional;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.*;
+
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.springframework.web.multipart.MultipartFile;
 
 @Service
 public class UserService {
+    public static String EXCEL_TYPE = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
 
     @PersistenceContext
 	private EntityManager em;
+
+    @Autowired
+    private TransactionsService transactionsService;
+
     @Autowired
     private UserRepository userRepository;
 
@@ -59,7 +74,18 @@ public class UserService {
             typedQuery.setFirstResult(offset);
             typedQuery.setMaxResults(limit);
         }
-        return typedQuery.getResultList();
+        List<Users> list =  typedQuery.getResultList();
+        Iterator<Users> itr = list.iterator();
+        while (itr.hasNext()) {
+            Users user = itr.next();
+            if (user.isAdmin()) {
+                itr.remove();
+            }
+            if(!user.isActive()){
+                itr.remove();
+            }
+        }
+        return list;
     }
     public List<Users> getTotalList(String searchQuery, Integer offset, Integer limit) {
         CriteriaBuilder builder = em.getCriteriaBuilder();
@@ -226,6 +252,71 @@ public class UserService {
 //        Query query = (Query) em.createNativeQuery("DELETE FROM USERS WHERE ID = " + userId);
 //        query.executeUpdate();
           userRepository.deleteById(userId);
+    }
+
+    public void bulkTransact(InputStream input) {
+        try {
+            String[] HEADERs = { "emailId", "type", "amount" };
+            String SHEET = "Sheet1";
+
+            Workbook workbook = new XSSFWorkbook(input);
+
+            Sheet sheet = workbook.getSheet(SHEET);
+            Iterator<Row> rows = sheet.iterator();
+
+            int rowNumber = 0;
+            while (rows.hasNext()) {
+                Row currentRow = rows.next();
+
+                // skip header
+                if (rowNumber == 0) {
+                    rowNumber++;
+                    continue;
+                }
+
+                Iterator<Cell> cellsInRow = currentRow.iterator();
+
+                String emailId = null;
+                Integer type = -1;
+                Float amount = -1.0f;
+                int cellIdx = 0;
+                while (cellsInRow.hasNext()) {
+                    Cell currentCell = cellsInRow.next();
+                    switch (cellIdx) {
+                        case 0:
+                            emailId = currentCell.getStringCellValue();
+                            break;
+                        case 1:
+                            type = (int) currentCell.getNumericCellValue();
+                            break;
+                        case 2:
+                            amount = (float) currentCell.getNumericCellValue();
+                            break;
+                        default:
+                            break;
+                    }
+                    cellIdx++;
+                }
+
+                if (null != emailId && !emailId.isEmpty() && type != -1 && amount != -1.0) {
+                    Users currentUser = getUser(emailId);
+                    if(null != currentUser) {
+                        Float balanceAfterAction = currentUser.getBalance();
+                        if(type == 1)
+                            balanceAfterAction += amount;
+                        else
+                            balanceAfterAction -= amount;
+                        Date date = Calendar.getInstance().getTime();
+                        Transactions transactions = new Transactions(currentUser.getUserId(), type,  amount,  balanceAfterAction,  date);
+                        if(transactionsService.addTransaction(transactions)) {
+                            updateBalance(currentUser.getUserId(), balanceAfterAction);
+                        }
+                    }
+                }
+            }
+        } catch (IOException e) {
+            throw new RuntimeException("fail to parse Excel file: " + e.getMessage());
+        }
     }
 
 
