@@ -2,6 +2,7 @@ package com.sunday.friends.foundation.controller;
 
 import com.sunday.friends.foundation.model.Transactions;
 import com.sunday.friends.foundation.model.Users;
+import com.sunday.friends.foundation.repository.UserRepository;
 import com.sunday.friends.foundation.service.FamilyService;
 import com.sunday.friends.foundation.service.TransactionsService;
 import com.sunday.friends.foundation.service.UserService;
@@ -22,6 +23,9 @@ public class UserController {
     private UserService userService;
     @Autowired
     private TransactionsService transactionsService;
+
+    @Autowired
+    private UserRepository userRepository;
 
     @Autowired
     private FamilyService familyService;
@@ -250,7 +254,10 @@ public class UserController {
             Integer userId = Integer.valueOf(json.get("userId"));
             String email = json.get("email");
             String name = json.get("name");
-            Integer familyId = Integer.valueOf(json.get("familyId"));
+            String sfamilyId = json.get("familyId");
+            Integer familyId = null;
+            if(sfamilyId != null)
+                 familyId = Integer.valueOf(json.get("familyId"));
             userService.updateUser(userId, name, email, familyId);
             return new ResponseEntity<>(HttpStatus.OK);
         }
@@ -269,6 +276,7 @@ public class UserController {
         }
         try {
                 Integer userId = Integer.valueOf(json.get("userId"));
+                transactionsService.deleteTransactions(userId);
                 userService.deleteUser(userId);
 
                 return new ResponseEntity<>(HttpStatus.OK);

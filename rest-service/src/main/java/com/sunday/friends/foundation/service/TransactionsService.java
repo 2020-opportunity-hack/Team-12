@@ -48,11 +48,26 @@ public class TransactionsService {
     public boolean addTransaction(Transactions transactions) {
         em.createNativeQuery("INSERT INTO Transactions (userId, type, amount, balanceAfterAction, time) VALUES (?,?,?,?,?)")
                 .setParameter(1, transactions.getUserId())
-                .setParameter(2, transactions.isType())
+                .setParameter(2, transactions.getType())
                 .setParameter(3, transactions.getAmount())
                 .setParameter(4, transactions.getBalanceAfterAction())
                 .setParameter(5,new java.util.Date())
                 .executeUpdate();
         return true;
+    }
+
+    public void deleteTransactions(Integer userId) {
+        CriteriaBuilder builder = em.getCriteriaBuilder();
+        CriteriaQuery<Transactions> criteriaQuery = builder.createQuery(Transactions.class);
+
+        Root<Transactions> root = criteriaQuery.from(Transactions.class);
+        criteriaQuery.select(root);
+        criteriaQuery.where(builder.equal(root.get("userId"),userId));
+
+        TypedQuery typedQuery = em.createQuery(criteriaQuery);
+        List<Transactions> list = typedQuery.getResultList();
+        for(Transactions transactions: list)
+            transactionsRepository.deleteById(transactions.getTransactionid());
+
     }
 }

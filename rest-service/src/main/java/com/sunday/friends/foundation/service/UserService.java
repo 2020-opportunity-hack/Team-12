@@ -5,6 +5,7 @@ import com.sunday.friends.foundation.model.Users;
 import com.sunday.friends.foundation.repository.FamilyRepository;
 import com.sunday.friends.foundation.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityManager;
@@ -218,8 +219,13 @@ public class UserService {
     }
 
     public void deleteUser(Integer userId) {
-        Users user = getUser(userId);
-        em.remove(user);
+//        Users user = getUser(userId);
+//        em.remove(user);
+//        em.flush();
+//        em.clear();
+//        Query query = (Query) em.createNativeQuery("DELETE FROM USERS WHERE ID = " + userId);
+//        query.executeUpdate();
+          userRepository.deleteById(userId);
     }
 
 
