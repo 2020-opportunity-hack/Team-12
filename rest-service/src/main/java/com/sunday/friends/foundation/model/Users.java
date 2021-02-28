@@ -1,9 +1,12 @@
 package com.sunday.friends.foundation.model;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import javax.persistence.*;
 
+/**
+ * Users Model
+ * @author  Mahapatra Manas
+ * @version 1.0
+ * @since   11-20-2020
+ */
 @Entity
 @Table(name="Users")
 public class Users {

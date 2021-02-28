@@ -2,7 +2,12 @@ package com.sunday.friends.foundation.model;
 
 import javax.persistence.*;
 import java.util.Date;
-
+/**
+ * Transaction Model
+ * @author  Mahapatra Manas
+ * @version 1.0
+ * @since   11-20-2020
+ */
 @Entity
 @Table(name="Transactions")
 public class Transactions {

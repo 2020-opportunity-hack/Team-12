@@ -1,6 +1,12 @@
 package com.sunday.friends.foundation.model;
 
 import java.util.List;
+/**
+ * User Transaction Derived Model
+ * @author  Mahapatra Manas
+ * @version 1.0
+ * @since   11-20-2020
+ */
 
 public class UserTransaction {
     private Integer userId;
