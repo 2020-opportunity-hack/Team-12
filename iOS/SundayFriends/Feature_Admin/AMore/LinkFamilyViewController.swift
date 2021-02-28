@@ -18,7 +18,7 @@ class LinkFamilyViewController: ABaseViewController {
   var members: [User] = [User]()
   var flow: LinkFamilyFlow = .linkFamily
   var offset: Int = 0
-  var limit: Int = 5
+  var limit: Int = 25
   
   @IBOutlet weak var tableView: UITableView!
   

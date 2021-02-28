@@ -6,10 +6,12 @@ import com.sunday.friends.foundation.repository.UserRepository;
 import com.sunday.friends.foundation.service.FamilyService;
 import com.sunday.friends.foundation.service.TransactionsService;
 import com.sunday.friends.foundation.service.UserService;
+import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.security.GeneralSecurityException;
@@ -247,7 +249,7 @@ public class UserController {
     @ResponseBody
     public ResponseEntity<?> updateUser(@RequestParam Map<String, String> json, @RequestHeader Map<String, String> headers) throws GeneralSecurityException, IOException {
         if (!TokenVerifier.verify(headers)) {
-            return null;
+            return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
         }
         try {
             Integer userId = Integer.valueOf(json.get("userId"));
@@ -271,7 +273,7 @@ public class UserController {
     @ResponseBody
     public ResponseEntity<?>  deleteUser(@RequestParam Map<String, String> json, @RequestHeader Map<String, String> headers) throws GeneralSecurityException, IOException {
         if(!TokenVerifier.verify(headers)){
-            return null;
+            return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
         }
         try {
                 Integer userId = Integer.valueOf(json.get("userId"));
@@ -283,6 +285,26 @@ public class UserController {
 
         catch (Exception e){
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @CrossOrigin("http://ec2-184-169-189-74.us-west-1.compute.amazonaws.com:8081")
+    @RequestMapping(value = "/admin/bulkTransact", method = RequestMethod.POST)
+    @ResponseBody
+    public ResponseEntity<?> bulkTransact(@RequestParam("file") MultipartFile file, @RequestHeader Map<String, String> headers) throws GeneralSecurityException, IOException {
+        if(!TokenVerifier.verify(headers)){
+            return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+        }
+        if (file.getContentType().equals(UserService.EXCEL_TYPE)) {
+            try {
+                userService.bulkTransact(file.getInputStream());
+                return new ResponseEntity("Success",HttpStatus.OK);
+            }
+            catch (Exception e){
+                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            }
+        } else {
+            return new ResponseEntity("Please upload an Excel file!",HttpStatus.BAD_REQUEST);
         }
     }
 

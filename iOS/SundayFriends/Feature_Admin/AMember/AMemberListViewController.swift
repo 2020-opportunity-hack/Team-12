@@ -15,7 +15,7 @@ class AMemberListViewController: ABaseViewController {
   @IBOutlet weak var searchBar: UISearchBar!
   @IBOutlet weak var searchButton: UIButton!
   var offset: Int = 0
-  let limit: Int = 5
+  let limit: Int = 25
   
   @IBAction func refreshBarButtonClicked(_ sender: Any) {
     self.searchBar.resignFirstResponder()

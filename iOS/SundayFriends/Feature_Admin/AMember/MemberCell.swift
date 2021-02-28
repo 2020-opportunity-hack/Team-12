@@ -33,7 +33,7 @@ class MemberCell: UITableViewCell {
     self.delegate?.didSelectDeposit(self.indexPath)
   }
 
-  func configure(name: String?, email: String?, imageUrl: String?, balance: Int?) {
+  func configure(name: String?, email: String?, imageUrl: String?, balance: Double?) {
     if let name = name {
       self.memberName.text = name
     }
