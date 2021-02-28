@@ -62,11 +62,9 @@ public class TransactionsController {
             }
             List<Transactions> transactionsList = transactionsService.getTransactionList(userId, offset, limit);
             Collections.reverse(transactionsList);
-            System.out.println(userId);
             UserTransaction userTransaction = new UserTransaction(userId, transactionsList);
             return new ResponseEntity<>(userTransaction, HttpStatus.OK);
         } catch (Exception e) {
-            System.out.println(e);
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }

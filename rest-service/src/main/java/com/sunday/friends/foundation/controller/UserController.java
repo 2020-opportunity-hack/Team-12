@@ -71,7 +71,6 @@ public class UserController {
             }
             return new ResponseEntity<>(userService.getDeactivateList(searchQuery, offset, limit), HttpStatus.OK);
         } catch (Exception e) {
-            System.out.println(e);
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
@@ -96,10 +95,8 @@ public class UserController {
                 limit = Integer.valueOf(json.get("limit"));
             }
             List<Users> userList = userService.getFamilyList(familyId, searchQuery, offset, limit);
-            System.out.println(familyId);
             return new ResponseEntity<>(userList, HttpStatus.OK);
         } catch (Exception e) {
-            System.out.println(e);
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
@@ -113,10 +110,8 @@ public class UserController {
         try {
             Integer userId = Integer.valueOf(json.get("userId"));
             Users user = userService.getUser(userId);
-            System.out.println(userId);
             return new ResponseEntity<>(user, HttpStatus.OK);
         } catch (Exception e) {
-            System.out.println(e);
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
@@ -131,8 +126,6 @@ public class UserController {
         try {
             Integer userId = Integer.valueOf(json.get("userId"));
             Integer familyId = Integer.valueOf(json.get("familyId"));
-            System.out.println(userId);
-            System.out.println(familyId);
 
             if (userService.updateFamilyLink(userId, familyId))
                 return new ResponseEntity<>(HttpStatus.OK);
