@@ -1,0 +1,140 @@
+<div>
+	<button class="close-popup" onclick="closePopup()">X</button>
+	<h2>Activate User</h2>
+	<div>(Click on the user row to activate the user)</div>
+	<div style="text-align: center;">
+		<input type="text" id="search-deact-user" />
+		<button onclick="searchDeactUser()">Search</button>
+	</div>
+	<div style="text-align: center;">
+		<button onclick="actPrevPage()">Previous page</button>
+		Page No: <span id="act-page-no"></span>
+		<button onclick="actNextPage()">Next page</button>
+	</div>
+	<div style="text-align: right;">
+		<span>Records per page: </span>
+		<select id="act-records" onchange="updateActRecords()">
+			<option>10</option>
+			<option>15</option>
+			<option>20</option>
+			<option selected="true">25</option>
+		</select>
+	</div>
+	<table width="700" border="1" id="deactivated-users">
+	</table>
+	<script>
+		function onScreenLoad() {
+			actPageNo = 1;
+			getDeactUsers('');
+		}
+		$(onScreenLoad());
+
+		function searchDeactUser() {
+			let searchDeactUser = document.getElementById('search-deact-user').value;
+			actPageNo = 1;
+			getDeactUsers(searchDeactUser);
+		}
+		
+		function getDeactUsers(searchQuery) {
+			let url = API_ENDPOINT + PORT + DEACTIVATED_USERS + '?searchQuery=' + searchQuery + '&offset=' + (actPageNo-1)*actRecordsPerPage + '&limit=' + actRecordsPerPage;
+			$.ajax({
+			  	method: "GET",
+			  	url: url,
+			  	headers: {
+			  		idToken: admin.token, 
+			  		idEmail: admin.email, 
+			  		idClient: clientId
+			  	}
+			})
+			.done(function(data) {
+				$('#act-page-no')[0].innerHTML = actPageNo;
+				displayActTable(data);
+			})
+			.fail(function( jqXHR, textStatus ) {
+				alert( "Request failed: " + textStatus );
+				location.reload();
+			});
+		}
+
+		function updateActRecords() {
+			actRecordsPerPage = $('#act-records')[0].value;
+			searchDeactUser();
+		}
+
+		function actPrevPage() {
+			actPageNo--;
+			let searchDeactUser = document.getElementById('search-deact-user').value;
+			getDeactUsers(searchDeactUser);
+		}
+
+		function actNextPage() {
+			actPageNo++;
+			let searchDeactUser = document.getElementById('search-deact-user').value;
+			getDeactUsers(searchDeactUser);
+		}
+
+		function deactivateUser(userId) {
+			let url = API_ENDPOINT + PORT + ACTIVATE_USER + '?userId=' + userId + '&deactivate=' + false;
+			$.ajax({
+			  	method: "PUT",
+			  	url: url,
+			  	headers: {
+			  		idToken: admin.token, 
+			  		idEmail: admin.email, 
+			  		idClient: clientId
+			  	}
+			})
+			.done(function(data) {
+				location.reload();
+			})
+			.fail(function( jqXHR, textStatus ) {
+				alert( "Request failed: " + textStatus );
+				location.reload();
+			});
+		}
+
+		function displayActTable(data) {
+			actTableContainer = $('#deactivated-users')[0];
+			actTableContainer.innerHTML = '';
+
+			let headerRow = document.createElement('tr');
+			for(let i in actTableHeaders) {
+				let curHeader = actTableHeaders[i],
+					headerElem = document.createElement('th');
+				headerElem.innerHTML = curHeader;
+				headerRow.appendChild(headerElem);
+			}
+			actTableContainer.appendChild(headerRow);
+			for(let i in data) {
+				let curRow = data[i],
+					rowElem = document.createElement('tr');
+				for(let col in actColumnKeys) {
+					let curColumnKey = actColumnKeys[col],
+						colElem = document.createElement('td');
+					if(curColumnKey == 'imageUrl') {
+						let img = document.createElement('img');
+						img.width = '100';
+						img.height = '100';
+						if(curRow[curColumnKey] == null) {
+							img.src = "images/default_img.png";;
+						} else {
+							img.src = curRow[curColumnKey];
+						}
+						colElem.appendChild(img);
+					} else {
+						colElem.innerHTML = curRow[curColumnKey];
+					}
+					rowElem.appendChild(colElem);
+				}
+				rowElem.setAttribute('value', data[i].userId);
+				rowElem.style.cursor = 'pointer';
+				rowElem.addEventListener('click', function(e) {
+					console.log(this);
+					let curUserId = this.getAttribute('value');
+					deactivateUser(curUserId);
+				});
+				actTableContainer.appendChild(rowElem);
+			}
+		}
+	</script>
+</div>

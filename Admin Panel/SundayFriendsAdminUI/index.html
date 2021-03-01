@@ -1,0 +1,33 @@
+<!-- 
+Gmail sign in:
+1. https://developers.google.com/identity/sign-in/web/sign-in
+2. https://developers.google.com/identity/sign-in/web/backend-auth
+
+TestSundayFriends
+ClientID: 894418495120-vuqbqk8e8r2sfokrm2sfslmb0qv0tqp3.apps.googleusercontent.com
+ClientSecret: B5zccANIj3u_GD6NOKS-VS7J
+ -->
+
+<html>
+	<head>
+		<meta name="google-signin-client_id" content="930104015926-okauv1av9j2595hjrist03v5qa533mng.apps.googleusercontent.com">
+		<link rel="stylesheet" href="main.css">
+	</head>
+	<body>
+		<div class="container">
+			<header>
+				<h2><img src="images/logo.png" width="141" height="100" />Sunday Friends Admin portal</h2>
+			</header>
+			<div class="navbar">
+			</div>
+			<div>
+				<div class="g-signin2" data-onsuccess="onSignIn"></div>
+			</div>
+		</div>
+		<div>
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+			<script src="https://apis.google.com/js/platform.js" async defer></script>
+			<script type="text/javascript" src="app.js"></script>
+		</div>
+	</body>
+</html>

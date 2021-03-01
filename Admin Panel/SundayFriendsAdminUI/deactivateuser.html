@@ -1,0 +1,32 @@
+<div>
+	<button onclick="closePopup()">X</button>
+	<h2>Are you sure you want to deactivate this user: <span id='deact-name'></span></span>?</h2>
+	<div>(You can activate this user later)</div>
+	<button onclick=deactivateUser()>Yes</button>
+	<script>
+		function onDeleteLoad() {
+			$('#deact-name')[0].innerHTML = curUser.name;
+		}
+		$(onDeleteLoad());
+
+		function deactivateUser() {
+			let url = API_ENDPOINT + PORT + ACTIVATE_USER + '?userId=' + curUser.userId + '&deactivate=' + true;
+			$.ajax({
+			  	method: "PUT",
+			  	url: url,
+			  	headers: {
+			  		idToken: admin.token, 
+			  		idEmail: admin.email, 
+			  		idClient: clientId
+			  	}
+			})
+			.done(function(data) {
+				location.reload();
+			})
+			.fail(function( jqXHR, textStatus ) {
+				alert( "Request failed: " + textStatus );
+				location.reload();
+			});
+		}
+	</script>
+</div>

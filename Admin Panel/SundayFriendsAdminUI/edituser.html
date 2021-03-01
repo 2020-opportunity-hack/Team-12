@@ -1,0 +1,47 @@
+<div>
+	<button class="close-popup" onclick="closePopup()">X</button>
+	<h2>Edit User</h2>
+	<form>
+		<div><label>Name: <input type="text" id="update-name" /></label></div>
+		<div><label>Family ID: <input id="update-familyid" type="text" /></label></div>
+		<div><label>Email ID: <input type="text" id="update-emailid" /></label></div>
+		<div>
+			<label>Balance: $<span id="update-balance"></span></label>
+		</div>
+	</form>
+	<button onclick=saveUser()>Save User</button>
+	<script>
+		function onUserLoad() {
+			$('#update-name')[0].value = curUser.name;
+			$('#update-familyid')[0].value = curUser.familyId;
+			$('#update-emailid')[0].value = curUser.email;
+			$('#update-balance')[0].innerHTML = curUser.balance;
+		}
+		$(onUserLoad());
+		
+		function saveUser() {
+			let newFamId = $('#update-familyid')[0].value,
+				newName = $('#update-name')[0].value,
+				newEmail = $('#update-emailid')[0].value;
+			//?userId=10&name=abcd&email=abc@gmail.com&familyId=7
+			let url = API_ENDPOINT + PORT + UPDATE_USER + '?userId=' + curUser.userId + '&name=' + newName + '&email=' + newEmail + '&familyId=' + newFamId;
+			$.ajax({
+			  	method: "POST",
+			  	url: url,
+			  	headers: {
+			  		idToken: admin.token, 
+			  		idEmail: admin.email, 
+			  		idClient: clientId
+			  	}
+			})
+			.done(function(data) {
+				//alert( "Data Saved: " + data );
+				location.reload();
+			})
+			.fail(function( jqXHR, textStatus ) {
+				alert( "Request failed: " + textStatus );
+				location.reload();
+			});
+		}
+	</script>
+</div>

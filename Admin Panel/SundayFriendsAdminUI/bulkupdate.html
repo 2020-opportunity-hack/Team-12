@@ -1,0 +1,51 @@
+<div>
+	<button class="close-popup" onclick="closePopup()">X</button>
+	<h2>Bulk transactions update</h2>
+	<div>
+		<input type="file" id="transaction-upload-file" onchange="uploadExcel()" accept=".xls,.xlsx,.csv,.tsv" />
+	</div>
+	<div>Sample Table should be as below</div>
+	<table border="1">
+		<tr>
+			<th>Name</th>
+			<th>emailid<span style="color: red;">*</span></th>
+			<th>type(0 for withdrawl or 1 for deposit)<span style="color: red;">*</span></th>
+			<th>amount<span style="color: red;">*</span></th>
+		</tr>
+		<tr>
+			<td>Harshali</td>
+			<td>harshalitalele@gmail.com</td>
+			<td>1</td>
+			<td>25</td>
+		</tr>
+	</table>
+	<script>
+		function uploadExcel() {
+			let file = document.getElementById('transaction-upload-file').files[0],
+				fd = new FormData();
+			fd.append('file', file/*, optional filename */);
+
+			let url = API_ENDPOINT + PORT + BULK_UPDATE;
+			$.ajax({
+			  	method: "POST",
+			  	url: url,
+			  	headers: {
+			  		idToken: admin.token, 
+			  		idEmail: admin.email, 
+			  		idClient: clientId
+			  	},
+			  	processData: false,
+			  	"mimeType": "multipart/form-data",
+				"contentType": false,
+				"data": fd
+			})
+			.done(function(data) {
+				alert('Bulk transaction is successful!');
+			})
+			.fail(function( jqXHR, textStatus ) {
+				alert( "Request failed: " + textStatus );
+				location.reload();
+			});
+		}
+	</script>
+</div>

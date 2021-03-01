@@ -1,0 +1,32 @@
+<div>
+	<button onclick="closePopup()">X</button>
+	<h2>Are you sure you want to delete all records of user: <span id='name'></span></span>?</h2>
+	<button onclick=deleteUser()>Yes</button>
+	<script>
+		function onDeleteLoad() {
+			$('#name')[0].innerHTML = curUser.name;
+		}
+		$(onDeleteLoad());
+
+		function deleteUser() {
+			let url = API_ENDPOINT + PORT + DELETE_USER + "?userId=" + curUser.userId;
+			$.ajax({
+			  	method: "POST",
+			  	url: url,
+			  	headers: {
+			  		idToken: admin.token, 
+			  		idEmail: admin.email, 
+			  		idClient: clientId
+			  	}
+			})
+			.done(function(data) {
+				console.log( "User deleted " + curUser.userId );
+				location.reload();
+			})
+			.fail(function( jqXHR, textStatus ) {
+				alert( "Request failed: " + textStatus );
+				location.reload();
+			});
+		}
+	</script>
+</div>

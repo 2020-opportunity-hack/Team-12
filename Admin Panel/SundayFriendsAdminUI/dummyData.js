@@ -1,0 +1,74 @@
+var usersData = [{
+	'fname': 'John',
+	'lname': 'Doe',
+	'email': 'john.doe@gmail.com',
+	'familyid': '1',
+	'balance': 120,
+	'userid': 0
+}, {
+	'fname': 'Salman',
+	'lname': 'Khan',
+	'email': 'salman@gmail.com',
+	'familyid': '2',
+	'balance': 0,
+	'userid': 1
+}, {
+	'fname': 'Shah rukh',
+	'lname': 'Khan',
+	'email': 'shahrukh@gmail.com',
+	'familyid': '2',
+	'balance': 1200,
+	'userid': 20
+}, {
+	'fname': 'Hritik',
+	'lname': 'Roshan',
+	'email': 'roshan@gmail.com',
+	'familyid': '3',
+	'balance': 1040,
+	'userid': 30
+}, {
+	'fname': 'John',
+	'lname': 'Abraham',
+	'email': 'john.abraham@gmail.com',
+	'familyid': '4',
+	'balance': 10,
+	'userid': 40
+}, {
+	'fname': 'Saif ali',
+	'lname': 'Khan',
+	'email': 'saif@gmail.com',
+	'familyid': '2',
+	'balance': 100,
+	'userid': 5
+}, {
+	'fname': 'Aman',
+	'lname': 'Varma',
+	'email': 'aman@gmail.com',
+	'familyid': '5',
+	'balance': 110,
+	'userid': 6
+}], transactionsData = [{
+	'userid': 0,
+	'type': 'Withdraw',
+	'amount': 20,
+	'balanceAfterTransaction': 120,
+	'time': 120000
+}, {
+	'userid': 1,
+	'type': 'Deposit',
+	'amount': 120,
+	'balanceAfterTransaction': 0,
+	'time': 120300
+}, {
+	'userid': 2,
+	'type': 'Withdraw',
+	'amount': 12,
+	'balanceAfterTransaction': 101,
+	'time': 120050
+}, {
+	'userid': 0,
+	'type': 'Deposit',
+	'amount': 2,
+	'balanceAfterTransaction': 5,
+	'time': 121100
+}];

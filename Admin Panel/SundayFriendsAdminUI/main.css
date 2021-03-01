@@ -1,0 +1,93 @@
+html {
+	background-color: #FFF2D8;
+}
+body {
+	margin: 0 100px;
+	background-color: white;
+}
+header {
+	padding: 10px;
+    text-align: center;
+    color: #027b07;
+}
+button {
+	padding: 10px;
+	background-color: #027b07;
+}
+label {
+	font-weight: bold;
+}
+.row-margin {
+	margin-bottom: 15px;
+}
+#container {
+	overflow-y: auto;
+	width: 100%;
+}
+.navbar {
+	height: 38px;
+	background-color: #027b07;
+	color: white;
+	padding: 10px;
+}
+.nav-elem {
+	display: inline-block;
+	color: black;
+	border-radius: 2px;
+    padding: 10px;
+    margin-right: 5px;
+    cursor: pointer;
+    background-color: white;
+}
+table {
+	margin: auto;
+	font-size: 20px;
+}
+td {
+	padding: 5px;
+	text-align: center;
+}
+input {
+	height: 30px;
+    width: 220px;
+}
+.login-button {
+	height: 40px;
+    width: 120px;
+    font-size: 20px;
+    background-color: #027b07;
+    color: white;
+}
+
+/* Popup CSS */
+.popup {
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	margin: auto;
+	background-color: rgba(0,0,0,0.5);
+	padding: 50px;
+	visibility: hidden;
+	top: 0;
+	left: 0;
+}
+#modal-popup-body {
+	background-color: white;
+	border-radius: 10px;
+	color: black;
+	padding: 45px;
+	width: fit-content;
+	margin: auto;
+	max-height: 60%;
+    overflow-y: auto;
+}
+#modal-popup-body div {
+	margin-bottom: 10px;
+}
+.close-popup {
+	float: right;
+}
+.g-signin2 {
+	margin-left: 45%;
+	margin-top: 100px;
+}

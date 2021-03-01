@@ -1,0 +1,59 @@
+<div>
+	<button class="close-popup" onclick="closePopup()">X</button>
+	<h2>Deposit Ticket</h2>
+	<div>
+		<div>
+			<img id='imageUrl'/>
+		</div>
+		<div>
+			<label>Name: </label>
+			<span id='name'></span>
+		</div>
+		<div>
+			<label>Balance: </label>
+			<span id='balance'></span>
+		</div>
+	</div>
+	<div>
+		<label>Enter the amount to Deposit: </label>
+		<input id="deposit-amount" type="number"/>
+	</div>
+	<div>
+		<button onclick=deposit()>Deposit</button>
+	</div>
+	<script>
+		function onDepositLoad() {
+			$('#name')[0].innerHTML = curUser.name;
+			$('#balance')[0].innerHTML = curUser.balance;
+			$('#imageUrl')[0].src = curUser.imageUrl;
+		}
+
+		$(onDepositLoad());
+		
+		function deposit() {
+			let depositAmount = $('#deposit-amount')[0].value;
+			if(depositAmount <= 0) {
+				alert("Please enter valid amount");
+			} else {
+				let url = API_ENDPOINT + PORT + DEPOSIT;
+				$.ajax({
+				  	method: "POST",
+				  	url: url,
+				  	data: { userId: curUser.userId, amount: depositAmount, type: 1 },
+				  	headers: {
+				  		idToken: admin.token, 
+				  		idEmail: admin.email, 
+				  		idClient: clientId
+				  	}
+				})
+				.done(function(data) {
+					location.reload();
+				})
+				.fail(function( jqXHR, textStatus ) {
+					alert( "Request failed: " + textStatus );
+					location.reload();
+				});
+			}
+		}
+	</script>
+</div>

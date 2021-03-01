@@ -1,0 +1,113 @@
+<div>
+	<button class="close-popup" onclick="closePopup()">X</button>
+	<h2><span id='name'></span></span>'s Transactions:</h2>
+	<div style="text-align: center;">
+		<button onclick="trPrevPage()">Previous page</button>
+		Page No: <span id="tr-page-no"></span>
+		<button onclick="trNextPage()">Next page</button>
+	</div>
+	<div style="text-align: right;">
+		<span>Records per page: </span>
+		<select id="tr-records" onchange="updateTrRecords()">
+			<option>10</option>
+			<option>15</option>
+			<option>20</option>
+			<option selected="true">25</option>
+		</select>
+	</div>
+	<table border="1" id="transactions-table">
+	</table>
+	<script>
+
+		function onTransactionsLoad() {
+			trPageNo = 1;
+			$('#name')[0].innerHTML = curUser.name;
+			trTableContainer = $('#transactions-table')[0];
+			getTransactions();
+		}
+		$(onTransactionsLoad());
+
+		function getTransactions() {
+			let url = API_ENDPOINT + PORT + GET_TRANSACTIONS;
+			$.ajax({
+			  	method: "GET",
+			  	url: url,
+			  	data: { userId: curUser.userId, offset: (trPageNo-1)*trRecordsPerPage, limit: trRecordsPerPage},
+			  	headers: {
+			  		idToken: admin.token, 
+			  		idEmail: admin.email, 
+			  		idClient: clientId
+			  	}
+			})
+			.done(function(data) {
+				$('#tr-page-no')[0].innerHTML = trPageNo;
+				displayTransactionTable(data.transactions);
+			})
+			.fail(function( jqXHR, textStatus ) {
+				alert( "Request failed: " + textStatus );
+				location.reload();
+			});
+		}
+
+		function updateTrRecords() {
+			trRecordsPerPage = $('#tr-records')[0].value;
+			trPageNo = 1;
+			getTransactions();
+		}
+
+		function trNextPage() {
+			trPageNo++;
+			getTransactions();
+		}
+
+		function trPrevPage() {
+			if(trPageNo == 1) {
+				alert("Already on very first page");
+			} else {
+				trPageNo--;
+				getTransactions();
+			}
+		}
+
+		function displayTransactionTable(data) {
+			trTableContainer.innerHTML = '';
+
+			let headerRow = document.createElement('tr');
+			for(let i in trTableHeaders) {
+				let curHeader = trTableHeaders[i],
+					headerElem = document.createElement('th');
+				headerElem.innerHTML = curHeader;
+				headerRow.appendChild(headerElem);
+			}
+			trTableContainer.appendChild(headerRow);
+			for(let i in data) {
+				let curRow = data[i],
+					rowElem = document.createElement('tr');
+				for(let col in trColumnKeys) {
+					let curColumnKey = trColumnKeys[col],
+						colElem = document.createElement('td');
+					if(curColumnKey == 'type') {
+						if(curRow[curColumnKey] == '1') {
+							colElem.innerHTML = 'Deposit';
+						} else if(curRow[curColumnKey] == '0') {
+							colElem.innerHTML = 'Withdraw';
+						} else {
+							colElem.innerHTML = 'Interest';
+						}
+					} else if(curColumnKey == 'time') {
+						let strDate = curRow[curColumnKey],
+							datetimeArr = strDate.split('T'),
+							part1 = datetimeArr[0],
+							timeArr = datetimeArr[1].split(':'),
+							finalStr = part1 + ' ' + timeArr[0] + ':' + timeArr[1];
+						colElem.innerHTML = finalStr;
+					} else {
+						colElem.innerHTML = curRow[curColumnKey];
+					}
+					rowElem.appendChild(colElem);
+				}
+				trTableContainer.appendChild(rowElem);
+			}
+		}
+	</script>
+</div>

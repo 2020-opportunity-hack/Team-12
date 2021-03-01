@@ -1,0 +1,59 @@
+<div>
+	<button onclick="closePopup()" class="close-popup">X</button>
+	<h2>Withdraw Ticket</h2>
+	<div>
+		<div>
+			<img id='imageUrl'/>
+		</div>
+		<div>
+			<label>Name: </label>
+			<span id='name'></span>
+		</div>
+		<div>
+			<label>Balance: </label>
+			<span id='balance'></span>
+		</div>
+	</div>
+	<div>
+		<label>Enter the amount to withdraw: </label>
+		<input id="withdraw-amount" type="number"/>
+	</div>
+	<div>
+		<button onclick=withdraw()>Withdraw</button>
+	</div>
+	<script>
+		function onWithdrawLoad() {
+			$('#name')[0].innerHTML = curUser.name;
+			$('#balance')[0].innerHTML = curUser.balance;
+			$('#imageUrl')[0].src = curUser.imageUrl;
+		}
+		$(onWithdrawLoad());
+
+		function withdraw() {
+			let withdrawAmount = $('#withdraw-amount')[0].value;
+			if(withdrawAmount <= 0 || withdrawAmount > curUser.balance) {
+				alert("Please enter a valid amount");
+			} else {
+				//alert(curUser.userId);
+				let url = API_ENDPOINT + PORT + WITHDRAW;
+				$.ajax({
+				  	method: "POST",
+				  	url: url,
+				  	data: { userId: curUser.userId, amount: withdrawAmount, type: 0},
+				  	headers: {
+				  		idToken: admin.token, 
+				  		idEmail: admin.email, 
+				  		idClient: clientId
+				  	}
+				})
+				.done(function(data) {
+					location.reload();
+				})
+				.fail(function( jqXHR, textStatus ) {
+					alert( "Request failed: " + textStatus );
+					location.reload();
+				});
+			}
+		}
+	</script>
+</div>

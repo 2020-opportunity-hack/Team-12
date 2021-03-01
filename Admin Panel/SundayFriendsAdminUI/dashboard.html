@@ -1,0 +1,56 @@
+<html>
+	<head>
+		<meta name="google-signin-client_id" content="930104015926-okauv1av9j2595hjrist03v5qa533mng.apps.googleusercontent.com">
+		<link rel="stylesheet" href="main.css">
+	</head>
+	<body>
+		<div class="container">
+			<header>
+				<h2><img src="images/logo.png" width="141" height="100"/>Sunday Friends Admin portal</h2>
+			</header>
+			<div class="navbar">
+				<div class="nav-elem" onclick="showPopup(null, '7', null)">Activate a user</div>
+				<div class="nav-elem" onclick="showPopup(null, '8', null)">Bulk transactions update</div>
+				<div class="nav-elem" onclick="calculateInterest()">Add interest</div>
+				<!-- <div class="nav-elem">All users</div>
+				<div class="nav-elem">Delete older Transactions</div> -->
+				<a class="nav-elem" style="float: right;text-decoration: none;" href="#" onclick="signOut();">Sign out</a>
+			</div>
+			<div style="padding: 15px;">
+				<div style="text-align: center;" class="row-margin">
+					Search a user by Email ID:
+					<input type="text" id="user-search" />
+					<button onclick="filterUsers()">Search</button>
+				</div>
+				<div style="margin: 7px; text-align: center;" class="row-margin">
+					<button onclick="prevPage()">Previous page</button>
+					Page no: <span id="cur-page-no"></span>
+					<button onclick="nextPage()">Next page</button>
+				</div>
+				<div style="text-align: right;" class="row-margin">
+					Number of records per page: 
+					<select id="records-per-page" onchange="updateTableSize()">
+						<option>10</option>
+						<option>15</option>
+						<option>20</option>
+						<option selected="true">25</option>
+					</select>
+				</div>
+				<table id="container" border="1" width="auto;" class="row-margin">
+				</table>
+			</div>
+			<div class="popup" id="modal-popup">
+				<div id="modal-popup-body">
+				This is the modal popup!
+				</div>
+			</div>
+		</div>
+		<div>
+			<script src="http://apis.google.com/js/platform.js" async defer></script>
+			<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+			<script type="text/javascript" src="dummyData.js"></script>
+			<script type="text/javascript" src="usersTable.js"></script>
+			<script type="text/javascript" src="dashboardCtrl.js"></script>
+		</div>
+	</body>
+</html>
