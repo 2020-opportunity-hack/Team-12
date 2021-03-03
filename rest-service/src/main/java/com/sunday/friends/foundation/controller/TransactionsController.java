@@ -72,7 +72,7 @@ public class TransactionsController {
     @CrossOrigin("http://ec2-184-169-189-74.us-west-1.compute.amazonaws.com:8081")
     @RequestMapping(value = "/admin/depositMonthlyInterest", method = RequestMethod.POST)
     @ResponseBody
-    public ResponseEntity<?> monthlyInterest(@RequestParam Map<String, String> json, @RequestHeader Map<String, String> headers) throws GeneralSecurityException, IOException {
+    public ResponseEntity<String> monthlyInterest(@RequestParam Map<String, String> json, @RequestHeader Map<String, String> headers) throws GeneralSecurityException, IOException {
         if (!TokenVerifier.verify(headers)) {
             return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
         }
@@ -82,12 +82,14 @@ public class TransactionsController {
             Date currentDate = Calendar.getInstance().getTime();
             Date lastUpdateDate = interestObj.getTimestamp();
             if (lastUpdateDate != null && currentDate.getMonth() == lastUpdateDate.getMonth())
-                return new ResponseEntity<>(HttpStatus.CONFLICT);
+                return new ResponseEntity<>("The interest for this month is already deposited. " +
+                        "Please check back next month!", HttpStatus.OK);
             List<Users> allUsers = userService.listAll();
             if(transactionsService.calculateMonthlyInterest(allUsers, rate))
-                return new ResponseEntity<>(HttpStatus.OK);
+                return new ResponseEntity<>("Interest successfully deposited. It will reflect " +
+                        "into the user’s account shortly!", HttpStatus.OK);
             else
-                return new ResponseEntity<>(HttpStatus.CONFLICT);
+                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 
         } catch (NoSuchElementException e) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);

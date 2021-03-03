@@ -54,13 +54,8 @@ public class TransactionsService {
 
     @Transactional
     public boolean addTransaction(Transactions transactions) {
-        em.createNativeQuery("INSERT INTO Transactions (userId, type, amount, balanceAfterAction, time) VALUES (?,?,?,?,?)")
-                .setParameter(1, transactions.getUserId())
-                .setParameter(2, transactions.getType())
-                .setParameter(3, transactions.getAmount())
-                .setParameter(4, transactions.getBalanceAfterAction())
-                .setParameter(5,new java.util.Date())
-                .executeUpdate();
+        transactionsRepository.save(transactions);
+        transactionsRepository.flush();
         return true;
     }
 
