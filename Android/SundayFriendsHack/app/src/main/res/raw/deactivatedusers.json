@@ -1,0 +1,22 @@
+[
+  {
+    "userId": 1,
+    "name": "ABC",
+    "email": "abc@gmail.com",
+    "familyId": 2,
+    "imageUrl": null,
+    "balance": 320,
+    "active": false,
+    "admin": false
+  },
+  {
+    "userId": 2,
+    "name": "PQR",
+    "email": "pqr@gmail.com",
+    "familyId": 1,
+    "imageUrl": null,
+    "balance": 1,
+    "active": false,
+    "admin": false
+  }
+]

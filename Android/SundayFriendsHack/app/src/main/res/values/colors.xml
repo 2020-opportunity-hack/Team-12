@@ -1,44 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3b7bbf</color>
+    <color name="colorPrimary">#3A823A</color>
     <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#3b7bbf</color>
+    <color name="colorAccent">#3A823A</color>
     <color name="colorBlack">#000000</color>
     <color name="colorWhite">#FFFFFF</color>
     <color name="dividerColor">#1F000000</color>
     <color name="standardBlue">#3b7bbf</color>
     <color name="colorBlackFont">#333333</color>
-    <color name="hashTagBlue">#4267b2</color>
-    <color name="backgroundColor">#EEEEEE</color>
+    <color name="backgroundColor">#FAFAFA</color>
     <color name="standardGreen">#008000</color>
     <color name="standardRed">#FF0000</color>
-
-    <color name="toolbarColor">#272727</color>
-
-    <color name="transparentTextviewBackground">#80000000</color>
-    <color name="whiteText">#f0f0f0</color>
-
-    <color name="transparentWhiteBackground">#99ffffff</color>
-
-    <color name="drawerTextColor">#b9b9b9</color>
-
-    <color name="num_photos_transparent_black_bgr">#CC000000</color>
-
-    <color name="defaultTextColor">#808080</color>
-
-    <color name="transparentBlack60">#99222327</color>
-
-    <color name="transparentBlack40">#66222327</color>
-
-    <color name="fragmentDonationBackgroundColor">#38c172</color>
-
-    <color name="fragmentDonationGreen">#27874F</color>
-
-    <color name="darkThemeGreyTextColor">#B3B3B3</color>
-
-    <color name="complimentryStandardBlue">#1D3D60</color>
-
-    <color name="lightPurple">#7E53C1</color>
 
     <color name="square1color">#FFE0B9</color>
     <color name="square2color">#FFC2CF</color>
@@ -52,5 +24,8 @@
 
     <color name="editTextColor">#f2f2f2</color>
     <color name="settingsPressedColor">#0F000000</color>
+
+    <!--  40% opacity -->
+    <color name="greenLighterGradient">#663A823A</color>
 
 </resources>

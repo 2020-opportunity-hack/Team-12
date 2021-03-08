@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/bottomnav_home"
+        android:id="@+id/bottomnav_admin_home"
         android:title="Home"
         android:icon="@drawable/ic_black_home">
     </item>
 
     <item
-        android:id="@+id/bottomnav_search"
-        android:title="Users"
-        android:icon="@drawable/ic_black_multiple_person">
+        android:id="@+id/bottomnav_admin_users"
+        android:title="Members"
+        android:icon="@drawable/ic_black_bullet_points_24dp">
     </item>
 
     <item
-        android:id="@+id/bottomnav_profile"
+        android:id="@+id/bottomnav_admin_more"
         android:title="More"
-        android:icon="@drawable/ic_black_more">
+        android:icon="@drawable/ic_black_dashboard_24dp">
     </item>
 
 
