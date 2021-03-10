@@ -44,7 +44,7 @@ public class RetrofitClient {
         requestInterception = new RequestInterception();
 
         return new OkHttpClient.Builder()
-                //.addInterceptor(httpLoggingInterceptor)
+                .addInterceptor(httpLoggingInterceptor)
                 .addInterceptor(requestInterception)
                 .build();
     }

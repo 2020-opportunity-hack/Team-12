@@ -38,21 +38,37 @@
                 android:background="@drawable/background_circle_dark_border" />
         </androidx.appcompat.widget.Toolbar>
 
-        <TextView
-            android:id="@+id/tv_welcome_msg"
+
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:drawableEnd="@drawable/ic_green_account_check_24dp"
-            android:drawablePadding="3dp"
-            android:gravity="center"
-            android:text="Welcome, --"
-            android:textColor="@color/colorBlack"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_welcome_msg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="16dp"
+                android:paddingTop="16dp"
+                android:gravity="center"
+                android:text="Welcome, --"
+                android:textColor="@color/colorBlack"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/ic_green_account_check_24dp"
+                android:layout_marginStart="3dp"
+                android:paddingTop="16dp"/>
+
+        </LinearLayout>
+
+
 
         <TextView
             android:id="@+id/tv_static_have_nice_day"

@@ -97,6 +97,20 @@ public class SnackbarManager {
         return snackbar;
     }
 
+    public static Snackbar familyIdNonexist(View anchorView){
+        String msg = "Family does not exist.";
+        Snackbar snackbar = Snackbar.make(anchorView, msg, Snackbar.LENGTH_INDEFINITE);
+        snackbar.setAction("Dismiss", new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+        snackbar.setAnchorView(anchorView);
+        snackbar.setActionTextColor(Color.WHITE);
+        return snackbar;
+    }
+
     //Network call failed
     //No internet connection or server is down
     /**

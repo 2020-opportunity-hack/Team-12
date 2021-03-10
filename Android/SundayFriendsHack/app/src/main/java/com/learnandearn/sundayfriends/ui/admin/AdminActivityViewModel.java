@@ -7,7 +7,7 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.MutableLiveData;
 
 import com.learnandearn.sundayfriends.network.admin.AdminRepo;
-import com.learnandearn.sundayfriends.network.model.ResponseCode;
+import com.learnandearn.sundayfriends.network.ResponseCode;
 
 public class AdminActivityViewModel extends AndroidViewModel {
 

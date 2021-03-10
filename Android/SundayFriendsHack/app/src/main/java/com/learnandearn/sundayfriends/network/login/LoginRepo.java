@@ -1,7 +1,6 @@
 package com.learnandearn.sundayfriends.network.login;
 
 import android.app.Application;
-import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.MutableLiveData;
@@ -12,7 +11,7 @@ import com.learnandearn.sundayfriends.network.RetrofitClient;
 import com.learnandearn.sundayfriends.network.model.AuthHeader;
 import com.learnandearn.sundayfriends.network.model.OnBoard;
 import com.learnandearn.sundayfriends.network.model.OnBoardDto;
-import com.learnandearn.sundayfriends.network.model.ResponseCode;
+import com.learnandearn.sundayfriends.network.ResponseCode;
 import com.learnandearn.sundayfriends.utils.SharedPrefManager;
 
 import retrofit2.Call;

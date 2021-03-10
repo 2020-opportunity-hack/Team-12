@@ -5,8 +5,6 @@ import android.util.Log;
 import com.learnandearn.sundayfriends.Constants;
 import com.learnandearn.sundayfriends.network.model.AuthHeader;
 
-import org.jetbrains.annotations.NotNull;
-
 import java.io.IOException;
 
 import okhttp3.Interceptor;
@@ -19,14 +17,15 @@ public class RequestInterception implements Interceptor {
 
     private static AuthHeader authHeader;
 
-    public RequestInterception() { }
+    public RequestInterception() {
+    }
 
     public void setAuthHeader(AuthHeader authHeader) {
         RequestInterception.authHeader = authHeader;
     }
 
     @Override
-    public Response intercept(@NotNull Chain chain) throws IOException {
+    public Response intercept(Chain chain) throws IOException {
         Request.Builder requestBuilder = chain.request().newBuilder();
 
         requestBuilder.addHeader(Constants.RETROFIT_HEADER_KEY_ID_TOKEN, authHeader.getIdToken());

@@ -44,6 +44,9 @@ public class UserProfileFragment extends Fragment {
     @BindView(R.id.tv_email_two)
     TextView tvSecondEmail;
 
+    @BindView(R.id.tv_family_id)
+    TextView tvFamilyId;
+
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -78,6 +81,9 @@ public class UserProfileFragment extends Fragment {
 
         tvSecondEmail.setText(SharedPrefManager.getInstance(context).getUserEmail());
         tvSecondName.setText(SharedPrefManager.getInstance(context).getName());
+
+        String familyId = "Family Id: " + SharedPrefManager.getInstance(context).getFamilyId();
+        tvFamilyId.setText(familyId);
 
         return view;
     }

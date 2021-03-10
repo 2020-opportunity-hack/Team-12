@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
@@ -132,6 +133,7 @@ public class LoginActivity extends AppCompatActivity {
 
             } catch (Exception e) {
                 dismissProgressBar();
+                Toast.makeText(LoginActivity.this, e.toString(), Toast.LENGTH_SHORT).show();
                 Log.e(TAG, "onActivityResult: ", e);
             }
 

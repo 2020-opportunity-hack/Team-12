@@ -17,7 +17,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.learnandearn.sundayfriends.BaseApplication;
 import com.learnandearn.sundayfriends.Constants;
 import com.learnandearn.sundayfriends.R;
-import com.learnandearn.sundayfriends.network.model.ResponseCode;
+import com.learnandearn.sundayfriends.network.ResponseCode;
 import com.learnandearn.sundayfriends.network.model.UserInfo;
 import com.learnandearn.sundayfriends.ui.admin.dialog.DialogType;
 import com.learnandearn.sundayfriends.ui.admin.dialog.activate.ActivateListener;
@@ -313,6 +313,8 @@ public class AdminActivity extends AppCompatActivity implements
             } else {
                 super.onBackPressed();
             }
+        }else{
+            super.onBackPressed();
         }
 
     }

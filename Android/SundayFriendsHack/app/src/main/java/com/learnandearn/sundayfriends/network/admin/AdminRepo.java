@@ -6,9 +6,9 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.MutableLiveData;
 
+import com.learnandearn.sundayfriends.network.ResponseCode;
 import com.learnandearn.sundayfriends.network.RetrofitClient;
 import com.learnandearn.sundayfriends.network.model.AuthHeader;
-import com.learnandearn.sundayfriends.network.model.ResponseCode;
 import com.learnandearn.sundayfriends.network.model.UserInfo;
 import com.learnandearn.sundayfriends.utils.SharedPrefManager;
 
@@ -120,7 +120,7 @@ public class AdminRepo {
             public void onResponse(@NonNull Call<Void> call, @NonNull Response<Void> response) {
                 if (response.code() == 200) {
                     depositLiveData.postValue(ResponseCode.SUCCESS);
-                }else{
+                } else {
                     depositLiveData.postValue(ResponseCode.UNEXPECTED_ERROR);
                 }
             }
@@ -143,7 +143,7 @@ public class AdminRepo {
             public void onResponse(@NonNull Call<Void> call, @NonNull Response<Void> response) {
                 if (response.code() == 200) {
                     withdrawLiveData.postValue(ResponseCode.SUCCESS);
-                }else{
+                } else {
                     withdrawLiveData.postValue(ResponseCode.UNEXPECTED_ERROR);
                 }
             }
@@ -211,9 +211,16 @@ public class AdminRepo {
         adminService.deactivateUser(userId, deactivate).enqueue(new Callback<Void>() {
             @Override
             public void onResponse(@NonNull Call<Void> call, @NonNull Response<Void> response) {
-                if (response.code() == 200) {
-                    deactivateLiveData.postValue(ResponseCode.SUCCESS);
+                switch (response.code()) {
+                    case 200:
+                        deactivateLiveData.postValue(ResponseCode.SUCCESS);
+                        break;
+
+                    default:
+                        deactivateLiveData.postValue(ResponseCode.UNEXPECTED_ERROR);
+                        break;
                 }
+
             }
 
             @Override
@@ -227,9 +234,14 @@ public class AdminRepo {
         adminService.activateUser(userId, activate).enqueue(new Callback<Void>() {
             @Override
             public void onResponse(@NonNull Call<Void> call, @NonNull Response<Void> response) {
-                Log.d(TAG, "onResponse: " + response.code());
-                if (response.code() == 200) {
-                    activateLiveData.postValue(ResponseCode.SUCCESS);
+                switch (response.code()) {
+                    case 200:
+                        activateLiveData.postValue(ResponseCode.SUCCESS);
+                        break;
+
+                    default:
+                        activateLiveData.postValue(ResponseCode.UNEXPECTED_ERROR);
+                        break;
                 }
             }
 
@@ -244,8 +256,14 @@ public class AdminRepo {
         adminService.registerUserToFamily(userId, familyId).enqueue(new Callback<Void>() {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {
-                if (response.code() == 200) {
-                    linkLiveData.postValue(ResponseCode.SUCCESS);
+                switch (response.code()) {
+                    case 200:
+                        linkLiveData.postValue(ResponseCode.SUCCESS);
+                        break;
+
+                    case 404:
+                        linkLiveData.postValue(ResponseCode.FAMILY_ID_NOT_EXIST);
+                        break;
                 }
             }
 

@@ -173,6 +173,8 @@ public class UserActivity extends AppCompatActivity implements
             } else {
                 super.onBackPressed();
             }
+        }else{
+            super.onBackPressed();
         }
     }
 }
