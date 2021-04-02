@@ -1,0 +1,79 @@
+<resources>
+    <string name="app_name">Learn &amp; Earn</string>
+    <string name="idclient">930104015926-ims5u9jorvog36qcf5b8hm71g6t0elut.apps.googleusercontent.com</string>
+
+    <!-- User multi language strings -->
+    <string name="language_vietnamese">Tiếng Việt</string>
+    <string name="language_spanish">Español</string>
+
+    <!-- BottomNavigation -->
+    <string name="home_spn">Inicio</string>
+    <string name="home_viet">Trang Chủ</string>
+
+    <string name="my_family_spn">Mi familia</string>
+    <string name="my_family_viet">Gia đình tôi</string>
+
+    <string name="profile_spn">Perfil</string>
+    <string name="profile_viet">Hồ sơ</string>
+
+    <!-- User Home -->
+
+    <string name="my_dashboard_spn">Mi panel de control </string>
+    <string name="my_dashboard_viet">Bảng điều khiển của tôi</string>
+
+    <string name="welcome_spn">Bienvenidos,\u0020</string>
+    <string name="welcome_viet">Xin chào,\u0020</string>
+
+    <string name="have_a_nice_day_spn">Que tenga un buen día!</string>
+    <string name="have_a_nice_day_viet">Chúc một ngày tốt lành!</string>
+
+    <string name="my_sunday_dollars_spn">Mis Sunday dollars</string>
+    <string name="my_sunday_dollars_viet">Sunday $ của tôi</string>
+
+    <string name="recent_transactions_spn">Transacciones recientes</string>
+    <string name="recent_transactions_viet">Giao dịch gần đây</string>
+
+    <string name="my_family_members_spn">Miembros de la familia</string>
+    <string name="my_family_members_viet">Thành viên trong gia đình</string>
+
+    <string name="my_profile_spn">Mi perfil</string>
+    <string name="my_profile_viet">Thông tin của tôi</string>
+
+    <!-- My Family -->
+    <string name="transaction_history_for_eng">Transaction history for:\u0020</string>
+    <string name="transaction_history_for_spn">Historial de transacciones para:\u0020</string>
+    <string name="transaction_history_for_viet">Lịch sử giao dịch cho:\u0020</string>
+
+    <string name="deposit_eng">Deposit</string>
+    <string name="deposit_spn">Depósito</string>
+    <string name="deposit_viet">Gửi tiền</string>
+
+    <string name="withdrawl_eng">Withdrawal</string>
+    <string name="withdrawl_spn">Retiro</string>
+    <string name="withdrawl_viet">Rút tiền</string>
+
+    <string name="interest_deposit_eng">Interest Deposit</string>
+    <string name="interest_deposit_spn">Interés de depósito</string>
+    <string name="interest_deposit_viet">Tiền gửi lãi suất</string>
+
+    <!-- Profile -->
+    <string name="family_id_spn">Identificación de la familia:\u0020</string>
+    <string name="family_id_viet">ID gia đình:\u0020</string>
+
+    <string name="name_spn">Nombre</string>
+    <string name="name_viet">Tên</string>
+
+    <string name="email_spn">Correo electrónico</string>
+    <string name="email_viet">E-mail</string>
+
+    <string name="phone_number_spn">Número de teléfono</string>
+    <string name="phone_number_viet">Số điện thoại</string>
+
+    <string name="change_language_spn">Cambio De Idioma</string>
+    <string name="change_language_viet">Thay Dổi Ngôn Ngữ</string>
+
+    <string name="sign_out_spn">Cerrar la sesión</string>
+    <string name="sign_out_viet">Đăng xuất</string>
+
+
+</resources>
