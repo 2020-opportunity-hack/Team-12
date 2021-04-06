@@ -68,9 +68,9 @@ class FamilyListViewController: UBaseViewController {
           case .failure(let error):
             DispatchQueue.main.async {
               if error.localizedDescription == UserError.empty.localizedDescription{
-                  UIAlertController.showError(withMessage: "No Family members found", onViewController: self)
+                UIAlertController.showError(withMessage: "sf.noFamilyMemberFound".localized, onViewController: self)
               } else {
-                UIAlertController.showError(withMessage: "Something went wrong", onViewController: self)
+                UIAlertController.showError(withMessage: "sf.somethingWentWrong".localized, onViewController: self)
               }
             }
           }

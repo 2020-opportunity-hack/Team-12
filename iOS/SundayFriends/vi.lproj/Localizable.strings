@@ -1,0 +1,59 @@
+/* 
+  Localizable.strings
+  SundayFriends
+
+  Created by Roy, Abhinav on 14/03/21.
+  Copyright © 2021 Abhinav Roy. All rights reserved.
+*/
+
+"sf.error.invalid.url" = "URL dường như không hợp lệ";
+"sf.error.invalid.data" = "Dữ liệu có vẻ không hợp lệ";
+"sf.error.failedToParse" = "Không thể phân tích cú pháp!";
+"sf.error.emptyResponse" = "Trả lời trống!";
+"sf.error.sessionExpired" = "Phiên đã hết hạn do không hoạt động. Vui lòng khởi động lại ứng dụng để bắt đầu một phiên mới!";
+"sf.error.onboarded.activate" = "Bạn đã đăng ký thành công. Vui lòng liên hệ với quản trị viên để kích hoạt tài khoản của bạn và sau đó đăng nhập lại!";
+"sf.error.failedToFetchUsers" = "Không tìm được người dùng";
+"sf.error.invalidUser" = "Người dùng không hợp lệ";
+"sf.error.invalidAmount" = "Số tiền không hợp lệ";
+"sf.error.sometingWentWrong" = "Có gì đó không ổn. Vui lòng thử lại!";
+"sf.message.hi" = "Chào, %@";
+"sf.message.hi.generic" = "Chào bạn";
+"sf.message.haveANiceDay" = "Chúc một ngày tốt lành";
+"sf.message.enterAmount" = "Điền vào số tiền";
+"sf.confirm" = "Xác nhận";
+"sf.cancel" = "Huỷ bỏ";
+"sf.success" = "Thành công";
+"sf.withdrawl.success" = "%@ Sunday dollars được rút từ tài khoản của người dùng.";
+"sf.deposit.success" = "%@ Sunday dollars được gửi vào tài khoản của người dùng.";
+"sf.admin.linkFamily" = "Liên kết gia đình với người dùng";
+"sf.admin.deactivateAUser" = "Hủy kích hoạt người dùng";
+"sf.admin.activateAUser" = "Kích hoạt người dùng";
+"sf.linkFamily" = "Liên kết gia đình";
+"sf.linkFamily.name" = "Nhập ID gia đình bạn muốn liên kết %@ với";
+"sf.enterFamilyId" = "Nhập ID gia đình";
+"sf.invalidFamilyId" = "ID gia đình không hợp lệ";
+"sf.linkFamily.success" = "Gia đình đã liên kết thành công!";
+"sf.deactivation" = "Chấm dứt hoạt";
+"sf.deactivation.name" = "Bạn có chắc chắn muốn hủy kích hoạt %@ không?";
+"sf.activaton" = "Kích hoạt";
+"sf.activation.name" = "Bạn có chắc chắn muốn kích hoạt không %@ ?";
+"sf.user.deactivated" = "Người dùng đã bị hủy kích hoạt!";
+"sf.user.activated" = "Người dùng đã được kích hoạt!";
+"sf.noTransactionFound" = "Không có giao dịch nào được tìm thấy cho người dùng này!";
+"sf.unableToLoadTransaction" = "Không thể tải giao dịch cho người dùng này!";
+"sf.withdrawl" = "Rút tiền";
+"sf.deposit" = "Gửi tiền";
+"sf.interest" = "Tiền lãi";
+"sf.enterValidFamilyId" = "Vui lòng nhập ID gia đình hợp lệ!";
+"sf.unableToAddFamily" = "Không thể đăng ký gia đình";
+"sf.noFamilyMemberFound" = "Không tìm thấy thành viên gia đình";
+"sf.somethingWentWrong" = "Có gì đó không ổn.";
+"sf.name" = "Tên";
+"sf.email" = "E-mail";
+"sf.address" = "Địa chỉ";
+"sf.familyId" = "ID gia đình";
+"sf.familyIdCopied" = "Đã sao chép ID gia đình!";
+"sf.error" = "Không hợp lệ";
+"sf.ok" = "OK";
+"sf.no" = "Không";
+"sf.yes" = "Đồng ý";

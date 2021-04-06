@@ -136,9 +136,9 @@ enum ServiceError: Error {
   var description : String{
     switch self {
     case .invalidUrl:
-      return "The Url seems to be invalid"
+      return "sf.error.invalid.url".localized
     case .invalidData:
-      return "The data seems to be invalid"
+      return "sf.error.invalid.url".localized
     }
   }
 }

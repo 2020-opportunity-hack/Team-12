@@ -28,6 +28,9 @@
 		89A144E5256AA03E006D53B5 /* MemberCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A144E4256AA03E006D53B5 /* MemberCell.swift */; };
 		89A144E7256AA781006D53B5 /* ResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A144E6256AA781006D53B5 /* ResultModel.swift */; };
 		89A144E9256AB9AE006D53B5 /* LinkFamilyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A144E8256AB9AE006D53B5 /* LinkFamilyViewController.swift */; };
+		89C14C3625FE4B4D0009374B /* Admin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89C14C3825FE4B4D0009374B /* Admin.storyboard */; };
+		89C14C4E25FE647A0009374B /* Ext_String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C14C4D25FE647A0009374B /* Ext_String.swift */; };
+		89C14C5A25FE67080009374B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 89C14C5C25FE67080009374B /* Localizable.strings */; };
 		89EF52C02567A1C300387933 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EF52BF2567A1C300387933 /* AppDelegate.swift */; };
 		89EF52CA2567A1C300387933 /* SundayFriends.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 89EF52C82567A1C300387933 /* SundayFriends.xcdatamodeld */; };
 		89EF52CC2567A1C500387933 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89EF52CB2567A1C500387933 /* Assets.xcassets */; };
@@ -45,7 +48,6 @@
 		89EF53272568FA5800387933 /* AMoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EF53262568FA5800387933 /* AMoreViewController.swift */; };
 		89EF532C2568FA7000387933 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89EF53282568FA7000387933 /* LaunchScreen.storyboard */; };
 		89EF532D2568FA7000387933 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89EF532A2568FA7000387933 /* Main.storyboard */; };
-		89EF532F2568FABA00387933 /* Admin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89EF532E2568FABA00387933 /* Admin.storyboard */; };
 		89EF53312569246600387933 /* FamilyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EF53302569246600387933 /* FamilyCell.swift */; };
 		89EF533425692BAB00387933 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EF533325692BAB00387933 /* User.swift */; };
 		89EF53362569501900387933 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EF53352569501900387933 /* Transaction.swift */; };
@@ -76,6 +78,10 @@
 		5DFA7CE8128EDD74E2B72F93 /* Pods-SundayFriends-SundayFriendsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SundayFriends-SundayFriendsUITests.release.xcconfig"; path = "Target Support Files/Pods-SundayFriends-SundayFriendsUITests/Pods-SundayFriends-SundayFriendsUITests.release.xcconfig"; sourceTree = "<group>"; };
 		66B126DA224C6F02BD6639E1 /* Pods_SundayFriends_SundayFriendsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SundayFriends_SundayFriendsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		82EB05D9B2D6AD924118F4DC /* Pods_SundayFriends.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SundayFriends.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		89044A80261CA471007112FA /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		89044A81261CA471007112FA /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Main.strings; sourceTree = "<group>"; };
+		89044A82261CA471007112FA /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Admin.strings; sourceTree = "<group>"; };
+		89044A83261CA471007112FA /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		89A144C125696BB1006D53B5 /* ShadowUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowUtil.swift; sourceTree = "<group>"; };
 		89A144C425696DED006D53B5 /* TransactionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsViewController.swift; sourceTree = "<group>"; };
 		89A144C6256975F6006D53B5 /* TransactionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCell.swift; sourceTree = "<group>"; };
@@ -95,6 +101,16 @@
 		89A144E4256AA03E006D53B5 /* MemberCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberCell.swift; sourceTree = "<group>"; };
 		89A144E6256AA781006D53B5 /* ResultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultModel.swift; sourceTree = "<group>"; };
 		89A144E8256AB9AE006D53B5 /* LinkFamilyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkFamilyViewController.swift; sourceTree = "<group>"; };
+		89C14C3725FE4B4D0009374B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Admin.storyboard; sourceTree = "<group>"; };
+		89C14C3E25FE4BAD0009374B /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		89C14C4825FE4CD90009374B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		89C14C4D25FE647A0009374B /* Ext_String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ext_String.swift; sourceTree = "<group>"; };
+		89C14C5B25FE67080009374B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		89C14C6025FE670A0009374B /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/Localizable.strings; sourceTree = "<group>"; };
+		89C14C6525FE6F6E0009374B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		89C14C6725FE6F9D0009374B /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/Main.strings; sourceTree = "<group>"; };
+		89C14C6C25FE71220009374B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Admin.strings; sourceTree = "<group>"; };
+		89C14C6E25FE71560009374B /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/Admin.strings; sourceTree = "<group>"; };
 		89EF52BC2567A1C300387933 /* Sunday Friends.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sunday Friends.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		89EF52BF2567A1C300387933 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		89EF52C92567A1C300387933 /* SundayFriends.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SundayFriends.xcdatamodel; sourceTree = "<group>"; };
@@ -118,7 +134,6 @@
 		89EF53262568FA5800387933 /* AMoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMoreViewController.swift; sourceTree = "<group>"; };
 		89EF53292568FA7000387933 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89EF532B2568FA7000387933 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		89EF532E2568FABA00387933 /* Admin.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Admin.storyboard; sourceTree = "<group>"; };
 		89EF53302569246600387933 /* FamilyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyCell.swift; sourceTree = "<group>"; };
 		89EF533325692BAB00387933 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		89EF53352569501900387933 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
@@ -219,7 +234,7 @@
 			children = (
 				89EF53282568FA7000387933 /* LaunchScreen.storyboard */,
 				89EF532A2568FA7000387933 /* Main.storyboard */,
-				89EF532E2568FABA00387933 /* Admin.storyboard */,
+				89C14C3825FE4B4D0009374B /* Admin.storyboard */,
 				89A144C8256A2FEE006D53B5 /* Network */,
 				89EF533225692B9E00387933 /* Models */,
 				89EF53182568F9D700387933 /* Feature_Admin */,
@@ -230,6 +245,7 @@
 				89EF52CB2567A1C500387933 /* Assets.xcassets */,
 				89EF52C82567A1C300387933 /* SundayFriends.xcdatamodeld */,
 				89EF52D02567A1C500387933 /* Info.plist */,
+				89C14C5C25FE67080009374B /* Localizable.strings */,
 			);
 			path = SundayFriends;
 			sourceTree = "<group>";
@@ -307,6 +323,7 @@
 				89A144C125696BB1006D53B5 /* ShadowUtil.swift */,
 				89A144CB256A3025006D53B5 /* Loader.swift */,
 				89A144CD256A3091006D53B5 /* Ext_UIAlertController.swift */,
+				89C14C4D25FE647A0009374B /* Ext_String.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -483,6 +500,8 @@
 			knownRegions = (
 				en,
 				Base,
+				vi,
+				es,
 			);
 			mainGroup = 89EF52B32567A1C300387933;
 			productRefGroup = 89EF52BD2567A1C300387933 /* Products */;
@@ -502,7 +521,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				89A144DC256A3A84006D53B5 /* admin_fetchUsers.json in Resources */,
-				89EF532F2568FABA00387933 /* Admin.storyboard in Resources */,
+				89C14C3625FE4B4D0009374B /* Admin.storyboard in Resources */,
+				89C14C5A25FE67080009374B /* Localizable.strings in Resources */,
 				89EF532D2568FA7000387933 /* Main.storyboard in Resources */,
 				89A144DD256A3A84006D53B5 /* admin_transact.json in Resources */,
 				89A144DE256A3A84006D53B5 /* admin_linkFamily.json in Resources */,
@@ -685,6 +705,7 @@
 				89EF53062568EFFE00387933 /* FamilyListViewController.swift in Sources */,
 				89A144C225696BB1006D53B5 /* ShadowUtil.swift in Sources */,
 				89EF52CA2567A1C300387933 /* SundayFriends.xcdatamodeld in Sources */,
+				89C14C4E25FE647A0009374B /* Ext_String.swift in Sources */,
 				89EF53152568F2F100387933 /* SignInManager.swift in Sources */,
 				89EF533425692BAB00387933 /* User.swift in Sources */,
 				89EF53082568F00700387933 /* MoreViewController.swift in Sources */,
@@ -737,10 +758,34 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		89C14C3825FE4B4D0009374B /* Admin.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				89C14C3725FE4B4D0009374B /* Base */,
+				89C14C6C25FE71220009374B /* en */,
+				89C14C6E25FE71560009374B /* vi */,
+				89044A82261CA471007112FA /* es */,
+			);
+			name = Admin.storyboard;
+			sourceTree = "<group>";
+		};
+		89C14C5C25FE67080009374B /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				89C14C5B25FE67080009374B /* en */,
+				89C14C6025FE670A0009374B /* vi */,
+				89044A83261CA471007112FA /* es */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		89EF53282568FA7000387933 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				89EF53292568FA7000387933 /* Base */,
+				89C14C3E25FE4BAD0009374B /* vi */,
+				89C14C4825FE4CD90009374B /* en */,
+				89044A80261CA471007112FA /* es */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -749,6 +794,9 @@
 			isa = PBXVariantGroup;
 			children = (
 				89EF532B2568FA7000387933 /* Base */,
+				89C14C6525FE6F6E0009374B /* en */,
+				89C14C6725FE6F9D0009374B /* vi */,
+				89044A81261CA471007112FA /* es */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -760,6 +808,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -820,6 +869,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -877,6 +927,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 7C4PDZ9JP2;
 				INFOPLIST_FILE = SundayFriends/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -899,6 +950,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Distribution";
 				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 7C4PDZ9JP2;
 				INFOPLIST_FILE = SundayFriends/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;

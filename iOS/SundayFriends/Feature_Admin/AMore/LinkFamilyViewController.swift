@@ -86,7 +86,7 @@ class LinkFamilyViewController: ABaseViewController {
       }
     case .failure(_):
       DispatchQueue.main.async {
-        UIAlertController.showError(withMessage: "Failed to fetch users", onViewController: self)
+        UIAlertController.showError(withMessage: "sf.error.failedToFetchUsers".localized, onViewController: self)
       }
     }
   }
@@ -141,7 +141,7 @@ extension LinkFamilyViewController: UITableViewDelegate, UITableViewDataSource {
           self.showAmountDialog(userId: userId, name: name)
         }
       } else {
-        UIAlertController.showError(withMessage: "Invalid user", onViewController: self)
+        UIAlertController.showError(withMessage: "sf.error.invalidUser".localized, onViewController: self)
       }
     }
   }
@@ -170,21 +170,23 @@ extension LinkFamilyViewController: UITableViewDelegate, UITableViewDataSource {
   }
   
   func showAmountDialog(userId: Int, name: String) {
-    let alertController = UIAlertController(title: "Link Family", message: "Enter the family id you want to link \(name) to", preferredStyle: .alert)
+    let alertController = UIAlertController(title: "sf.linkFamily".localized,
+                                            message: String(format: "sf.linkFamily.name".localized, name),
+                                            preferredStyle: .alert)
     alertController.addTextField { (textField) in
-      textField.placeholder = "Enter Family Id"
+      textField.placeholder = "sf.enterFamilyId".localized
     }
-    let saveAction = UIAlertAction(title: "Confirm", style: .default, handler: { alert -> Void in
+    let saveAction = UIAlertAction(title: "sf.confirm".localized, style: .default, handler: { alert -> Void in
       let firstTextField = alertController.textFields![0] as UITextField
       if let text = firstTextField.text, let familyId = Int(text) {
         self.callApi(userId: userId, familyId: familyId)
       } else {
         alertController.dismiss(animated: false) {
-          UIAlertController.showError(withMessage: "Invalid Family Id", onViewController: self)
+          UIAlertController.showError(withMessage: "sf.invalidFamilyId".localized, onViewController: self)
         }
       }
     })
-    let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: {
+    let cancelAction = UIAlertAction(title: "sf.cancel".localized, style: .cancel, handler: {
                                       (action : UIAlertAction!) -> Void in })
     
     alertController.addAction(saveAction)
@@ -204,18 +206,18 @@ extension LinkFamilyViewController: UITableViewDelegate, UITableViewDataSource {
         case .success(let isSuccess):
           if isSuccess {
             DispatchQueue.main.async {
-              UIAlertController.showMessage(withTitle: "Success!", andMessage: "Family Successfully linked!", onViewController: self, okTappedCallback: {
+              UIAlertController.showMessage(withTitle: "sf.success".localized, andMessage: "sf.linkFamily.success".localized, onViewController: self, okTappedCallback: {
                 self.navigationController?.popViewController(animated: true)
               })
             }
           } else {
             DispatchQueue.main.async {
-              UIAlertController.showError(withMessage: "Oops! something went wrong. Please try again!", onViewController: self)
+              UIAlertController.showError(withMessage: "sf.error.sometingWentWrong".localized, onViewController: self)
             }
           }
         case .failure(_):
           DispatchQueue.main.async {
-            UIAlertController.showError(withMessage: "Oops! something went wrong. Please try again!", onViewController: self)
+            UIAlertController.showError(withMessage: "sf.error.sometingWentWrong".localized, onViewController: self)
           }
         }
       }
@@ -228,11 +230,11 @@ extension LinkFamilyViewController: UITableViewDelegate, UITableViewDataSource {
 extension LinkFamilyViewController {
   
   func showDeactivateDialog(userId: Int, name: String) {
-    let alertController = UIAlertController(title: "Deactivation", message: "Are you sure you want to deactivate \(name)?", preferredStyle: .alert)
-    let saveAction = UIAlertAction(title: "Confirm", style: .default, handler: { alert -> Void in
+    let alertController = UIAlertController(title: "sf.deactivation".localized, message: String(format: "sf.deactivation.name".localized, name), preferredStyle: .alert)
+    let saveAction = UIAlertAction(title: "sf.confirm".localized, style: .default, handler: { alert -> Void in
       self.callDeactivationApi(userId: userId, deactivate: true)
     })
-    let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: {
+    let cancelAction = UIAlertAction(title: "sf.cancel".localized, style: .cancel, handler: {
                                       (action : UIAlertAction!) -> Void in })
     
     alertController.addAction(saveAction)
@@ -242,11 +244,11 @@ extension LinkFamilyViewController {
   }
   
   func showActivateDialog(userId: Int, name: String) {
-    let alertController = UIAlertController(title: "Activation", message: "Are you sure you want to activate \(name)?", preferredStyle: .alert)
-    let saveAction = UIAlertAction(title: "Confirm", style: .default, handler: { alert -> Void in
+    let alertController = UIAlertController(title: "sf.activaton".localized, message: String(format: "sf.activation.name".localized, name), preferredStyle: .alert)
+    let saveAction = UIAlertAction(title: "sf.confirm".localized, style: .default, handler: { alert -> Void in
       self.callDeactivationApi(userId: userId, deactivate: false)
     })
-    let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: {
+    let cancelAction = UIAlertAction(title: "sf.cancel".localized, style: .cancel, handler: {
                                       (action : UIAlertAction!) -> Void in })
     
     alertController.addAction(saveAction)
@@ -267,14 +269,14 @@ extension LinkFamilyViewController {
           if isSuccess {
             DispatchQueue.main.async {
               if deactivate {
-                UIAlertController.showMessage(withTitle: "Success!", andMessage: "User deactivated!", onViewController: self, okTappedCallback: {
+                UIAlertController.showMessage(withTitle: "sf.success".localized, andMessage: "sf.user.deactivated".localized, onViewController: self, okTappedCallback: {
                   self.searchBar.text = nil
                   self.offset = 0
                   self.members = []
                   self.refresh()
                 })
               } else {
-                UIAlertController.showMessage(withTitle: "Success!", andMessage: "User activated!", onViewController: self, okTappedCallback: {
+                UIAlertController.showMessage(withTitle: "sf.success".localized, andMessage: "sf.user.activated".localized, onViewController: self, okTappedCallback: {
                   self.searchBar.text = nil
                   self.offset = 0
                   self.members = []
@@ -284,12 +286,12 @@ extension LinkFamilyViewController {
             }
           } else {
             DispatchQueue.main.async {
-              UIAlertController.showError(withMessage: "Oops! something went wrong. Please try again!", onViewController: self)
+              UIAlertController.showError(withMessage: "sf.error.sometingWentWrong".localized, onViewController: self)
             }
           }
         case .failure(_):
           DispatchQueue.main.async {
-            UIAlertController.showError(withMessage: "Oops! something went wrong. Please try again!", onViewController: self)
+            UIAlertController.showError(withMessage: "sf.error.sometingWentWrong".localized, onViewController: self)
           }
         }
       }

@@ -1,0 +1,93 @@
+
+/* Class = "UINavigationItem"; title = "Home"; ObjectID = "0Hd-ut-Jnv"; */
+"0Hd-ut-Jnv.title" = "Trang Chủ";
+
+/* Class = "UILabel"; text = "View All users"; ObjectID = "4e4-M3-8Gm"; */
+"4e4-M3-8Gm.text" = "xem tất cả \nngười dùng";
+
+/* Class = "UILabel"; text = "Withdraw/Deposit"; ObjectID = "5KV-M4-G3L"; */
+"5KV-M4-G3L.text" = "Withdraw/Deposit";
+
+/* Class = "UIButton"; normalTitle = " Admin"; ObjectID = "7zR-2C-qQb"; */
+"7zR-2C-qQb.normalTitle" = " quản trị viên";
+
+/* Class = "UITabBarItem"; title = "Members"; ObjectID = "82l-ce-sQj"; */
+"82l-ce-sQj.title" = "Members";
+
+/* Class = "UISearchBar"; placeholder = "Search by Email"; ObjectID = "8Ql-Ez-EH2"; */
+"8Ql-Ez-EH2.placeholder" = "Tìm bằng e-mail";
+
+/* Class = "UISearchBar"; 8Ql-Ez-EH2.scopeButtonTitles[0] = "Title"; ObjectID = "8Ql-Ez-EH2"; */
+"8Ql-Ez-EH2.scopeButtonTitles[0]" = "Title";
+
+/* Class = "UISearchBar"; 8Ql-Ez-EH2.scopeButtonTitles[1] = "Title"; ObjectID = "8Ql-Ez-EH2"; */
+"8Ql-Ez-EH2.scopeButtonTitles[1]" = "Title";
+
+/* Class = "UILabel"; text = "Link Family"; ObjectID = "9NX-3b-dhw"; */
+"9NX-3b-dhw.text" = "Liên kết gia đình";
+
+/* Class = "UIButton"; normalTitle = "Deposit"; ObjectID = "DMW-xd-lsr"; */
+"DMW-xd-lsr.normalTitle" = "Gửi tiền";
+
+/* Class = "UILabel"; text = "Activate or\nDeactivate user"; ObjectID = "IlR-tw-Hxy"; */
+"IlR-tw-Hxy.text" = "Kích hoạt hoặc hủy \nkích hoạt người dùng";
+
+/* Class = "UITabBarItem"; title = "More"; ObjectID = "KJL-eN-49w"; */
+"KJL-eN-49w.title" = "Xem thêm";
+
+/* Class = "UISearchBar"; placeholder = "Search by Email"; ObjectID = "KpU-CO-BeE"; */
+"KpU-CO-BeE.placeholder" = "Tìm bằng e-mail";
+
+/* Class = "UISearchBar"; KpU-CO-BeE.scopeButtonTitles[0] = "Title"; ObjectID = "KpU-CO-BeE"; */
+"KpU-CO-BeE.scopeButtonTitles[0]" = "Title";
+
+/* Class = "UISearchBar"; KpU-CO-BeE.scopeButtonTitles[1] = "Title"; ObjectID = "KpU-CO-BeE"; */
+"KpU-CO-BeE.scopeButtonTitles[1]" = "Title";
+
+/* Class = "UIButton"; normalTitle = "Withdraw"; ObjectID = "S5x-uD-UzW"; */
+"S5x-uD-UzW.normalTitle" = "Rút tiền";
+
+/* Class = "UINavigationItem"; title = "More"; ObjectID = "Tre-7p-HuD"; */
+"Tre-7p-HuD.title" = "Xem thêm";
+
+/* Class = "UIButton"; normalTitle = "Search"; ObjectID = "VLg-aU-lpY"; */
+"VLg-aU-lpY.normalTitle" = "Search";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "X9W-J1-H91"; */
+"X9W-J1-H91.title" = "Item";
+
+/* Class = "UILabel"; text = "Member Name"; ObjectID = "YAY-bZ-VMr"; */
+"YAY-bZ-VMr.text" = "Member Name";
+
+/* Class = "UILabel"; text = "Admin Panel"; ObjectID = "Zua-Lf-RZT"; */
+"Zua-Lf-RZT.text" = "Bảng quản trị";
+
+/* Class = "UITabBarItem"; title = "Home"; ObjectID = "e8H-fU-XZw"; */
+"e8H-fU-XZw.title" = "Trang Chủ";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "ffv-sx-v2C"; */
+"ffv-sx-v2C.text" = "Title";
+
+/* Class = "UIButton"; normalTitle = "Sign out"; ObjectID = "g4Y-in-kio"; */
+"g4Y-in-kio.normalTitle" = "Đăng xuất";
+
+/* Class = "UILabel"; text = "Subtitle"; ObjectID = "iu1-im-Cjj"; */
+"iu1-im-Cjj.text" = "Subtitle";
+
+/* Class = "UIButton"; normalTitle = "Search"; ObjectID = "j3I-ao-bbs"; */
+"j3I-ao-bbs.normalTitle" = "Search";
+
+/* Class = "UIButton"; normalTitle = "Edit Profile"; ObjectID = "l1h-L9-wk9"; */
+"l1h-L9-wk9.normalTitle" = "Chỉnh sửa hồ sơ";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "pLF-9q-Fpu"; */
+"pLF-9q-Fpu.text" = "0";
+
+/* Class = "UINavigationItem"; title = "Members"; ObjectID = "vYE-Br-bGv"; */
+"vYE-Br-bGv.title" = "Members";
+
+/* Class = "UILabel"; text = "member@gmail.com"; ObjectID = "vuL-Zj-AzB"; */
+"vuL-Zj-AzB.text" = "member@gmail.com";
+
+/* Class = "UILabel"; text = "    Please select a user below:"; ObjectID = "w7E-Js-aPZ"; */
+"w7E-Js-aPZ.text" = "    Vui lòng chọn một người dùng sau đây";

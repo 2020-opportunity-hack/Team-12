@@ -41,10 +41,10 @@ class AddFamilyViewController: UIViewController {
                 SignInManager.shared.currentUser?.familyId = familyId
                 UIApplication.shared.windows.first?.rootViewController = AppUtils.userScene
               } else {
-                UIAlertController.showError(withMessage: "Please enter a valid family id!", onViewController: self)
+                UIAlertController.showError(withMessage: "sf.enterValidFamilyId".localized, onViewController: self)
               }
             case .failure(_):
-              UIAlertController.showError(withMessage: "Unable to add family", onViewController: self)
+              UIAlertController.showError(withMessage: "sf.unableToAddFamily".localized, onViewController: self)
             }
             Loader.shared.stop()
           }

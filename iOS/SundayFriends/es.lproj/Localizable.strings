@@ -1,0 +1,59 @@
+/* 
+  Localizable.strings
+  SundayFriends
+
+  Created by Roy, Abhinav on 14/03/21.
+  Copyright © 2021 Abhinav Roy. All rights reserved.
+*/
+
+"sf.error.invalid.url" = "El URL parece ser inválido";
+"sf.error.invalid.data" = "Los datos parecen ser no válidos";
+"sf.error.failedToParse" = "¡Falló en analizar!";
+"sf.error.emptyResponse" = "¡Respuesta vacía!";
+"sf.error.sessionExpired" = "La sesión concluyó por inactividad. Por favor, ¡reinicie la aplicación para iniciar una nueva sesión!";
+"sf.error.onboarded.activate" = "Usted se ha incorporado con éxito.  Por favor, ¡póngase en contacto con la administración para obtener su cuenta y después vuelva a iniciar la sesión!";
+"sf.error.failedToFetchUsers" = "Falló en encontrar usuarios";
+"sf.error.invalidUser" = "usuario no válido";
+"sf.error.invalidAmount" = "cuenta no válida";
+"sf.error.sometingWentWrong" = "¡Ups! se ha producido un error. Por favor, ¡inténtelo de nuevo!";
+"sf.message.hi" = "Hola, %@";
+"sf.message.hi.generic" = "Hola, ¿qué tal?";
+"sf.message.haveANiceDay" = "Que tenga un buen día";
+"sf.message.enterAmount" = "Ingrese la cantidad";
+"sf.confirm" = "Confirmar";
+"sf.cancel" = "Cancelar";
+"sf.success" = "Éxito";
+"sf.withdrawl.success" = "%@ Sunday dollars retirados de la cuenta del usuario";
+"sf.deposit.success" = "%@ Sunday dollars depositados en la cuenta del usuario.";
+"sf.admin.linkFamily" = "Vincular a la familia con un usuario";
+"sf.admin.deactivateAUser" = "Desactivar a un usuario";
+"sf.admin.activateAUser" = "Activar a un usuario";
+"sf.linkFamily" = "Vincular familia";
+"sf.linkFamily.name" = "Ingrese la identificación de la familia que quiere vincular %@";
+"sf.enterFamilyId" = "Ingrese la identificación de la familia.";
+"sf.invalidFamilyId" = "Idenficación de la familia inválida";
+"sf.linkFamily.success" = "¡Familia vinculada con éxito!";
+"sf.deactivation" = "Desactivación";
+"sf.deactivation.name" = "¿Está seguro que quiere desactivar %@ ?";
+"sf.activaton" = "Activación";
+"sf.activation.name" = "¿Está seguro que quiere activar %@ ?";
+"sf.user.deactivated" = "¡Usuario desactivado!";
+"sf.user.activated" = "¡Usuario activado";
+"sf.noTransactionFound" = "¡No se encontró ninguna transacción para este usuario!";
+"sf.unableToLoadTransaction" = "¡No se pueden cargar transacciones para este usuario!";
+"sf.withdrawl" = "Retiro";
+"sf.deposit" = "Depósito";
+"sf.interest" = "Interés";
+"sf.enterValidFamilyId" = "Por favor, ingrese una identificación de la familia válida.";
+"sf.unableToAddFamily" = "No se puede agregar a la familia.";
+"sf.noFamilyMemberFound" = "se econtraron miembros de la familia";
+"sf.somethingWentWrong" = "Algo falló";
+"sf.name" = "Nombre";
+"sf.email" = "Correo electrónico";
+"sf.address" = "Dirección";
+"sf.familyId" = "Identificación de la familia";
+"sf.familyIdCopied" = "¡Identificación de la  familia copiada!";
+"sf.error" = "Error";
+"sf.ok" = "Ok";
+"sf.no" = "No";
+"sf.yes" = "Si";

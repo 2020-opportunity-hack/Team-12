@@ -1,0 +1,72 @@
+
+/* Class = "UINavigationItem"; title = "My Family"; ObjectID = "2N0-FV-FrK"; */
+"2N0-FV-FrK.title" = "Gia đình tôi";
+
+/* Class = "UITabBarItem"; title = "My Family"; ObjectID = "3Me-bn-gO3"; */
+"3Me-bn-gO3.title" = "Gia đình tôi";
+
+/* Class = "UINavigationItem"; title = "Home"; ObjectID = "3uh-Rb-EGF"; */
+"3uh-Rb-EGF.title" = "Trang Chủ";
+
+/* Class = "UILabel"; text = "My Profile"; ObjectID = "4Ow-cN-dSz"; */
+"4Ow-cN-dSz.text" = "Thông tin của tôi";
+
+/* Class = "UILabel"; text = "Recent\nTransactions"; ObjectID = "55U-MM-c3P"; */
+"55U-MM-c3P.text" = "Giao dịch \ngần đây";
+
+/* Class = "UINavigationItem"; title = "More"; ObjectID = "5MR-JN-OjO"; */
+"5MR-JN-OjO.title" = "Xem thêm";
+
+/* Class = "UILabel"; text = "My Dashboard"; ObjectID = "F0k-MV-zMl"; */
+"F0k-MV-zMl.text" = "Bảng điều khiển của tôi";
+
+/* Class = "UITabBarItem"; title = "Profile"; ObjectID = "JSZ-b8-EMM"; */
+"JSZ-b8-EMM.title" = "Hồ sơ";
+
+/* Class = "UILabel"; text = "500"; ObjectID = "JSZ-z9-Y1q"; */
+"JSZ-z9-Y1q.text" = "500";
+
+/* Class = "UIButton"; normalTitle = "Sign out"; ObjectID = "Mwh-gM-OM6"; */
+"Mwh-gM-OM6.normalTitle" = "Đăng xuất";
+
+/* Class = "UIButton"; normalTitle = "Skip"; ObjectID = "NaW-pk-mfV"; */
+"NaW-pk-mfV.normalTitle" = "Bỏ qua";
+
+/* Class = "UILabel"; text = "Are other members of your family already registered? \n\nIf yes, You can join them by entering the same family Id"; ObjectID = "Tqt-LA-tdg"; */
+"Tqt-LA-tdg.text" = "Các thành viên khác trong gia đình bạn đã đăng ký chưa? \n\nNếu có, bạn có thể tham gia cùng họ bằng cách nhập cùng một ID gia đình";
+
+/* Class = "UILabel"; text = "My Family\nMembers"; ObjectID = "UC7-tg-dTC"; */
+"UC7-tg-dTC.text" = "Thành viên \ntrong gia đình";
+
+/* Class = "UIButton"; normalTitle = "Search"; ObjectID = "VZi-uQ-dO2"; */
+"VZi-uQ-dO2.normalTitle" = "Tìm kiếm";
+
+/* Class = "UILabel"; text = "My Sunday $"; ObjectID = "XSc-A4-3HI"; */
+"XSc-A4-3HI.text" = "Sunday $ của tôi";
+
+/* Class = "UIButton"; normalTitle = "    Sign In with Google"; ObjectID = "YWv-CF-tGp"; */
+"YWv-CF-tGp.normalTitle" = "    Đăng nhập bằng Google";
+
+/* Class = "UIButton"; normalTitle = "Proceed"; ObjectID = "fo6-IK-ZWy"; */
+"fo6-IK-ZWy.normalTitle" = "Tiếp theo";
+
+/* Class = "UISearchBar"; placeholder = "Search by Email"; ObjectID = "lo6-En-uQT"; */
+"lo6-En-uQT.placeholder" = "Tìm bằng e-mail";
+
+/* Class = "UISearchBar"; lo6-En-uQT.scopeButtonTitles[0] = "Title"; ObjectID = "lo6-En-uQT"; */
+"lo6-En-uQT.scopeButtonTitles[0]" = "Title";
+
+/* Class = "UISearchBar"; lo6-En-uQT.scopeButtonTitles[1] = "Title"; ObjectID = "lo6-En-uQT"; */
+"lo6-En-uQT.scopeButtonTitles[1]" = "Title";
+
+/* Class = "UIButton"; normalTitle = "Edit Profile"; ObjectID = "oyM-in-okC"; */
+"oyM-in-okC.normalTitle" = "Chỉnh sửa hồ sơ";
+
+/* Class = "UITabBarItem"; title = "Home"; ObjectID = "sSL-EK-pWh"; */
+"sSL-EK-pWh.title" = "Trang Chủ";
+
+/* Class = "UITextField"; placeholder = "Enter Family Id"; ObjectID = "uZZ-Hu-jLa"; */
+"uZZ-Hu-jLa.placeholder" = "Nhập ID gia đình";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "xxo-q7-be1"; */
+"xxo-q7-be1.text" = "Label";

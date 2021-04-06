@@ -90,10 +90,14 @@ extension SignInManager: GIDSignInDelegate {
             } else if let active = user.active, active{
               if let handler = self.handler { handler(.signedIn(.user))}
             } else {
-              if let handler = self.handler { handler(.notSignedIn("Please contact admin to get your account activated!"))}
+              if let handler = self.handler { handler(.notSignedIn("sf.error.sometingWentWrong".localized))}
             }
-          case .failure(_):
-            if let handler = self.handler { handler(.notSignedIn(nil))}
+          case .failure(let error):
+            if let err = error as? UserError {
+              if let handler = self.handler { handler(.notSignedIn(err.description))}
+            } else {
+              if let handler = self.handler { handler(.notSignedIn(nil))}
+            }
           }
           SignInManager.shared.isManualLogin = false
         }

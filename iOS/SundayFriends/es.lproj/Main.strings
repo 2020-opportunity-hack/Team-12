@@ -1,0 +1,72 @@
+
+/* Class = "UINavigationItem"; title = "My Family"; ObjectID = "2N0-FV-FrK"; */
+"2N0-FV-FrK.title" = "Mi familia";
+
+/* Class = "UITabBarItem"; title = "My Family"; ObjectID = "3Me-bn-gO3"; */
+"3Me-bn-gO3.title" = "Mi familia";
+
+/* Class = "UINavigationItem"; title = "Home"; ObjectID = "3uh-Rb-EGF"; */
+"3uh-Rb-EGF.title" = "Inicio";
+
+/* Class = "UILabel"; text = "My Profile"; ObjectID = "4Ow-cN-dSz"; */
+"4Ow-cN-dSz.text" = "Mi perfil";
+
+/* Class = "UILabel"; text = "Recent\nTransactions"; ObjectID = "55U-MM-c3P"; */
+"55U-MM-c3P.text" = "Transacciones \nrecientes";
+
+/* Class = "UINavigationItem"; title = "More"; ObjectID = "5MR-JN-OjO"; */
+"5MR-JN-OjO.title" = "Más";
+
+/* Class = "UILabel"; text = "My Dashboard"; ObjectID = "F0k-MV-zMl"; */
+"F0k-MV-zMl.text" = "Mi panel de control";
+
+/* Class = "UITabBarItem"; title = "Profile"; ObjectID = "JSZ-b8-EMM"; */
+"JSZ-b8-EMM.title" = "Perfil";
+
+/* Class = "UILabel"; text = "500"; ObjectID = "JSZ-z9-Y1q"; */
+"JSZ-z9-Y1q.text" = "500";
+
+/* Class = "UIButton"; normalTitle = "Sign out"; ObjectID = "Mwh-gM-OM6"; */
+"Mwh-gM-OM6.normalTitle" = "Cerrar la sesión";
+
+/* Class = "UIButton"; normalTitle = "Skip"; ObjectID = "NaW-pk-mfV"; */
+"NaW-pk-mfV.normalTitle" = "Saltar";
+
+/* Class = "UILabel"; text = "Are other members of your family already registered? \n\nIf yes, You can join them by entering the same family Id"; ObjectID = "Tqt-LA-tdg"; */
+"Tqt-LA-tdg.text" = "¿Hay otros miembros de su familia ya inscritos? \n\nSi respondió “sí”, puede unirse a ellos ingresando la misma identificación de la familia.";
+
+/* Class = "UILabel"; text = "My Family\nMembers"; ObjectID = "UC7-tg-dTC"; */
+"UC7-tg-dTC.text" = "Miembros de \nla familia ";
+
+/* Class = "UIButton"; normalTitle = "Search"; ObjectID = "VZi-uQ-dO2"; */
+"VZi-uQ-dO2.normalTitle" = "Buscar";
+
+/* Class = "UILabel"; text = "My Sunday $"; ObjectID = "XSc-A4-3HI"; */
+"XSc-A4-3HI.text" = "Mi Sunday $";
+
+/* Class = "UIButton"; normalTitle = "    Sign In with Google"; ObjectID = "YWv-CF-tGp"; */
+"YWv-CF-tGp.normalTitle" = "    Iniciar sesión con Google";
+
+/* Class = "UIButton"; normalTitle = "Proceed"; ObjectID = "fo6-IK-ZWy"; */
+"fo6-IK-ZWy.normalTitle" = "Continuar";
+
+/* Class = "UISearchBar"; placeholder = "Search by Email"; ObjectID = "lo6-En-uQT"; */
+"lo6-En-uQT.placeholder" = "Buscar por correo electrónico";
+
+/* Class = "UISearchBar"; lo6-En-uQT.scopeButtonTitles[0] = "Title"; ObjectID = "lo6-En-uQT"; */
+"lo6-En-uQT.scopeButtonTitles[0]" = "Title";
+
+/* Class = "UISearchBar"; lo6-En-uQT.scopeButtonTitles[1] = "Title"; ObjectID = "lo6-En-uQT"; */
+"lo6-En-uQT.scopeButtonTitles[1]" = "Title";
+
+/* Class = "UIButton"; normalTitle = "Edit Profile"; ObjectID = "oyM-in-okC"; */
+"oyM-in-okC.normalTitle" = "Editar perfil";
+
+/* Class = "UITabBarItem"; title = "Home"; ObjectID = "sSL-EK-pWh"; */
+"sSL-EK-pWh.title" = "Inicio";
+
+/* Class = "UITextField"; placeholder = "Enter Family Id"; ObjectID = "uZZ-Hu-jLa"; */
+"uZZ-Hu-jLa.placeholder" = "Ingrese la identificación de la familia.";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "xxo-q7-be1"; */
+"xxo-q7-be1.text" = "Label";

@@ -20,11 +20,11 @@ class TransactionCell: UITableViewCell {
   
   func configure(type: Int, date: String, amount: Double) {
     if type == 0 {
-      self.type.text = "Withdrawl"
+      self.type.text = "sf.withdrawl".localized
     } else if type == 1 {
-      self.type.text = "Deposit"
+      self.type.text = "sf.deposit".localized
     } else if type == 2 {
-      self.type.text = "Interest"
+      self.type.text = "sf.interest".localized
     }
     
     self.date.text = date

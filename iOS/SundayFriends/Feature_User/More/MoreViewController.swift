@@ -38,27 +38,21 @@ class MoreViewController: UBaseViewController {
     configureName()
     configureEmail()
     
-    let gradient = CAGradientLayer()
-    gradient.frame = headerView.bounds
-    gradient.colors = [UIColor.init(red: 58/255, green: 130/255, blue: 58/255, alpha: 0.2).cgColor,
-                       AppUtils.THEME_COLOR.cgColor]
-    headerView.layer.insertSublayer(gradient, at: 0)
-    
     if let user = SignInManager.shared.currentUser {
       if let name = user.name {
-        profileDS.append(("Name",name))
+        profileDS.append(("sf.name".localized,name))
       }
       
       if let email = user.email {
-        profileDS.append(("Email", email))
+        profileDS.append(("sf.email".localized, email))
       }
       
       if let address = user.address {
-        profileDS.append(("Address", address))
+        profileDS.append(("sf.address".localized, address))
       }
       
       if let familyId = user.familyId {
-        profileDS.append(("Family Id", "\(familyId)"))
+        profileDS.append(("sf.familyId".localized, "\(familyId)"))
       }
     }
   }
@@ -66,6 +60,14 @@ class MoreViewController: UBaseViewController {
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     self.navigationController?.navigationBar.isHidden = true
+    
+    DispatchQueue.main.async {
+      let gradient = CAGradientLayer()
+      gradient.frame = self.headerView.bounds
+      gradient.colors = [UIColor.init(red: 58/255, green: 130/255, blue: 58/255, alpha: 0.2).cgColor,
+                         AppUtils.THEME_COLOR.cgColor]
+      self.headerView.layer.insertSublayer(gradient, at: 0)
+    }
   }
   
 }
@@ -112,7 +114,7 @@ extension MoreViewController: UITableViewDataSource, UITableViewDelegate{
     let current = profileDS[indexPath.row]
     cell.nameLabel.text = current.header
     cell.detailLabel.text = current.value
-    if current.header == "Family Id" {
+    if current.header == "sf.familyId".localized {
       let imageView = UIImageView.init(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
       imageView.tintColor = AppUtils.THEME_COLOR
       imageView.image = UIImage.init(named: "copy")?.withRenderingMode(.alwaysTemplate)
@@ -125,15 +127,14 @@ extension MoreViewController: UITableViewDataSource, UITableViewDelegate{
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     let current = profileDS[indexPath.row]
-    if current.header == "Family Id", let familyId = SignInManager.shared.currentUser?.familyId {
-      print("copied")
+    if current.header == "sf.familyId".localized, let familyId = SignInManager.shared.currentUser?.familyId {
       UIPasteboard.general.string = "\(familyId)"
       showCopiedToast()
     }
   }
   
   func showCopiedToast(){
-    self.toast.text = " Family Id Copied! "
+    self.toast.text =  " " + "sf.familyIdCopied".localized + " "
     self.toast.layer.cornerRadius = 5
     self.toast.clipsToBounds = true
     self.toast.isHidden = false
