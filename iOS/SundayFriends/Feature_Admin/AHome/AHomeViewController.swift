@@ -48,14 +48,14 @@ extension AHomeViewController {
   
   func configureName(){
     if let user = SignInManager.shared.currentUser, let name = user.name {
-      self.nameLabel.text = "Hi, \(name)"
+      self.nameLabel.text = String(format: "sf.message.hi".localized, name)
     }else {
-      self.nameLabel.text = "Hi, There"
+      self.nameLabel.text = "sf.message.hi.generic".localized
     }
   }
   
   func configureGreeting() {
-    self.greetingLabel.text = "Have a nice day"
+    self.greetingLabel.text = "sf.message.haveANiceDay".localized
   }
   
   func configureDate() {

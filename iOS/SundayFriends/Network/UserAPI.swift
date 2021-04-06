@@ -78,7 +78,10 @@ class UserAPI: UserAPIInterface {
   func onboardUser(emailId: String, user: User?, completion: @escaping (Result<User>) -> ()) {
     let request = UserAPIRequests.onboard(user, emailId: emailId)
     service.post(request: request, session: URLSession.shared) { (result, statusCode) in
-      if statusCode == 401 {
+      if statusCode == 409 {
+        completion(.failure(UserError.inactiveAccount))
+        return
+      } else if statusCode == 401 {
         completion(.failure(UserError.authError))
         return
       }
@@ -203,12 +206,18 @@ enum UserError: Error {
   case unableToParse
   case empty
   case authError
+  case inactiveAccount
   
   var description : String{
     switch self {
-    case .unableToParse: return "Failed to parse!"
-    case .empty: return "Empty response!"
-    case .authError: return "Session expired due to Inactivity. Please restart the app to initiate a new session!"
+    case .unableToParse:
+      return "sf.error.failedToParse".localized
+    case .empty:
+      return "sf.error.emptyResponse".localized
+    case .authError:
+      return "sf.error.sessionExpired".localized
+    case .inactiveAccount:
+      return "sf.error.onboarded.activate".localized
     }
   }
 }

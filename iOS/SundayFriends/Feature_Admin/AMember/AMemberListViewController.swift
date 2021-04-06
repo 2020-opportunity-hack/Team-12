@@ -69,7 +69,7 @@ class AMemberListViewController: ABaseViewController {
           }
         case .failure(_):
           DispatchQueue.main.async {
-            UIAlertController.showError(withMessage: "Failed to fetch users", onViewController: self)
+            UIAlertController.showError(withMessage: "sf.error.failedToFetchUsers".localized, onViewController: self)
           }
         }
       }
@@ -158,7 +158,7 @@ extension AMemberListViewController: MemberCellDelegate {
     if let indexpath = indexPath, let userId = members[indexpath.row].userId {
       showAmountDialog(type: false, userId: userId)
     } else {
-      UIAlertController.showError(withMessage: "Invalid user", onViewController: self)
+      UIAlertController.showError(withMessage: "sf.error.invalidUser".localized, onViewController: self)
     }
   }
   
@@ -166,26 +166,26 @@ extension AMemberListViewController: MemberCellDelegate {
     if let indexpath = indexPath, let userId = members[indexpath.row].userId {
       showAmountDialog(type: true, userId: userId)
     } else {
-      UIAlertController.showError(withMessage: "Invalid user", onViewController: self)
+      UIAlertController.showError(withMessage: "sf.error.invalidUser".localized, onViewController: self)
     }
   }
   
   func showAmountDialog(type: Bool, userId: Int) {
-    let alertController = UIAlertController(title: "Enter Amount", message: "", preferredStyle: .alert)
+    let alertController = UIAlertController(title: "sf.message.enterAmount".localized, message: "", preferredStyle: .alert)
     alertController.addTextField { (textField) in
-      textField.placeholder = "Enter Amount"
+      textField.placeholder = "sf.message.enterAmount".localized
     }
-    let saveAction = UIAlertAction(title: "Confirm", style: .default, handler: { alert -> Void in
+    let saveAction = UIAlertAction(title: "sf.confirm".localized, style: .default, handler: { alert -> Void in
       let firstTextField = alertController.textFields![0] as UITextField
       if let text = firstTextField.text, let amount = Int(text) {
         self.callApi(type: type, userId: userId, amount: amount)
       } else {
         alertController.dismiss(animated: false) {
-          UIAlertController.showError(withMessage: "Invalid amount", onViewController: self)
+          UIAlertController.showError(withMessage: "sf.error.invalidAmount".localized, onViewController: self)
         }
       }
     })
-    let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: {
+    let cancelAction = UIAlertAction(title: "sf.cancel".localized, style: .cancel, handler: {
       (action : UIAlertAction!) -> Void in })
     
     alertController.addAction(saveAction)
@@ -206,14 +206,18 @@ extension AMemberListViewController: MemberCellDelegate {
           if isSuccess {
             DispatchQueue.main.async {
               if !type {
-                UIAlertController.showMessage(withTitle: "Success", andMessage: "\(amount) tickets withdrawn fron user's account.", onViewController: self) {
+                UIAlertController.showMessage(withTitle: "sf.success".localized,
+                                              andMessage: String(format: "sf.withdrawl.success".localized, "\(amount)"),
+                                              onViewController: self) {
                   self.searchBar.text = nil
                   self.offset = 0
                   self.members = []
                   self.refresh()
                 }
               } else {
-                UIAlertController.showMessage(withTitle: "Success", andMessage: "\(amount) tickets deposited to user's account.", onViewController: self) {
+                UIAlertController.showMessage(withTitle: "sf.success".localized,
+                                              andMessage: String(format: "sf.deposit.success".localized, "\(amount)"),
+                                              onViewController: self) {
                   self.searchBar.text = nil
                   self.offset = 0
                   self.members = []
@@ -223,12 +227,12 @@ extension AMemberListViewController: MemberCellDelegate {
             }
           } else {
             DispatchQueue.main.async {
-              UIAlertController.showError(withMessage: "Oops! something went wrong. Please try again!", onViewController: self)
+              UIAlertController.showError(withMessage: "sf.error.sometingWentWrong".localized, onViewController: self)
             }
           }
         case .failure(_):
           DispatchQueue.main.async {
-            UIAlertController.showError(withMessage: "Oops! something went wrong. Please try again!", onViewController: self)
+            UIAlertController.showError(withMessage: "sf.error.sometingWentWrong".localized, onViewController: self)
           }
         }
       }

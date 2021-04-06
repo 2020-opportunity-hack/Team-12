@@ -1,0 +1,59 @@
+/* 
+  Localizable.strings
+  SundayFriends
+
+  Created by Roy, Abhinav on 14/03/21.
+  Copyright © 2021 Abhinav Roy. All rights reserved.
+*/
+
+"sf.error.invalid.url" = "The URL seems to be invalid";
+"sf.error.invalid.data" = "The data seems to be invalid";
+"sf.error.failedToParse" = "Failed to parse!";
+"sf.error.emptyResponse" = "Empty response!";
+"sf.error.sessionExpired" = "Session expired due to Inactivity. Please restart the app to initiate a new session!";
+"sf.error.onboarded.activate" = "You are succecfully onboarded. Please contact admin to get your account activated and then log back in!";
+"sf.error.failedToFetchUsers" = "Failed to fetch users";
+"sf.error.invalidUser" = "Invalid user";
+"sf.error.invalidAmount" = "Invalid amount";
+"sf.error.sometingWentWrong" = "Oops! something went wrong. Please try again!";
+"sf.message.hi" = "Hi, %@";
+"sf.message.hi.generic" = "Hi, There";
+"sf.message.haveANiceDay" = "Have a nice day";
+"sf.message.enterAmount" = "Enter Amount";
+"sf.confirm" = "Confirm";
+"sf.cancel" = "Cancel";
+"sf.success" = "Success";
+"sf.withdrawl.success" = "%@ sunday dollars withdrawn fron user's account.";
+"sf.deposit.success" = "%@ sunday dollars deposited to user's account.";
+"sf.admin.linkFamily" = "Link family to a user";
+"sf.admin.deactivateAUser" = "Deactivate a user";
+"sf.admin.activateAUser" = "Activate a user";
+"sf.linkFamily" = "Link Family";
+"sf.linkFamily.name" = "Enter the family id you want to link %@ to";
+"sf.enterFamilyId" = "Enter Family Id";
+"sf.invalidFamilyId" = "Invalid Family Id";
+"sf.linkFamily.success" = "Family Successfully linked!";
+"sf.deactivation" = "Deactivation";
+"sf.deactivation.name" = "Are you sure you want to deactivate %@ ?";
+"sf.activaton" = "Activation";
+"sf.activation.name" = "Are you sure you want to activate %@ ?";
+"sf.user.deactivated" = "User deactivated!";
+"sf.user.activated" = "User activated!";
+"sf.noTransactionFound" = "No transactions found for this user!";
+"sf.unableToLoadTransaction" = "Unable to load transactions for this user!";
+"sf.withdrawl" = "Withdrawl";
+"sf.deposit" = "Deposit";
+"sf.interest" = "Interest";
+"sf.enterValidFamilyId" = "Please enter a valid family id!";
+"sf.unableToAddFamily" = "Unable to add family";
+"sf.noFamilyMemberFound" = "No Family members found";
+"sf.somethingWentWrong" = "Something went wrong";
+"sf.name" = "Name";
+"sf.email" = "Email";
+"sf.address" = "Address";
+"sf.familyId" = "Family Id";
+"sf.familyIdCopied" = "Family Id Copied!";
+"sf.error" = "Error";
+"sf.ok" = "Ok";
+"sf.no" = "No";
+"sf.yes" = "Yes";

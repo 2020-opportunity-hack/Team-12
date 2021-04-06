@@ -40,9 +40,9 @@ class AMoreViewController: ABaseViewController {
                        AppUtils.THEME_COLOR.cgColor]
     headerView.layer.insertSublayer(gradient, at: 0)
     
-    profileDS.append(("Link family to a user",""))
-    profileDS.append(("Deactivate a user", ""))
-    profileDS.append(("Activate a user", ""))
+    profileDS.append(("sf.admin.linkFamily".localized,""))
+    profileDS.append(("sf.admin.deactivateAUser".localized, ""))
+    profileDS.append(("sf.admin.activateAUser".localized, ""))
   }
   
   override func viewWillAppear(_ animated: Bool) {

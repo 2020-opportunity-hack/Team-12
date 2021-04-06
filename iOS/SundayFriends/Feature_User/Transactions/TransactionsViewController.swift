@@ -39,9 +39,9 @@ class TransactionsViewController: UBaseViewController {
           case .failure(let error):
             DispatchQueue.main.async {
               if error.localizedDescription == UserError.empty.localizedDescription {
-                UIAlertController.showError(withMessage: "No transactions found for this user!", onViewController: self)
+                UIAlertController.showError(withMessage: "sf.noTransactionFound".localized, onViewController: self)
               } else {
-                UIAlertController.showError(withMessage: "Unable to load transactions for this user!", onViewController: self)
+                UIAlertController.showError(withMessage: "sf.unableToLoadTransaction".localized, onViewController: self)
               }
             }
             break
@@ -53,7 +53,7 @@ class TransactionsViewController: UBaseViewController {
       }
     } else {
       DispatchQueue.main.async {
-        UIAlertController.showError(withMessage: "Invalid user Id.", onViewController: self)
+        UIAlertController.showError(withMessage: "sf.error.invalidUser".localized, onViewController: self)
         if loader { Loader.shared.stop() }
       }
     }
