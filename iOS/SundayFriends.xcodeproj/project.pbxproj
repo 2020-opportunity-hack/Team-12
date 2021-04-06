@@ -78,6 +78,10 @@
 		5DFA7CE8128EDD74E2B72F93 /* Pods-SundayFriends-SundayFriendsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SundayFriends-SundayFriendsUITests.release.xcconfig"; path = "Target Support Files/Pods-SundayFriends-SundayFriendsUITests/Pods-SundayFriends-SundayFriendsUITests.release.xcconfig"; sourceTree = "<group>"; };
 		66B126DA224C6F02BD6639E1 /* Pods_SundayFriends_SundayFriendsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SundayFriends_SundayFriendsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		82EB05D9B2D6AD924118F4DC /* Pods_SundayFriends.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SundayFriends.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		89044A80261CA471007112FA /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		89044A81261CA471007112FA /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Main.strings; sourceTree = "<group>"; };
+		89044A82261CA471007112FA /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Admin.strings; sourceTree = "<group>"; };
+		89044A83261CA471007112FA /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		89A144C125696BB1006D53B5 /* ShadowUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowUtil.swift; sourceTree = "<group>"; };
 		89A144C425696DED006D53B5 /* TransactionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsViewController.swift; sourceTree = "<group>"; };
 		89A144C6256975F6006D53B5 /* TransactionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCell.swift; sourceTree = "<group>"; };
@@ -497,6 +501,7 @@
 				en,
 				Base,
 				vi,
+				es,
 			);
 			mainGroup = 89EF52B32567A1C300387933;
 			productRefGroup = 89EF52BD2567A1C300387933 /* Products */;
@@ -759,6 +764,7 @@
 				89C14C3725FE4B4D0009374B /* Base */,
 				89C14C6C25FE71220009374B /* en */,
 				89C14C6E25FE71560009374B /* vi */,
+				89044A82261CA471007112FA /* es */,
 			);
 			name = Admin.storyboard;
 			sourceTree = "<group>";
@@ -768,6 +774,7 @@
 			children = (
 				89C14C5B25FE67080009374B /* en */,
 				89C14C6025FE670A0009374B /* vi */,
+				89044A83261CA471007112FA /* es */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -778,6 +785,7 @@
 				89EF53292568FA7000387933 /* Base */,
 				89C14C3E25FE4BAD0009374B /* vi */,
 				89C14C4825FE4CD90009374B /* en */,
+				89044A80261CA471007112FA /* es */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -788,6 +796,7 @@
 				89EF532B2568FA7000387933 /* Base */,
 				89C14C6525FE6F6E0009374B /* en */,
 				89C14C6725FE6F9D0009374B /* vi */,
+				89044A81261CA471007112FA /* es */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
