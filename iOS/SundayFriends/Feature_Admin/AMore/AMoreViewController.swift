@@ -34,6 +34,14 @@ class AMoreViewController: ABaseViewController {
     configureName()
     configureEmail()
     
+    DispatchQueue.main.async {
+      let gradient = CAGradientLayer()
+      gradient.frame = self.headerView.bounds
+      gradient.colors = [UIColor.init(red: 58/255, green: 130/255, blue: 58/255, alpha: 0.2).cgColor,
+                         AppUtils.THEME_COLOR.cgColor]
+      self.headerView.layer.insertSublayer(gradient, at: 0)
+    }
+    
     profileDS.append(("sf.admin.linkFamily".localized,""))
     profileDS.append(("sf.admin.deactivateAUser".localized, ""))
     profileDS.append(("sf.admin.activateAUser".localized, ""))
@@ -42,14 +50,6 @@ class AMoreViewController: ABaseViewController {
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     self.navigationController?.navigationBar.isHidden = true
-    
-    DispatchQueue.main.async {
-      let gradient = CAGradientLayer()
-      gradient.frame = self.headerView.bounds
-      gradient.colors = [UIColor.init(red: 58/255, green: 130/255, blue: 58/255, alpha: 0.2).cgColor,
-                         AppUtils.THEME_COLOR.cgColor]
-      self.headerView.layer.insertSublayer(gradient, at: 0)
-    }
   }
   
 }

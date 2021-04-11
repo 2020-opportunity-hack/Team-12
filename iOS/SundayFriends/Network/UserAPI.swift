@@ -9,7 +9,7 @@
 import UIKit
 
 private var BASE_URL: String = "http://184.169.189.74:8080"
-//private var BASE_URL: String = "http://localhost:8080"
+//private var BASE_URL: String = "http://192.168.0.102:8080"
 
 enum UserAPIRequests: Requests {
   case onboard(_ user: User?, emailId: String)
@@ -49,10 +49,11 @@ enum UserAPIRequests: Requests {
     case .onboard(_, let email),
          .getFamilyList(_,_, let email),
          .getTransactionsList(_, let email,_,_):
-      
+      let method = UserDefaults.standard.value(forKey: USER_SIGNIN_TYPE) as? String ?? "google"
       return ["idToken": SignInManager.shared.token,
               "idClient": CLIENT_ID,
-              "idEmail": email]
+              "idEmail": email,
+              "method": method]
     }
   }
   

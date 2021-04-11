@@ -6,6 +6,7 @@
 //  Copyright © 2020 Abhinav Roy. All rights reserved.
 //
 
+import AuthenticationServices
 import UIKit
 
 class SignInViewController: UBaseViewController {
@@ -16,4 +17,14 @@ class SignInViewController: UBaseViewController {
     SignInManager.shared.signIn()
   }
   
+  @IBOutlet weak var appleSignInButton: ASAuthorizationAppleIDButton!
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    appleSignInButton.addTarget(self, action: #selector(handleAuthorizationAppleIDButtonPress), for: .touchUpInside)
+  }
+  
+  @objc func handleAuthorizationAppleIDButtonPress() {
+    SignInManager.shared.signInWithApple()
+  }
 }

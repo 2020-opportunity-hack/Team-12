@@ -109,36 +109,53 @@ If yes, You can join them by entering the same family Id</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon" translatesAutoresizingMaskIntoConstraints="NO" id="Dm4-Bn-FLz">
-                                <rect key="frame" x="82" y="323" width="250" height="250"/>
+                                <rect key="frame" x="82" y="223" width="250" height="250"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="250" id="HlV-5Z-7dS"/>
                                     <constraint firstAttribute="width" secondItem="Dm4-Bn-FLz" secondAttribute="height" multiplier="1:1" id="JfT-OV-duS"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YWv-CF-tGp">
-                                <rect key="frame" x="97.5" y="563" width="219" height="50"/>
+                                <rect key="frame" x="87.5" y="483" width="239" height="50"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.050000000000000003" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="1xX-Qk-ohu"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
                                 <state key="normal" title="    Sign In with Google" image="google (1)">
                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="7"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="tapSIgnIn:" destination="31V-Wl-hKu" eventType="touchUpInside" id="iyz-QI-McZ"/>
                                 </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DPu-EX-zlB" customClass="ASAuthorizationAppleIDButton">
+                                <rect key="frame" x="87.5" y="543" width="239" height="50"/>
+                                <state key="normal" title="Sign In with Apple"/>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="F8d-vX-EKY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="YWv-CF-tGp" firstAttribute="top" secondItem="Dm4-Bn-FLz" secondAttribute="bottom" constant="-10" id="DtH-Sr-Lbe"/>
+                            <constraint firstItem="DPu-EX-zlB" firstAttribute="height" secondItem="YWv-CF-tGp" secondAttribute="height" id="4wS-DC-Tkn"/>
+                            <constraint firstItem="YWv-CF-tGp" firstAttribute="top" secondItem="Dm4-Bn-FLz" secondAttribute="bottom" constant="10" id="DtH-Sr-Lbe"/>
                             <constraint firstItem="Dm4-Bn-FLz" firstAttribute="centerX" secondItem="hnj-uq-3bS" secondAttribute="centerX" id="IHU-aW-bku"/>
+                            <constraint firstItem="DPu-EX-zlB" firstAttribute="centerX" secondItem="YWv-CF-tGp" secondAttribute="centerX" id="ImS-Bj-CaB"/>
                             <constraint firstItem="YWv-CF-tGp" firstAttribute="centerX" secondItem="hnj-uq-3bS" secondAttribute="centerX" id="XZA-u8-eVH"/>
-                            <constraint firstItem="Dm4-Bn-FLz" firstAttribute="centerY" secondItem="hnj-uq-3bS" secondAttribute="centerY" id="p2l-dq-FtS"/>
+                            <constraint firstItem="YWv-CF-tGp" firstAttribute="width" secondItem="hnj-uq-3bS" secondAttribute="width" multiplier="0.577295" id="cKy-gW-7L4"/>
+                            <constraint firstItem="DPu-EX-zlB" firstAttribute="top" secondItem="YWv-CF-tGp" secondAttribute="bottom" constant="10" id="cqi-jb-zSY"/>
+                            <constraint firstItem="DPu-EX-zlB" firstAttribute="width" secondItem="YWv-CF-tGp" secondAttribute="width" id="hS3-YN-G91"/>
+                            <constraint firstItem="Dm4-Bn-FLz" firstAttribute="centerY" secondItem="hnj-uq-3bS" secondAttribute="centerY" constant="-100" id="p2l-dq-FtS"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="appleSignInButton" destination="DPu-EX-zlB" id="rpz-ht-4HX"/>
                         <outlet property="signInButton" destination="YWv-CF-tGp" id="cbP-N5-Xvd"/>
                     </connections>
                 </viewController>

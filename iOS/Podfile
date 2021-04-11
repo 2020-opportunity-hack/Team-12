@@ -6,6 +6,7 @@ target 'SundayFriends' do
 
   # Pods for SundayFriends
   pod 'GoogleSignIn'
+  pod 'KeychainSwift', '~> 19.0'
 
   target 'SundayFriendsTests' do
     inherit! :search_paths

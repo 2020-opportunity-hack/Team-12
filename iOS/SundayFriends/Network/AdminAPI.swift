@@ -9,11 +9,11 @@
 import UIKit
 
 private var BASE_URL: String = "http://184.169.189.74:8080"
-//private var BASE_URL: String = "http://localhost:8080"
+//private var BASE_URL: String = "http://192.168.0.102:8080"
 
 enum AdminAPIRequests: Requests {
   case fetchUsers(searchQuery: String?, emailId: String, offset: Int?, limit: Int?)
-  case transact(userId: Int, amount: Int, type: Bool, emailId: String)
+  case transact(userId: Int, amount: Double, type: Bool, emailId: String)
   case linkFamily(userId: Int, familyId: Int, emailId: String)
   case deactivateUser(userId: Int, deactivate: Bool, emailId: String)
   case fetchDeactivatedusers(searchQuery: String?, emailId: String, offset: Int?, limit: Int?)
@@ -62,10 +62,11 @@ enum AdminAPIRequests: Requests {
          .linkFamily(_,_, let email),
          .deactivateUser(_,_, let email),
          .fetchDeactivatedusers(_,let email,_,_):
-      
+      let method = UserDefaults.standard.value(forKey: USER_SIGNIN_TYPE) as? String ?? "google"
       return ["idToken": SignInManager.shared.token,
               "idClient": CLIENT_ID,
-              "idEmail": email]
+              "idEmail": email,
+              "method": method]
     }
   }
   
@@ -82,7 +83,7 @@ enum AdminAPIRequests: Requests {
 
 protocol AdminAPIInterface {
   func fetchUsers(emailId: String, searchQuery: String?, offset: Int?, limit: Int?, completion: @escaping (Result<[User]>) -> ())
-  func transact(emailId: String, userId: Int, amount: Int, type: Bool, completion: @escaping (Result<Bool>) -> ())
+  func transact(emailId: String, userId: Int, amount: Double, type: Bool, completion: @escaping (Result<Bool>) -> ())
   func linkFamily(emailId: String, userId: Int, familyId: Int, completion: @escaping (Result<Bool>) -> ())
   func deactivateUser(emailId: String, userId: Int, deactivate: Bool, completion: @escaping (Result<Bool>) -> ())
   func fetchDeactivatedUsers(searchQuery: String?, emailId: String, offset: Int?, limit: Int?, completion: @escaping (Result<[User]>) -> ())
@@ -112,7 +113,7 @@ class AdminAPI: AdminAPIInterface {
     }
   }
   
-  func transact(emailId: String, userId: Int, amount: Int, type: Bool, completion: @escaping (Result<Bool>) -> ()) {
+  func transact(emailId: String, userId: Int, amount: Double, type: Bool, completion: @escaping (Result<Bool>) -> ()) {
     let request = AdminAPIRequests.transact(userId: userId, amount: amount, type: type, emailId: emailId)
     service.post(request: request, session: URLSession.shared) { (result, statusCode) in
       if statusCode == 401 {
@@ -213,7 +214,7 @@ class AdminAPIMock: AdminAPIInterface {
     }
   }
   
-  func transact(emailId: String, userId: Int, amount: Int, type: Bool, completion: @escaping (Result<Bool>) -> ()) {
+  func transact(emailId: String, userId: Int, amount: Double, type: Bool, completion: @escaping (Result<Bool>) -> ()) {
     if let path = Bundle.main.path(forResource: "admin_transact", ofType: "json") {
       do {
         let url = URL.init(fileURLWithPath: path)
