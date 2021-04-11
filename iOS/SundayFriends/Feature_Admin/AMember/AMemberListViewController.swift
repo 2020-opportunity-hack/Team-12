@@ -177,7 +177,7 @@ extension AMemberListViewController: MemberCellDelegate {
     }
     let saveAction = UIAlertAction(title: "sf.confirm".localized, style: .default, handler: { alert -> Void in
       let firstTextField = alertController.textFields![0] as UITextField
-      if let text = firstTextField.text, let amount = Int(text) {
+      if let text = firstTextField.text, let amount = Double(text) {
         self.callApi(type: type, userId: userId, amount: amount)
       } else {
         alertController.dismiss(animated: false) {
@@ -194,7 +194,7 @@ extension AMemberListViewController: MemberCellDelegate {
     self.present(alertController, animated: true, completion: nil)
   }
   
-  func callApi(type: Bool, userId: Int, amount: Int) {
+  func callApi(type: Bool, userId: Int, amount: Double) {
     Loader.shared.start(onView: self.view)
     DispatchQueue.global(qos: .background).async {
       self.adminService.transact(emailId: SignInManager.shared.currentUser?.email ?? "", userId: userId, amount: amount, type: type) { (result) in

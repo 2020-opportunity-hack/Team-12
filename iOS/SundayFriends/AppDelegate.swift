@@ -9,12 +9,17 @@
 import UIKit
 import CoreData
 import GoogleSignIn
+import KeychainSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
   var window: UIWindow?
   
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+    
+    //Setup keychain
+    //SignInManager.shared.keychain.accessGroup = "org.sundayfriends.ios"
+    
     SignInManager.shared.kickOff { (status) in
       switch status {
       case .notSignedIn(let message):

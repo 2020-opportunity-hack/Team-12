@@ -82,6 +82,7 @@
 		89044A81261CA471007112FA /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Main.strings; sourceTree = "<group>"; };
 		89044A82261CA471007112FA /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Admin.strings; sourceTree = "<group>"; };
 		89044A83261CA471007112FA /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		891196812621BCF700BFA599 /* Sunday Friends.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Sunday Friends.entitlements"; sourceTree = "<group>"; };
 		89A144C125696BB1006D53B5 /* ShadowUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowUtil.swift; sourceTree = "<group>"; };
 		89A144C425696DED006D53B5 /* TransactionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsViewController.swift; sourceTree = "<group>"; };
 		89A144C6256975F6006D53B5 /* TransactionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCell.swift; sourceTree = "<group>"; };
@@ -232,6 +233,7 @@
 		89EF52BE2567A1C300387933 /* SundayFriends */ = {
 			isa = PBXGroup;
 			children = (
+				891196812621BCF700BFA599 /* Sunday Friends.entitlements */,
 				89EF53282568FA7000387933 /* LaunchScreen.storyboard */,
 				89EF532A2568FA7000387933 /* Main.storyboard */,
 				89C14C3825FE4B4D0009374B /* Admin.storyboard */,
@@ -925,9 +927,10 @@
 			baseConfigurationReference = B44B20BC546B6FB39849C129 /* Pods-SundayFriends.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "SundayFriends/Sunday Friends.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = 7C4PDZ9JP2;
 				INFOPLIST_FILE = SundayFriends/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -948,9 +951,10 @@
 			baseConfigurationReference = 9438919F085BB3F31197BA9D /* Pods-SundayFriends.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "SundayFriends/Sunday Friends.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = 7C4PDZ9JP2;
 				INFOPLIST_FILE = SundayFriends/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
